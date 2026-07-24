@@ -1,0 +1,273 @@
+export const site = {
+  name: "CRACKERS",
+  url: "https://crackers.kr",
+  title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
+  description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
+  ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
+  tagline: "전시가 쉬워지는 온라인 매거진",
+  eyebrow: "서울 전시 입문 가이드",
+  newsletterUrl: "https://maily.so/crackers",
+  instagramUrl: "https://instagram.com/crackers.kr",
+  threadsUrl: "https://threads.net/@crackers.kr",
+  email: "hello@crackers.kr",
+  featuredEpisodeId: "ep04",
+  updatedLabel: "2026년 7월 · 매주 금요일 갱신"
+};
+
+export const episodes = [
+  {
+    id: "ep01",
+    number: "01",
+    artistKey: "MUNCH",
+    artist: "에드바르 뭉크",
+    movement: "표현주의",
+    published: "2026.07",
+    minutes: 3,
+    title: "절규, 비명 지르는 그림 아닙니다",
+    titleHtml: "절규, 비명 지르는<br>그림 아닙니다",
+    summary: "귀를 막는 저 사람. 비명은 자연이 지르고 있었습니다.",
+    lede: "저 사람은 소리를 지르는 게 아니라 귀를 막는 중입니다. 그럼 비명은 누가 지르고 있을까요. 이모지로만 알던 그림의 진짜 이야기.",
+    seoDescription: "다들 〈절규〉가 비명 지르는 그림이라 생각한다. 틀렸다. 뭉크가 실제로 들었다는 '자연의 비명'과 핏빛 하늘의 비밀을 3분 만에 정리했다.",
+    ogDescription: "뭉크가 실제로 들었다는 '자연의 비명'과 핏빛 하늘의 비밀. 3분 만에 아는 척 EP.01",
+    image: {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/The_Scream.jpg?width=1000",
+      cardSrc: "https://commons.wikimedia.org/wiki/Special:FilePath/The_Scream.jpg?width=800",
+      alt: "에드바르 뭉크, 절규",
+      caption: "에드바르 뭉크, 〈절규〉(1893), 오슬로 국립미술관"
+    },
+    blocks: [
+      { type: "paragraph", html: "전시장에서 〈절규〉 앞에 서면 다들 비슷해요. 잠깐 멈춰서 사진 찍고, \"이 사람 소리 지르는 거지?\" 하고 지나가요. 근데 이거… <strong>완전히 반대예요.</strong>" },
+      { type: "heading", text: "저 사람, 귀를 막고 있는 거예요" },
+      { type: "paragraph", html: "손 위치를 다시 보세요. 입이 아니라 <strong>귀</strong>에 있어요. 소리를 지르는 게 아니라, 어디선가 들려오는 소리를 막고 있는 거예요." },
+      { type: "paragraph", html: "뭉크가 1892년 일기에 직접 남긴 말이 있어요. <strong>\"비명이 자연을 관통하는 것을 느꼈고, 내게 그 비명이 들리는 것 같았다.\"</strong> 친구들과 다리 위를 걷다가, 하늘이 핏빛으로 물들었을 때요." },
+      { type: "pull", html: "비명을 지르는 건 사람이 아니라 자연이에요. 그림 속 사람은 그 소리가 너무 괴로워서 귀를 틀어막은 거고요." },
+      { type: "heading", text: "핏빛 하늘도 그냥 그린 게 아니에요" },
+      { type: "paragraph", html: "그림을 그리기 10년 전, 인도네시아 크라카타우 화산이 폭발하면서 화산재가 전 세계 하늘색을 몇 년간 바꿔놨다는 기록이 있어요. 노르웨이 하늘도 예외가 아니었고요." },
+      { type: "paragraph", html: "게다가 뭉크가 살던 동네 근처엔 정신병원과 도살장이 있었어요. 밤마다 어디선가 <strong>진짜 비명</strong>이 들렸을 거라는 얘기예요." },
+      { type: "paragraph", html: "그러니까 〈절규〉는 '무서운 표정 그림'이 아니라 <strong>소리에 대한 그림</strong>이에요. 다음에 이 그림 보면 표정 말고 손부터 보세요. 30초만 보고 나오지 말고요." }
+    ],
+    usebox: "누가 \"절규다~\" 하면 이렇게 받아보세요. <b>\"저거 비명 지르는 거 아니야, 귀 막고 있는 거야. 비명은 자연이 지르고 있고.\"</b> — 이 한마디면 끝!",
+    instagramUrl: "https://www.instagram.com/p/DaiS3V3E5NT/"
+  },
+  {
+    id: "ep02",
+    number: "02",
+    artistKey: "KLIMT",
+    artist: "구스타프 클림트",
+    movement: "황금시기",
+    cardMovement: "빈 분리파",
+    published: "2026.07",
+    minutes: 3,
+    title: "키스, 행복한 그림이라고 누가 그래요",
+    titleHtml: "키스, 행복한 그림이라고<br>누가 그래요",
+    summary: "두 사람이 서 있는 곳은 낭떠러지 끝. 로맨스가 아니라 벼랑 끝 이야기.",
+    lede: "결혼식장에 가장 많이 걸리는 그림. 그런데 여자 발끝을 보면 이야기가 달라집니다.",
+    seoDescription: "결혼식장에 제일 많이 걸리는 그림, 〈키스〉. 근데 여자 발끝을 보면 이야기가 달라진다. 벼랑 끝에서 벌어지는 균형 이야기, 3분 정리.",
+    ogDescription: "여자 발끝을 보면 이야기가 달라진다. 3분 만에 아는 척 EP.02",
+    image: {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg?width=1000",
+      cardSrc: "https://commons.wikimedia.org/wiki/Special:FilePath/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg?width=800",
+      alt: "구스타프 클림트, 키스",
+      caption: "구스타프 클림트, 〈키스〉(1907–1908), 벨베데레 미술관"
+    },
+    blocks: [
+      { type: "paragraph", html: "결혼식장, 웨딩 사진, 카페 벽지. 〈키스〉만큼 사랑받는 명화도 드물어요. 금빛으로 감싸인 두 사람, 누가 봐도 '완벽한 사랑'이죠. 근데 자세히 보면… <strong>얘기가 좀 달라요.</strong>" },
+      { type: "heading", text: "여자 발끝부터 보세요" },
+      { type: "paragraph", html: "두 사람이 서 있는 자리는 꽃밭이 끝나고 <strong>벼랑이 시작되는 경계선</strong>이에요. 여자의 발가락은 그 끝에서 잔뜩 오그라들어 있어요. 편안한 자세가 아니라 불안한 자세예요." },
+      { type: "paragraph", html: "남자는 여자의 얼굴을 감싸 쥐고 고개를 돌리게 했고, 여자의 눈은 감겨 있어요. 이걸 '황홀경'으로 읽을 수도 있지만, <strong>'주도권이 완전히 한쪽에 있는 장면'</strong>으로 읽을 수도 있어요." },
+      { type: "pull", html: "〈키스〉는 '행복한 사랑 그림'이 아니라, 아슬아슬한 균형 위에서 벌어지는 장면이에요." },
+      { type: "heading", text: "금박은 낭만이 아니라 이력이에요" },
+      { type: "paragraph", html: "이 그림이 유독 화려한 이유도 있어요. 클림트의 아버지가 금세공사였고, 본인은 비잔틴 모자이크에 푹 빠져 있던 시기 — 이른바 <strong>'황금시기'</strong> — 에 이 그림을 그렸거든요. 금박은 낭만적 장식이 아니라, 그가 가장 잘 다루던 재료였을 뿐이에요." },
+      { type: "paragraph", html: "다음에 이 그림 보면 발끝부터 보세요." }
+    ],
+    usebox: "누가 \"역시 키스는 로맨틱해\" 하면 이렇게 받아보세요. <b>\"여자 발끝 봐봐. 벼랑 끝에서 발가락 오그라들어 있어. 완벽한 사랑이 아니라 아슬아슬한 균형이야.\"</b> — 분위기 달라져요.",
+    instagramUrl: "https://instagram.com/crackers.kr"
+  },
+  {
+    id: "ep03",
+    number: "03",
+    artistKey: "VAN GOGH",
+    artist: "빈센트 반 고흐",
+    movement: "후기인상주의",
+    published: "2026.07",
+    minutes: 3,
+    title: "별이 빛나는 밤, 어디서 그렸는지 아세요?",
+    titleHtml: "별이 빛나는 밤,<br>어디서 그렸는지 아세요?",
+    summary: "낭만적인 밤하늘이 아니라 정신병동 창문 밖 풍경입니다.",
+    lede: "힐링 그림으로 알고 있었나요? 실제 밤하늘이 아니라 병실에서 기억을 더듬어 그린 풍경입니다.",
+    seoDescription: "힐링 그림으로 유명한 〈별이 빛나는 밤〉. 사실은 정신병동 창살 너머로 기억을 더듬어 그린 그림이다. 고흐가 진짜 하고 싶었던 말, 3분 정리.",
+    ogDescription: "정신병동 창살 너머로 기억을 더듬어 그린 그림. 3분 만에 아는 척 EP.03",
+    image: {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg?width=1000",
+      cardSrc: "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg?width=800",
+      alt: "빈센트 반 고흐, 별이 빛나는 밤",
+      caption: "빈센트 반 고흐, 〈별이 빛나는 밤〉(1889), 뉴욕 현대미술관(MoMA)"
+    },
+    blocks: [
+      { type: "paragraph", html: "〈별이 빛나는 밤〉 보고 힐링된다는 사람 많죠. 밤하늘 보면서 편안해지는 그림이라고요. 근데 이 그림… <strong>실제 밤하늘 보고 그린 게 아니에요.</strong>" },
+      { type: "heading", text: "낮에, 정신병원 병실 안에서 그렸어요" },
+      { type: "paragraph", html: "스스로 귀를 자른 뒤 생레미의 요양원(생폴드모솔)에 입원했을 때예요. 창문에는 쇠창살이 있었고, 고흐는 그 창살 너머로 보이던 풍경을 <strong>기억으로 다시 그렸어요.</strong>" },
+      { type: "paragraph", html: "그림 속 마을은 그 창문에서 실제로 보이던 풍경도 아니에요. 예전에 살던 동네를 떠올리며 끼워 넣은 <strong>기억의 조각</strong>이에요." },
+      { type: "pull", html: "'평화로운 밤 풍경'이 아니라, 창살 안에서 그려낸 절박한 기억이에요." },
+      { type: "heading", text: "사이프러스 나무도 그냥 나무가 아니에요" },
+      { type: "paragraph", html: "고흐에게 사이프러스는 무덤가에 서 있는 나무, <strong>죽음과 연결된 이미지</strong>였어요. 소용돌이치는 하늘도 실제 하늘이 아니라 — 동생 테오에게 \"종교가 필요해서 밤에 별을 보러 나간다\"고 썼던 — 그 절박한 마음에 더 가까워요." },
+      { type: "paragraph", html: "다음에 이 그림 보면 별 말고 사이프러스 나무부터 보세요. 그게 고흐가 남긴 진짜 신호예요." }
+    ],
+    usebox: "누가 \"별이 빛나는 밤 너무 힐링돼\" 하면 이렇게 받아보세요. <b>\"저거 밤에 그린 거 아니야. 낮에 정신병원 병실에서 기억으로 그린 거야. 별 말고 사이프러스 나무 봐봐.\"</b> — 이 한마디면 끝!",
+    instagramUrl: "https://instagram.com/crackers.kr"
+  },
+  {
+    id: "ep04",
+    number: "04",
+    artistKey: "DA VINCI",
+    artist: "레오나르도 다빈치",
+    movement: "르네상스",
+    published: "2026.07",
+    minutes: 3,
+    title: "모나리자를 스타로 만든 건 도난이었다",
+    titleHtml: "모나리자를 스타로 만든 건<br>도난이었다",
+    summary: "이미 유명했던 그림을 세계적인 대중 스타로 만든 결정적 사건.",
+    lede: "처음부터 유명한 그림이긴 했습니다. 하지만 지금 같은 세계적인 스타가 된 데에는 1911년의 도난 사건이 컸습니다.",
+    seoDescription: "모나리자는 처음부터 유명했지만, 1911년 루브르 도난 사건이 세계적인 대중 명성을 폭발시켰다. 사라진 2년과 범인 빈첸초 페루자의 이야기.",
+    ogDescription: "모나리자의 세계적인 명성을 키운 1911년 루브르 도난 사건. 3분 만에 아는 척 EP.04",
+    image: {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_da_Vinci_-_Mona_Lisa.jpg?width=1000",
+      cardSrc: "https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_da_Vinci_-_Mona_Lisa.jpg?width=800",
+      alt: "레오나르도 다빈치, 모나리자",
+      caption: "레오나르도 다빈치, 〈모나리자〉(1503–1519), 루브르박물관"
+    },
+    blocks: [
+      { type: "paragraph", html: "모나리자가 유명한 이유를 물으면 보통 신비로운 미소나 다빈치의 천재성을 이야기합니다. 틀린 말은 아니에요. 이 그림은 도난 전에도 이미 중요한 작품이었습니다. 하지만 <strong>지금처럼 모두가 아는 얼굴이 된 데에는 한 사건이 결정적이었어요.</strong>" },
+      { type: "heading", text: "1911년 8월 21일, 그림이 사라졌습니다" },
+      { type: "paragraph", html: "루브르가 문을 닫던 월요일, 박물관에서 일한 적이 있던 유리공 빈첸초 페루자가 모나리자를 들고 나갔습니다. 다음 날 빈 벽이 발견되자 사건은 전 세계 신문으로 퍼졌고, 사람들은 사라진 그림의 얼굴을 반복해서 보게 됐어요." },
+      { type: "figure", src: "https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa_stolen-1911.jpg?width=1000", alt: "1911년 모나리자가 사라진 루브르 전시실의 빈자리", caption: "1911년, 모나리자가 도난당한 뒤의 루브르 전시실" },
+      { type: "pull", html: "도난 사건은 이미 유명했던 작품을, 미술관 밖의 사람들까지 아는 세계적인 대중 스타로 바꿨습니다." },
+      { type: "heading", text: "2년이 지나서야 다시 나타났습니다" },
+      { type: "paragraph", html: "페루자는 그림을 이탈리아로 가져가 한 미술상에게 팔려고 했습니다. 미술상이 경찰에 알리면서 1913년 작품은 회수됐고, 이듬해 루브르로 돌아왔어요. 루브르 역시 이 사건 뒤 모나리자의 명성이 훨씬 커졌다고 설명합니다." },
+      { type: "paragraph", html: "그러니 모나리자의 가치를 도난 사건 하나로만 설명할 수는 없습니다. 다만 <strong>예술적 명성과 대중적 유명세는 서로 다른 방식으로 만들어진다</strong>는 사실은 분명해요. 다음에 모나리자를 보면 미소만큼이나, 한때 이 그림이 걸려 있지 않았던 빈자리도 떠올려보세요." }
+    ],
+    usebox: "누가 \"모나리자는 왜 이렇게 유명해?\"라고 물으면 이렇게 말해보세요. <b>\"원래도 유명했지만, 1911년 도난 사건이 전 세계적인 스타로 만들었어.\"</b> — 과장 없이 이 정도가 정확합니다.",
+    instagramUrl: "https://instagram.com/crackers.kr",
+    sources: [
+      "https://www.louvre.fr/en/explore/the-palace/from-the-mona-lisa-to-the-wedding-feast-at-cana",
+      "https://collections.louvre.fr/ark:/53355/cl010062370"
+    ]
+  }
+];
+
+export const weeklyIssues = [
+  {
+    number: "003",
+    label: "2026 · 7월 넷째 주",
+    published: "2026-07-24",
+    headline: "이번 주가 마지막인 서울 전시 3곳",
+    picks: [
+      {
+        tag: "이번 주가 마지막 · 무료",
+        venue: "서울시립 미술아카이브",
+        title: "《알렉사에게》",
+        description: "AI가 대신 답해주는 시대에, 우리는 정보를 어떻게 찾고 믿게 될까요. 영상·사진·설치·아카이브를 오가며 그 질문을 다시 꺼내는 전시.",
+        startDate: "2026-03-26",
+        endDate: "2026-07-26",
+        price: "관람료 무료",
+        url: "https://sema.seoul.go.kr/kr/whatson/exhibition/detail?exNo=1513028"
+      },
+      {
+        tag: "새 미술관이 궁금하면 · 무료",
+        venue: "서울시립 서서울미술관",
+        title: "《서서울의 투명한 |청소년| 기계》",
+        description: "청소년을 인간과 기계가 교차하는 인터페이스로 바라봅니다. 뉴미디어 작품과 참여형 공간을 함께 경험할 수 있는 개관 특별전.",
+        startDate: "2026-05-14",
+        endDate: "2026-07-26",
+        price: "관람료 무료",
+        url: "https://sema.seoul.go.kr/kr/whatson/exhibition/detail?exNo=1528398"
+      },
+      {
+        tag: "공예가 낯설다면 · 무료",
+        venue: "서울공예박물관",
+        title: "《더 하이브리드》",
+        description: "프랑스로 건너간 우리 공예품에서 전통과 근대, 동양과 서양이 섞인 흔적을 찾습니다. 회화 말고 다른 전시가 보고 싶을 때 좋은 선택.",
+        startDate: "2026-04-28",
+        endDate: "2026-07-26",
+        price: "관람료 무료",
+        url: "https://craftmuseum.seoul.go.kr/exhibit/plan/view/180"
+      }
+    ]
+  },
+  {
+    number: "002",
+    label: "2026 · 7월 셋째 주",
+    published: "2026-07-17",
+    headline: "이번 주 서울에서 갈 만한 전시 3곳",
+    picks: [
+      {
+        tag: "이번 주 신규 · 무료",
+        venue: "서울시립 사진미술관",
+        title: "《마틴 파: We Are Martin Parr》",
+        description: "관광엽서처럼 촌스럽고 웃긴 사진 500여 점. \"이게 예술이야?\" 싶은 순간, 그게 정확히 핵심이에요. 아시아 첫 회고전인데 심지어 공짜.",
+        startDate: "2026-05-29",
+        endDate: "2026-10-18",
+        price: "관람료 무료",
+        url: "https://sema.seoul.go.kr/kr/whatson/exhibition/detail?exNo=1553791"
+      },
+      {
+        tag: "센 거 좋아하면",
+        venue: "예술의전당 한가람미술관",
+        title: "《고야: 이성이 잠들 때, 괴물이 깨어난다》",
+        description: "예쁜 그림에 질렸다면 여기. 판화 〈카프리초스〉 80점 국내 첫 공개. 제목부터 저희만큼 삐딱해서 마음에 들어요.",
+        startDate: "2026-05-21",
+        endDate: "2026-09-30",
+        price: "성인 2만원",
+        url: "https://www.sac.or.kr/site/main/show/show_view?SN=78392"
+      },
+      {
+        tag: "미술관 무서운 사람용",
+        venue: "예술의전당 한가람디자인미술관",
+        title: "《페르난도 보테로: 형태의 미학》",
+        description: "왜 다 통통하게 그렸냐고요? 그게 보테로예요. 유화·조각 112점, 아무 지식 없이 봐도 웃게 돼요. 8월 말이면 끝나니 서두르길.",
+        startDate: "2026-04-29",
+        endDate: "2026-08-30",
+        price: "성인 2.3만원",
+        url: "https://www.sac.or.kr/site/main/show/show_view?SN=76470"
+      }
+    ]
+  },
+  {
+    number: "001",
+    label: "2026 · 7월 둘째 주",
+    published: "2026-07-10",
+    headline: "이번 주 서울 전시 3곳",
+    picks: [
+      {
+        tag: "진행 중",
+        venue: "국립현대미술관 서울",
+        title: "《이것은 개념미술이 (아니)다》",
+        description: "'개념미술'에 벌써 뒤로가기 눌렀죠? 제목부터 '아니다'래요. 90년대 한국 미술의 삐딱한 배짱만 구경해도 충분해요.",
+        startDate: "2026-04-24",
+        endDate: "2026-10-11",
+        price: "국립현대미술관 서울",
+        url: "https://www.mmca.go.kr/exhibitions/progressList.do"
+      },
+      {
+        tag: "진행 중",
+        venue: "예술의전당 한가람미술관",
+        title: "브라이언 와일드스미스 전",
+        description: "그림책 작가 45년치를 한자리에. 미술관 처음이라 쫄린다면 여기부터. 색이 예뻐서 아무 생각 없이 봐도 본전은 뽑아요.",
+        startDate: "2026-06-20",
+        endDate: "2026-10-16",
+        price: "한가람미술관",
+        url: "https://www.sac.or.kr/site/main/program/schedule"
+      },
+      {
+        tag: "마감",
+        venue: "서울시립 북서울미술관",
+        title: "《글짓, 쓰는 예술》",
+        description: "시·가사·극본이 전부 '작품'이 됐던 전시. 아쉽게도 문 닫았어요. 다음엔 놓치지 마세요.",
+        startDate: "2026-03-18",
+        endDate: "2026-07-12",
+        price: "무료",
+        url: "https://sema.seoul.go.kr/kr/whatson/landing"
+      }
+    ]
+  }
+];
