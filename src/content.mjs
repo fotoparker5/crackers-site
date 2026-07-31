@@ -10,7 +10,7 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep04",
+  featuredEpisodeId: "ep05",
   updatedLabel: "2026년 7월 · 매주 금요일 갱신"
 };
 
@@ -152,10 +152,87 @@ export const episodes = [
       "https://www.louvre.fr/en/explore/the-palace/from-the-mona-lisa-to-the-wedding-feast-at-cana",
       "https://collections.louvre.fr/ark:/53355/cl010062370"
     ]
+  },
+  {
+    id: "ep05",
+    number: "05",
+    artistKey: "VERMEER",
+    artist: "요하네스 베르메르",
+    movement: "네덜란드 황금시대",
+    published: "2026.07",
+    minutes: 3,
+    title: "진주 귀걸이를 한 소녀, 그녀는 누구일까요?",
+    titleHtml: "진주 귀걸이를 한 소녀,<br>그녀는 누구일까요?",
+    summary: "실존 인물의 초상화가 아니라, 이름 없는 상상의 인물.",
+    lede: "화가의 딸일까요, 하녀일까요. 정답부터 말하면 아무도 모릅니다. 이 그림은 특정 인물을 기록한 초상화가 아니라 ‘트로니’에 가깝습니다.",
+    seoDescription: "베르메르의 〈진주 귀걸이를 한 소녀〉는 특정 인물의 초상화가 아니라 상상의 인물을 그린 트로니다. 모델의 정체와 진주의 비밀을 3분 만에 정리했다.",
+    ogDescription: "그녀의 이름은 왜 남지 않았을까. 베르메르의 트로니와 진주의 비밀, 3분 만에 아는 척 EP.05",
+    image: {
+      src: "https://commons.wikimedia.org/wiki/Special:FilePath/1665_Girl_with_a_Pearl_EarringFXD.jpg?width=1000",
+      cardSrc: "https://commons.wikimedia.org/wiki/Special:FilePath/1665_Girl_with_a_Pearl_EarringFXD.jpg?width=800",
+      alt: "요하네스 베르메르, 진주 귀걸이를 한 소녀",
+      caption: "요하네스 베르메르, 〈진주 귀걸이를 한 소녀〉(c. 1665), 모리츠하위스 미술관"
+    },
+    blocks: [
+      { type: "paragraph", html: "그녀는 화가의 딸이었을까요. 집에서 일하던 하녀였을까요. 소설과 영화는 이 질문에 이야기를 붙였지만, 기록은 아무 답도 주지 않습니다. 오히려 작품의 형식부터 우리가 생각한 것과 조금 달라요." },
+      { type: "heading", text: "초상화가 아니라 ‘트로니’였습니다" },
+      { type: "paragraph", html: "〈진주 귀걸이를 한 소녀〉는 특정 인물의 얼굴을 닮게 기록하려고 그린 초상화가 아닙니다. 17세기 네덜란드에서 유행한 <strong>트로니(tronie)</strong>, 즉 표정과 의상, 빛을 탐구하는 인물 연구에 가까워요." },
+      { type: "paragraph", html: "푸른 터번과 이국적인 옷차림도 실제 신분을 알려주는 단서라기보다, 특정한 성격과 분위기를 만들기 위한 장치였습니다." },
+      { type: "pull", html: "이 그림에서 중요한 것은 ‘누구를 그렸는가’보다 ‘어떤 인물을 만들어냈는가’입니다." },
+      { type: "heading", text: "그럼 실제 모델은 없었을까요?" },
+      { type: "paragraph", html: "모리츠하위스는 그림을 위해 포즈를 취한 사람이 있었을 가능성은 높다고 설명합니다. 하지만 그 사람이 누구였는지는 알려지지 않았어요. 화가의 딸, 하녀, 후원자의 가족이라는 여러 추측이 있지만 이를 증명하는 기록은 없습니다." },
+      { type: "paragraph", html: "이름도 이야기도 남아 있지 않기에 우리는 그녀의 시선과 살짝 열린 입술을 보며 각자의 이야기를 상상하게 됩니다. 정답이 없다는 사실이 이 그림을 더 오래 보게 만드는 셈이죠." },
+      { type: "heading", text: "진주도 진짜였을까요?" },
+      { type: "paragraph", html: "귀걸이는 실제 진주라고 보기엔 지나치게 큽니다. 유리로 만든 모조 진주였거나, 베르메르가 상상으로 더했을 가능성이 있어요. 자세히 보면 고리도 없고, 흰 물감 두 번의 붓질만으로 빛나는 구체처럼 보입니다." },
+      { type: "paragraph", html: "다음에 이 그림을 보면 ‘그녀가 누구였을까’에서 멈추지 말고, 거의 아무 정보도 없는 얼굴이 어떻게 이렇게 많은 이야기를 만들었는지 오래 바라보세요." }
+    ],
+    usebox: "누가 “진주 귀걸이를 한 소녀의 모델이 누구야?”라고 물으면 이렇게 말해보세요. <b>“아무도 몰라. 애초에 특정 인물의 초상화가 아니라, 상상의 인물을 그린 트로니에 가까워.”</b> — 이 정도면 충분합니다.",
+    instagramUrl: "https://instagram.com/crackers.kr",
+    sources: [
+      "https://www.mauritshuis.nl/en/our-collection/artworks/670-girl-with-a-pearl-earring/"
+    ]
   }
 ];
 
 export const weeklyIssues = [
+  {
+    number: "004",
+    label: "2026 · 7월 다섯째 주",
+    published: "2026-07-31",
+    headline: "놓치기 전에 볼 서울 전시 3곳",
+    picks: [
+      {
+        tag: "이번 주말이 마지막 · 무료",
+        venue: "서울공예박물관",
+        title: "《색유만개: 권순형 기증특별전시》",
+        description: "한국 현대도예의 선구자 권순형이 60여 년 동안 이어온 색과 유약의 실험. 아름다운 색채로 만든 추상과, 그 뒤의 집요한 작업 태도를 함께 봅니다.",
+        startDate: "2026-05-12",
+        endDate: "2026-08-02",
+        price: "관람료 무료",
+        url: "https://craftmuseum.seoul.go.kr/exhibit/plan/view/185"
+      },
+      {
+        tag: "작지만 오래 남는 전시 · 무료",
+        venue: "서리풀청년아트갤러리",
+        title: "《궤도: 축적된 시간의 교차》",
+        description: "서로 다른 기억과 감각을 가진 청년작가들의 작업이 한 공간에서 교차합니다. 예술의전당 앞 지하보도에서 우연히 발견하는 전시라는 점도 매력적이에요.",
+        startDate: "2026-07-23",
+        endDate: "2026-08-07",
+        price: "관람료 무료",
+        url: "https://www.culture.go.kr/localperform/amateur/perform/view.do?menuNo=400013&pblprfrSn=2480"
+      },
+      {
+        tag: "공간까지 함께 보고 싶다면 · 무료",
+        venue: "문화역서울284",
+        title: "《서울역 2026: 다시 뛰는 심장》",
+        description: "옛 서울역 전관을 걸으며 철도의 과거와 미래, 이동과 기다림의 기억을 만납니다. 익숙한 장소와 큰 공간 덕분에 전시가 처음이어도 부담이 적어요.",
+        startDate: "2026-06-11",
+        endDate: "2026-08-17",
+        price: "관람료 무료",
+        url: "https://www.seoul284.org/program/view/category/319/state/2/menu/328?idx=372"
+      }
+    ]
+  },
   {
     number: "003",
     label: "2026 · 7월 넷째 주",
