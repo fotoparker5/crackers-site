@@ -147,9 +147,8 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
 
     <div class="wk-arch">
       <div class="arch-head">
-        <h3>지난 줍줍 아카이브</h3>
+        <h3>지난 전시줍줍</h3>
         <div class="rule"></div>
-        <span class="note">진행 중 먼저 · 마감은 흐리게</span>
       </div>
       <div class="picks arch">
         ${archivedPicks
@@ -163,21 +162,24 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
   <div class="wrap">
     <section id="about" class="about">
       <div class="label">ABOUT CRACKERS</div>
-      <h2>아는 척 하지 마세요.<br>저희가 대신 깹니다.</h2>
-      <p>CRACKERS는 <strong>전시 1도 모르는 사람을 위한 서울 전시 입문 가이드</strong>입니다. 전시장에서 30초 만에 나온 경험, 당신 잘못이 아니에요. 아무도 쉽게 안 알려줘서 그런 겁니다. 저희는 정보 대신 <strong>관점과 안심</strong>을 팝니다.</p>
+      <h2>몰라도 괜찮아요.<br>우리가 함께할게요.</h2>
+      <p>CRACKERS는 <strong>문화와 예술이 어렵다고 느껴지는 사람들을 위한 에디토리얼 미디어</strong>입니다.</p>
+      <p>아무도 설명해주지 않는 것들, 작품 앞에서 느끼는 솔직한 감정, 한 번 더 보게 만드는 질문들을 이야기합니다.</p>
+      <p>서울 전시부터 하나씩 깨나갑니다. 정답을 말하기보다, 누구나 자기 방식대로 보고 말할 수 있는 첫 번째 균열을 만듭니다.</p>
       <div class="rules">
-        <div class="rule"><div class="n">01</div><h3>솔직하게</h3><p>"이건 좀 별로"까지 말합니다.</p></div>
-        <div class="rule"><div class="n">02</div><h3>쉽게</h3><p>전문용어는 버립니다.</p></div>
-        <div class="rule"><div class="n">03</div><h3>편들어주기</h3><p>몰라도 괜찮아, 가 기본값.</p></div>
+        <div class="rule"><div class="n">01</div><h3>기본부터</h3><p>아무도 말해주지 않는 것들을 묻습니다.</p></div>
+        <div class="rule"><div class="n">02</div><h3>솔직하게</h3><p>좋으면 좋다, 별로면 별로라고 말합니다.</p></div>
+        <div class="rule"><div class="n">03</div><h3>다시 보게</h3><p>정답보다 한 번 더 보게 만드는 질문을 남깁니다.</p></div>
       </div>
     </section>
   </div>
 
   <section class="news">
     <div class="in">
-      <h2>전시 소식, 메일로 깨서 드립니다</h2>
-      <p>매주 서울 전시 픽과 3분 명화 해설. 좋은 척 안 하고, 몰라도 안 쪽팔리게.</p>
-      <a href="${site.newsletterUrl}" target="_blank" rel="noopener">무료로 구독하기</a>
+      <h2>주말에 무슨 전시 갈까<br>고민이세요?</h2>
+      <p>매주 금요일, 놓치기 아쉬운 서울 전시 3곳과 작품에 대한 이야기를 보내드릴게요.</p>
+      <p>어려운 말은 덜고, 지금 가야 할 이유를 이야기해요. 전부 볼 필요도 없어요. 마음에 드는 곳 하나만 골라가세요.</p>
+      <a href="${site.newsletterUrl}" target="_blank" rel="noopener">매주 금요일 편지 받기</a>
     </div>
   </section>
 </main>

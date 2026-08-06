@@ -127,7 +127,6 @@ h1,h2,h3{font-family:'Black Han Sans','Pretendard Variable',sans-serif;font-weig
   font-family:'Black Han Sans','Pretendard Variable',sans-serif;font-weight:400;
 }
 .wk-arch .arch-head .rule{flex:1;height:1px;background:rgba(245,242,236,.16);}
-.wk-arch .arch-head .note{font-size:12px;color:#8A857C;white-space:nowrap;}
 .picks.arch{gap:20px;row-gap:34px;}
 .picks.arch .pick{border-top-color:rgba(245,197,24,.35);padding-top:14px;}
 .picks.arch .pick h3{font-size:18px;}
@@ -153,9 +152,10 @@ h1,h2,h3{font-family:'Black Han Sans','Pretendard Variable',sans-serif;font-weig
 .news{background:var(--yellow);}
 .news .in{max-width:720px;margin:0 auto;padding:64px 24px;text-align:center;}
 .news h2{font-size:clamp(26px,5vw,38px);}
-.news p{margin:14px 0 28px;font-size:15px;color:#3A342C;}
+.news p{margin:12px 0 0;font-size:15px;color:#3A342C;}
+.news p + p{margin-top:4px;}
 .news a{
-  display:inline-block;background:var(--black);color:var(--yellow);
+  display:inline-block;margin-top:28px;background:var(--black);color:var(--yellow);
   font-weight:800;padding:14px 30px;font-size:15px;
 }
 .news a:hover,.news a:focus-visible{background:var(--red);color:var(--cream);}
@@ -195,7 +195,6 @@ footer .links a:hover,footer .links a:focus-visible{color:var(--yellow);}
   .wk-arch{padding:0 20px 48px;}
   .wk-arch .arch-head{gap:10px;flex-wrap:wrap;}
   .wk-arch .arch-head .rule{min-width:24px;}
-  .wk-arch .arch-head .note{width:100%;white-space:normal;text-align:right;}
   .about{padding:52px 0;}
   .rules{gap:24px;}
   .rule{min-width:100%;padding-right:0;}
