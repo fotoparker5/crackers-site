@@ -10,8 +10,8 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep05",
-  updatedLabel: "2026년 7월 · 매주 금요일 갱신"
+  featuredEpisodeId: "ep06",
+  updatedLabel: "2026년 8월 · 매주 금요일 갱신"
 };
 
 export const episodes = [
@@ -191,10 +191,87 @@ export const episodes = [
     sources: [
       "https://www.mauritshuis.nl/en/our-collection/artworks/670-girl-with-a-pearl-earring/"
     ]
+  },
+  {
+    id: "ep06",
+    number: "06",
+    artistKey: "MILLET",
+    artist: "장 프랑수아 밀레",
+    movement: "사실주의",
+    published: "2026.08",
+    minutes: 3,
+    title: "만종, 감자 바구니 아래 무엇이 있었을까요?",
+    titleHtml: "만종, 감자 바구니 아래<br>무엇이 있었을까요?",
+    summary: "엑스레이로 확인된 것은 덧칠된 형태. 그것을 작은 관으로 본 건 달리였습니다.",
+    lede: "평화롭게 기도하는 두 농부. 그런데 살바도르 달리는 이 장면을 ‘애도’로 읽었습니다. 확인된 사실과 달리의 해석을 나눠서 봅니다.",
+    seoDescription: "밀레의 〈만종〉에서 엑스레이로 확인된 것은 감자 바구니 아래의 덧칠된 형태다. 이를 작은 관으로 해석한 살바도르 달리의 독해와 밀레가 직접 밝힌 작품의 기억을 3분 만에 정리했다.",
+    ogDescription: "확인된 것은 덧칠된 형태, 작은 관은 달리의 해석. 밀레 〈만종〉의 두 가지 이야기, 3분 만에 아는 척 EP.06",
+    image: {
+      src: "/assets/artworks/angelus.jpg",
+      cardSrc: "/assets/artworks/angelus.jpg",
+      alt: "장 프랑수아 밀레, 만종",
+      caption: "장 프랑수아 밀레, 〈만종〉(1857–1859), 오르세 미술관"
+    },
+    blocks: [
+      { type: "paragraph", html: "해 질 무렵, 두 농부가 하루의 일을 멈추고 고개를 숙였습니다. 멀리서 들려오는 종소리에 맞춰 삼종기도를 올리는 장면이에요. 발밑에는 감자 바구니와 쇠스랑, 수확 도구가 놓여 있습니다." },
+      { type: "heading", text: "달리는 이 장면을 기도가 아니라 ‘애도’로 봤습니다" },
+      { type: "paragraph", html: "살바도르 달리는 〈만종〉에 강박적으로 매달렸습니다. 그는 두 사람이 죽은 아이 앞에 서 있으며, 감자 바구니 자리에는 원래 작은 관이 있었을 것이라고 해석했어요." },
+      { type: "pull", html: "하지만 ‘작은 관’은 확인된 사실이 아니라 달리의 편집적·정신분석적 해석입니다." },
+      { type: "heading", text: "엑스레이가 실제로 보여준 것은 무엇이었을까요?" },
+      { type: "paragraph", html: "후대의 엑스레이 조사에서는 감자 바구니 아래 <strong>덧칠된 기하학적 형태</strong>가 확인됐습니다. 다만 그것이 아이의 관이었다는 증거는 없습니다. 발견된 것은 덧칠된 형태이고, 그것을 관으로 본 것은 달리였어요." },
+      { type: "heading", text: "밀레가 남긴 이야기는 조금 달랐습니다" },
+      { type: "paragraph", html: "밀레는 1865년 이 그림이 어린 시절의 기억에서 나왔다고 설명했습니다. 들판에서 교회 종이 울리면 할머니가 가족의 일을 멈추게 하고, 세상을 떠난 이들을 위해 삼종기도를 올리게 했다는 기억이었어요." },
+      { type: "paragraph", html: "같은 그림도 누구의 기억과 시선으로 보느냐에 따라 전혀 다른 장면이 됩니다. 다음에 〈만종〉을 보면 감자 바구니부터 보세요. 그리고 ‘그 아래 무엇이 있었나’보다, <strong>왜 달리는 그곳에서 관을 보았을까</strong>를 함께 떠올려보세요." }
+    ],
+    usebox: "누가 “만종의 감자 바구니 아래 관이 있었다며?”라고 물으면 이렇게 말해보세요. <b>“엑스레이에서 덧칠된 형태는 나왔지만, 그게 관이라는 건 달리의 해석이야.”</b> — 사실과 해석은 여기서 나뉩니다.",
+    instagramUrl: "https://instagram.com/crackers.kr",
+    sources: [
+      "https://www.musee-orsay.fr/en/artworks/langelus-345",
+      "https://www.museoreinasofia.es/en/collections/artwork/angelus-arquitectonico-de-millet-millets-architectonic-angelus/",
+      "https://www.salvador-dali.org/en/dali-foundation/news/acquisition-of-drawings-manuscripts-and-photos-of-dali/"
+    ]
   }
 ];
 
 export const weeklyIssues = [
+  {
+    number: "005",
+    label: "2026 · 8월 첫째 주",
+    published: "2026-08-07",
+    headline: "이번 주말과 다음 주, 지금 챙겨볼 서울 전시 3곳",
+    picks: [
+      {
+        tag: "다음 주 수요일 종료 · 무료",
+        venue: "서울교육대학교 샘미술관",
+        title: "《이불 안과 밖에서》",
+        description: "불안을 없애야 할 감정으로 보지 않고, 함께 살아갈 자신만의 태도를 묻는 작은 전시입니다. 주말에는 문을 열지 않으니 다음 주 월–수에 방문하세요.",
+        startDate: "2026-07-13",
+        endDate: "2026-08-12",
+        price: "관람료 무료",
+        url: "https://m.snue.ac.kr/snue/na/ntt/selectNttInfo.do?bbsId=1082&mi=1309&nttSn=54260"
+      },
+      {
+        tag: "다음 주 토요일 종료 · 무료",
+        venue: "용산문화재단 1층 팝업홀",
+        title: "《Nature in the City》",
+        description: "버려진 화장품 공병이 빛의 모듈로 다시 태어나 초록빛 들판을 만듭니다. 지름 2m의 인공 태양과 함께 도시 속 자연을 새롭게 느껴보세요.",
+        startDate: "2026-07-22",
+        endDate: "2026-08-15",
+        price: "관람료 무료",
+        url: "https://yongsanculture.or.kr/site/main/performance/EXHIBITION/view/219"
+      },
+      {
+        tag: "새로 개막 · 약 100점",
+        venue: "국립현대미술관 서울",
+        title: "《올해의 작가상 2026》",
+        description: "이해민선, 이정우, 전현선, 홍진훤. 네 작가가 서로 다른 매체로 지금의 세계에 질문을 던집니다. 가장 오래 머물게 되는 한 사람의 방부터 찾아보세요.",
+        startDate: "2026-07-24",
+        endDate: "2026-12-06",
+        price: "관람료 2,000원",
+        url: "https://www.mmca.go.kr/exhibitions/exhibitionsDetail.do?exhFlag=2&exhId=202512310002018"
+      }
+    ]
+  },
   {
     number: "004",
     label: "2026 · 7월 다섯째 주",
