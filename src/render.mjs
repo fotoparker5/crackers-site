@@ -39,7 +39,7 @@ const pageHead = ({ site, title, description, ogDescription, path = "/", type = 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="${stylesheet}">
+<link rel="stylesheet" href="${stylesheet}?v=${site.assetVersion}">
 </head>`;
 
 const wordmark = (site) => `${site.name.slice(0, 2)}<span class="a">A</span>${site.name.slice(3)}`;
@@ -51,6 +51,7 @@ const renderPick = (pick, { archived = false, today }) => {
   const tagClasses = ["tag", archived ? (done ? "done" : "live") : ""].filter(Boolean).join(" ");
 
   return `<a class="${classes}" href="${escapeHtml(pick.url)}" target="_blank" rel="noopener">
+        ${pick.image ? `<div class="pick-image"><img src="${escapeHtml(pick.image.src)}" alt="${escapeHtml(pick.image.alt)}" loading="lazy" width="900" height="1200"></div>` : ""}
         <span class="${tagClasses}">${escapeHtml(tag)}</span>
         <div class="venue">${escapeHtml(pick.venue)}</div>
         <h3>${escapeHtml(pick.title)}</h3>
@@ -65,8 +66,7 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
     .filter((episode) => episode.id !== featured.id)
     .sort((a, b) => b.number.localeCompare(a.number))
     .slice(0, 3);
-  const [currentIssue, ...pastIssues] = weeklyIssues;
-  const archivedPicks = pastIssues.flatMap((issue) => issue.picks);
+  const [currentIssue, previousIssue] = weeklyIssues;
 
   return `${pageHead({
     site,
@@ -90,6 +90,7 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
     </div>
     <nav aria-label="주요 메뉴">
       <a class="hot" href="#weekly">이번 주 전시</a>
+      <a href="exhibitions.html">전시 아카이브</a>
       <a href="#archive">3분 만에 아는 척</a>
       <a href="#about">소개</a>
       <a href="${site.newsletterUrl}" target="_blank" rel="noopener">뉴스레터</a>
@@ -145,14 +146,14 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
       </div>
     </div>
 
-    <div class="wk-arch">
+    <div class="wk-arch" aria-labelledby="previous-weekly-title">
       <div class="arch-head">
-        <h3>지난 전시줍줍</h3>
+        <h3 id="previous-weekly-title">지난주 전시줍줍 #${previousIssue.number}</h3>
         <div class="rule"></div>
+        <a class="archive-link" href="exhibitions.html">전체 아카이브 →</a>
       </div>
       <div class="picks arch">
-        ${archivedPicks
-          .sort((a, b) => Number(isPast(a.endDate, today)) - Number(isPast(b.endDate, today)))
+        ${previousIssue.picks
           .map((pick) => renderPick(pick, { archived: true, today }))
           .join("\n")}
       </div>
@@ -163,9 +164,11 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
     <section id="about" class="about">
       <div class="label">ABOUT CRACKERS</div>
       <h2>몰라도 괜찮아요.<br>우리가 함께할게요.</h2>
-      <p>CRACKERS는 <strong>문화와 예술이 어렵다고 느껴지는 사람들을 위한 에디토리얼 미디어</strong>입니다.</p>
-      <p>아무도 설명해주지 않는 것들, 작품 앞에서 느끼는 솔직한 감정, 한 번 더 보게 만드는 질문들을 이야기합니다.</p>
-      <p>서울 전시부터 하나씩 깨나갑니다. 정답을 말하기보다, 누구나 자기 방식대로 보고 말할 수 있는 첫 번째 균열을 만듭니다.</p>
+      <div class="about-copy">
+        <p>CRACKERS는 <strong>문화와 예술이 어렵다고 느껴지는 사람들을 위한 에디토리얼 미디어</strong>입니다.</p>
+        <p>아무도 설명해주지 않는 것들, 작품 앞에서 느끼는 솔직한 감정, 한 번 더 보게 만드는 질문들을 이야기합니다.</p>
+        <p>서울 전시부터 하나씩 시작합니다. 정답을 건네기보다, 누구나 자기 방식대로 보고 말할 수 있는 <span class="keep-together">첫 번째 균열을 만듭니다.</span></p>
+      </div>
       <div class="rules">
         <div class="rule"><div class="n">01</div><h3>기본부터</h3><p>아무도 말해주지 않는 것들을 묻습니다.</p></div>
         <div class="rule"><div class="n">02</div><h3>솔직하게</h3><p>좋으면 좋다, 별로면 별로라고 말합니다.</p></div>
@@ -199,6 +202,64 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
 </html>
 `;
 };
+
+export const renderWeeklyArchive = ({ site, weeklyIssues, today }) => `${pageHead({
+  site,
+  title: `전시줍줍 아카이브 | ${site.name}`,
+  description: "CRACKERS가 매주 고른 서울 전시를 회차별로 모아보는 전시줍줍 아카이브.",
+  path: "/exhibitions.html",
+  stylesheet: "/assets/home.css"
+})}
+<body class="archive-page">
+<a class="skip-link" href="#archive-content">본문으로 바로가기</a>
+
+<header class="archive-masthead">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">${wordmark(site)}</a>
+    <a class="archive-back" href="index.html#weekly">← 홈페이지로</a>
+  </div>
+</header>
+
+<main id="archive-content" class="weekly-archive">
+  <div class="wrap">
+    <header class="archive-intro">
+      <span class="label">CRACKERS WEEKLY PICKS</span>
+      <h1>전시줍줍<br>아카이브</h1>
+      <p>매주 금요일 고른 서울 전시를 회차별로 모았습니다. 마감된 전시도 CRACKERS가 무엇을, 왜 골랐는지 남겨둡니다.</p>
+      <div class="archive-count">${weeklyIssues.length}개 회차 · ${weeklyIssues.length * 3}개 전시</div>
+    </header>
+
+    <div class="archive-issues">
+      ${weeklyIssues.map((issue, index) => `<section class="archive-issue" aria-labelledby="issue-${issue.number}">
+        <div class="issue-head">
+          <div>
+            <span class="series">전시줍줍 #${issue.number}</span>
+            <h2 id="issue-${issue.number}">${escapeHtml(issue.headline)}</h2>
+          </div>
+          <div class="stamp">${escapeHtml(issue.label)}</div>
+        </div>
+        <div class="picks archive-grid">
+          ${issue.picks.map((pick) => renderPick(pick, { archived: index > 0, today })).join("\n")}
+        </div>
+      </section>`).join("\n")}
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="in">
+    <span class="wordmark">${wordmark(site)}</span>
+    <div class="links">
+      <a href="${site.instagramUrl}" target="_blank" rel="noopener">Instagram</a>
+      <a href="${site.threadsUrl}" target="_blank" rel="noopener">Threads</a>
+      <a href="${site.newsletterUrl}" target="_blank" rel="noopener">Newsletter</a>
+    </div>
+    <span>© 2026 ${site.name} · ${site.email}</span>
+  </div>
+</footer>
+</body>
+</html>
+`;
 
 const renderBlock = (block) => {
   if (block.type === "paragraph") return `<p>${block.html}</p>`;
@@ -294,6 +355,7 @@ ${episode.sources?.length ? `    <aside class="sources"><h2>참고한 자료</h2
 export const renderSitemap = ({ site, episodes }) => `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${site.url}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>${site.url}/exhibitions.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   ${episodes.map((episode) => `<url><loc>${site.url}/${episode.id}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`).join("\n  ")}
 </urlset>
 `;
