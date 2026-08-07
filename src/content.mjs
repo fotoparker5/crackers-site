@@ -1,6 +1,7 @@
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
+  assetVersion: "20260807-archive",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -248,6 +249,10 @@ export const weeklyIssues = [
         startDate: "2026-07-13",
         endDate: "2026-08-12",
         price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-005/within-beyond.jpg",
+          alt: "이불 안과 밖에서 전시 공식 포스터"
+        },
         url: "https://m.snue.ac.kr/snue/na/ntt/selectNttInfo.do?bbsId=1082&mi=1309&nttSn=54260"
       },
       {
@@ -258,6 +263,10 @@ export const weeklyIssues = [
         startDate: "2026-07-22",
         endDate: "2026-08-15",
         price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-005/nature-city.jpg",
+          alt: "Nature in the City 전시 공식 포스터"
+        },
         url: "https://yongsanculture.or.kr/site/main/performance/EXHIBITION/view/219"
       },
       {
@@ -268,6 +277,10 @@ export const weeklyIssues = [
         startDate: "2026-07-24",
         endDate: "2026-12-06",
         price: "관람료 2,000원",
+        image: {
+          src: "/assets/exhibitions/weekly-005/kap2026.jpg",
+          alt: "올해의 작가상 2026 전시 공식 포스터"
+        },
         url: "https://www.mmca.go.kr/exhibitions/exhibitionsDetail.do?exhFlag=2&exhId=202512310002018"
       }
     ]
@@ -286,6 +299,10 @@ export const weeklyIssues = [
         startDate: "2026-05-12",
         endDate: "2026-08-02",
         price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-004/saekyumangae.jpg",
+          alt: "색유만개 권순형 기증특별전시 공식 포스터"
+        },
         url: "https://craftmuseum.seoul.go.kr/exhibit/plan/view/185"
       },
       {
@@ -296,6 +313,10 @@ export const weeklyIssues = [
         startDate: "2026-07-23",
         endDate: "2026-08-07",
         price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-004/orbit.jpg",
+          alt: "궤도 축적된 시간의 교차 전시 공식 포스터"
+        },
         url: "https://www.culture.go.kr/localperform/amateur/perform/view.do?menuNo=400013&pblprfrSn=2480"
       },
       {
@@ -306,6 +327,10 @@ export const weeklyIssues = [
         startDate: "2026-06-11",
         endDate: "2026-08-17",
         price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-004/seoul-station-2026.jpg",
+          alt: "서울역 2026 다시 뛰는 심장 전시 공식 포스터"
+        },
         url: "https://www.seoul284.org/program/view/category/319/state/2/menu/328?idx=372"
       }
     ]

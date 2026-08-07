@@ -2,7 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { episodes, site, weeklyIssues } from "../src/content.mjs";
-import { renderEpisode, renderHome, renderSitemap } from "../src/render.mjs";
+import { renderEpisode, renderHome, renderSitemap, renderWeeklyArchive } from "../src/render.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
@@ -38,6 +38,7 @@ validate();
 const orderedEpisodes = [...episodes].sort((a, b) => a.number.localeCompare(b.number));
 const outputs = new Map();
 outputs.set("index.html", renderHome({ site, episodes: orderedEpisodes, weeklyIssues, today }));
+outputs.set("exhibitions.html", renderWeeklyArchive({ site, weeklyIssues, today }));
 
 orderedEpisodes.forEach((episode, index) => {
   outputs.set(`${episode.id}.html`, renderEpisode({
