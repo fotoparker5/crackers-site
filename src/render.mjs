@@ -101,10 +101,10 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
 <main id="content">
   <div class="wrap">
     <section class="featured" aria-labelledby="featured-title">
-      <div class="img">
+      <div class="img${featured.image.fit === "contain" ? " contain" : ""}">
         <img src="${featured.image.src}" alt="${escapeHtml(featured.image.alt)}" width="1000" height="750">
       </div>
-      <div>
+      <div class="featured-copy${featured.title.length > 25 ? " compact" : ""}">
         <span class="label">이번 주 커버스토리</span>
         <h1 id="featured-title">${featured.titleHtml}</h1>
         <p class="lede">${escapeHtml(featured.lede)}</p>
@@ -121,7 +121,7 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
       </div>
       <div class="grid">
         ${archiveEpisodes.map((episode) => `<a class="story" href="${episode.id}.html">
-          <div class="img"><img src="${episode.image.cardSrc}" alt="${escapeHtml(episode.image.alt)}" loading="lazy" width="800" height="550"></div>
+          <div class="img${episode.image.fit === "contain" ? " contain" : ""}"><img src="${episode.image.cardSrc}" alt="${escapeHtml(episode.image.alt)}" loading="lazy" width="800" height="550"></div>
           <span class="ep">EP.${episode.number} — ${escapeHtml(episode.artistKey)}</span>
           <h3>${escapeHtml(episode.title)}</h3>
           <p>${escapeHtml(episode.summary)}</p>
@@ -167,7 +167,7 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
       <div class="about-copy">
         <p>CRACKERS는 <strong>문화와 예술이 어렵다고 느껴지는 사람들을 위한 에디토리얼 미디어</strong>입니다.</p>
         <p>아무도 설명해주지 않는 것들, 작품 앞에서 느끼는 솔직한 감정, 한 번 더 보게 만드는 질문들을 이야기합니다.</p>
-        <p>서울 전시부터 하나씩 시작합니다. 정답을 건네기보다, 누구나 자기 방식대로 보고 말할 수 있는 <span class="keep-together">첫 번째 균열을 만듭니다.</span></p>
+        <p>서울 전시부터 하나씩 깨나갑니다. 정답을 말하기보다, 누구나 자기 방식대로 보고 말할 수 있는 <span class="keep-together">첫 번째 균열을 만듭니다.</span></p>
       </div>
       <div class="rules">
         <div class="rule"><div class="n">01</div><h3>기본부터</h3><p>아무도 말해주지 않는 것들을 묻습니다.</p></div>
