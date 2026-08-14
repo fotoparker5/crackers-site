@@ -1,7 +1,7 @@
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
-  assetVersion: "20260807-archive",
+  assetVersion: "20260814-content-3",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -11,7 +11,7 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep06",
+  featuredEpisodeId: "ep07",
   updatedLabel: "2026년 8월 · 매주 금요일 갱신"
 };
 
@@ -231,10 +231,103 @@ export const episodes = [
       "https://www.museoreinasofia.es/en/collections/artwork/angelus-arquitectonico-de-millet-millets-architectonic-angelus/",
       "https://www.salvador-dali.org/en/dali-foundation/news/acquisition-of-drawings-manuscripts-and-photos-of-dali/"
     ]
+  },
+  {
+    id: "ep07",
+    number: "07",
+    artistKey: "INGRES",
+    artist: "장오귀스트도미니크 앵그르",
+    movement: "신고전주의",
+    published: "2026.08",
+    minutes: 3,
+    title: "그랑드 오달리스크, 왜 이렇게 길게 그렸을까요?",
+    titleHtml: "그랑드 오달리스크,<br>왜 이렇게 길게 그렸을까요?",
+    summary: "해부학을 틀린 게 아니라, 아름다움을 위해 의도적으로 늘인 몸.",
+    lede: "길어진 등과 팔다리, 비틀린 골반. 앵그르는 정확한 인체보다 끊기지 않는 선과 이상적인 곡선을 선택했습니다.",
+    seoDescription: "앵그르의 〈그랑드 오달리스크〉는 왜 실제 인체보다 길까. 1819년의 비평과 의도적인 해부학적 왜곡, 오리엔탈리즘의 시선을 3분 만에 정리했다.",
+    ogDescription: "틀려서 생긴 몸이 아니라, 아름다움을 위해 의도적으로 바꾼 몸. 3분 만에 아는 척 EP.07",
+    image: {
+      src: "/assets/artworks/grande-odalisque.jpg",
+      cardSrc: "/assets/artworks/grande-odalisque.jpg",
+      fit: "contain",
+      alt: "장오귀스트도미니크 앵그르, 그랑드 오달리스크",
+      caption: "장오귀스트도미니크 앵그르, 〈그랑드 오달리스크〉(1814), 루브르박물관"
+    },
+    blocks: [
+      { type: "paragraph", html: "매끄러운 등과 길게 이어지는 곡선이 먼저 보입니다. 하지만 실제 인체와 비교하면 몸통과 팔다리는 지나치게 길고, 골반과 다리의 연결도 자연스럽지 않아요. <strong>앵그르는 왜 이렇게 그렸을까요?</strong>" },
+      { type: "heading", text: "비평가는 ‘척추뼈가 세 개 더 있다’고 비꼬았습니다" },
+      { type: "paragraph", html: "1819년 살롱에서 작품이 공개되자 비평가들은 이 몸의 비율을 공격했습니다. ‘척추뼈가 세 개 더 있다’는 유명한 말도 이때 나왔어요." },
+      { type: "paragraph", html: "정말 척추뼈가 더 있다는 의학적 판정은 아닙니다. 당시 사람들이 이 그림의 과장된 비율을 얼마나 낯설게 받아들였는지 보여주는 <strong>비평적 표현</strong>에 가깝습니다." },
+      { type: "pull", html: "틀려서 생긴 몸이 아니라, 아름다움을 위해 의도적으로 바꾼 몸이었습니다." },
+      { type: "heading", text: "정확한 몸보다 끊기지 않는 곡선" },
+      { type: "paragraph", html: "앵그르가 놓치고 싶지 않았던 것은 정확한 해부학보다 선의 흐름과 이상적인 곡선이었습니다. 등을 더 길게 늘이고 골반과 다리의 연결을 비틀면서, 시선이 몸의 윤곽을 따라 끊김 없이 움직이게 만들었어요." },
+      { type: "paragraph", html: "형태는 현실을 그대로 옮기는 과정에서만 만들어지지 않습니다. 무엇을 강조할지에 따라 늘어나고, 줄어들고, 때로는 실제 구조에서 멀어지기도 합니다." },
+      { type: "heading", text: "누구의 시선이 만든 몸일까요?" },
+      { type: "paragraph", html: "동시에 이 그림은 19세기 프랑스가 상상한 ‘동양’과 여성의 몸을 바라보는 시선 위에서 만들어졌습니다. 실제 오스만 하렘의 기록이라기보다, 낯설고 관능적인 공간을 원했던 서구의 상상이 반영된 이미지예요." },
+      { type: "paragraph", html: "다음에 이 그림을 보면 아름다운 곡선에서 멈추지 말고, <strong>무엇이 늘어나고 무엇이 지워졌는지</strong>도 함께 보세요. 한 그림 안에서 아름다움과 불편함이 동시에 남아도 괜찮습니다." }
+    ],
+    usebox: "누가 ‘왜 이렇게 몸이 길어?’라고 묻는다면 이렇게 말해보세요. <b>‘해부학을 몰라서가 아니라, 정확한 몸보다 끊기지 않는 곡선을 선택한 거야.’</b> — 그리고 그 아름다움을 만든 시선까지 함께 보면 됩니다.",
+    instagramUrl: "https://instagram.com/crackers.kr",
+    sources: [
+      "https://collections.louvre.fr/en/ark:/53355/cl010065566",
+      "https://collections.louvre.fr/en/ark:/53355/cl020113120",
+      "https://www.metmuseum.org/audio-guide/6024",
+      "https://smarthistory.org/painting-colonial-culture-ingress-la-grande-odalisque/"
+    ]
   }
 ];
 
 export const weeklyIssues = [
+  {
+    number: "006",
+    label: "2026 · 8월 둘째 주",
+    published: "2026-08-14",
+    headline: "새로 열렸거나, 곧 닫히는 서울 전시 3곳",
+    picks: [
+      {
+        tag: "다음 주말 종료 · 숨은 전시",
+        venue: "LDK.DT, 한남동",
+        title: "안상범 개인전 《블랙 박스》",
+        description: "보이지 않는 인프라가 자연을 통제하는 방식과 그 안의 느린 붕괴를 영상과 사운드로 추적합니다. 곧 끝나는 작은 전시부터 챙겨보세요.",
+        startDate: "2026-08-01",
+        endDate: "2026-08-24",
+        price: "관람정보 확인",
+        image: {
+          src: "/assets/exhibitions/weekly-006/black-box.jpg",
+          alt: "안상범 개인전 블랙 박스 공식 포스터"
+        },
+        url: "https://sema.seoul.go.kr/kr/bbs/611333/getBbsDetail?bbsNo=1567392"
+      },
+      {
+        tag: "이번 주 개막 · 무료",
+        venue: "서울시립 북서울미술관",
+        title: "《오인환 vs. 장서영: 휴먼 에러》",
+        description: "완벽한 시스템보다 인간의 오류에서 창작의 가능성을 찾습니다. 영상·사진·설치 23점을 따라 두 작가의 서로 다른 답을 만나보세요.",
+        startDate: "2026-08-13",
+        endDate: "2026-10-25",
+        price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-006/human-error.jpg",
+          alt: "오인환 대 장서영 휴먼 에러 전시 공식 포스터"
+        },
+        url: "https://sema.seoul.go.kr/kr/whatson/exhibition/detail?exNo=1563285"
+      },
+      {
+        tag: "오래 보고 싶은 전시 · 무료",
+        venue: "서울시립 남서울미술관",
+        title: "《조숙진: 지나가는 자리》",
+        description: "버려진 나무와 사물이 기억을 품은 존재로 다시 섭니다. 40여 년의 작업과 신작 100여 점을 오래된 벨기에 영사관 건물에서 만나보세요.",
+        startDate: "2026-07-29",
+        endDate: "2026-11-15",
+        price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-006/jo-sookjin.jpg",
+          alt: "조숙진 지나가는 자리 전시 공식 이미지"
+        },
+        url: "https://sema.seoul.go.kr/kr/whatson/exhibition/detail?exNo=1556711"
+      }
+    ]
+  },
   {
     number: "005",
     label: "2026 · 8월 첫째 주",
