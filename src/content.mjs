@@ -1,7 +1,7 @@
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
-  assetVersion: "20260814-content-3",
+  assetVersion: "20260821-content-1",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -11,7 +11,7 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep07",
+  featuredEpisodeId: "ep08",
   updatedLabel: "2026년 8월 · 매주 금요일 갱신"
 };
 
@@ -274,10 +274,108 @@ export const episodes = [
       "https://www.metmuseum.org/audio-guide/6024",
       "https://smarthistory.org/painting-colonial-culture-ingress-la-grande-odalisque/"
     ]
+  },
+  {
+    id: "ep08",
+    number: "08",
+    artistKey: "ARTEMISIA",
+    artist: "아르테미시아 젠틸레스키",
+    movement: "바로크",
+    published: "2026.08",
+    publishedDate: "2026-08-21",
+    minutes: 3,
+    title: "홀로페르네스의 목을 베는 유디트, 정말 화가의 복수였을까요?",
+    titleHtml: "홀로페르네스의 목을 베는 유디트,<br>정말 화가의 복수였을까요?",
+    summary: "확인된 삶의 사건과 ‘복수화’라는 후대의 해석은 다릅니다.",
+    lede: "성폭력과 재판은 기록으로 남았습니다. 하지만 그림 속 유디트가 화가 자신이라는 증거는 없어요. 삶을 알되, 삶만으로 그림을 가두지 않는 방법.",
+    seoDescription: "아르테미시아 젠틸레스키의 〈홀로페르네스의 목을 베는 유디트〉는 정말 개인적인 복수화였을까. 확인된 1611년의 성폭력과 1612년 재판, 후대의 해석, 두 여성의 협력을 3분 만에 정리했다.",
+    ogDescription: "‘복수화’라는 유명한 해석과 확인된 사실은 다릅니다. 아르테미시아의 유디트를 읽는 또 하나의 방법, 3분 만에 아는 척 EP.08",
+    image: {
+      src: "/assets/artworks/judith-beheading-holofernes.jpg",
+      cardSrc: "/assets/artworks/judith-beheading-holofernes.jpg",
+      fit: "contain",
+      alt: "아르테미시아 젠틸레스키, 홀로페르네스의 목을 베는 유디트",
+      caption: "아르테미시아 젠틸레스키, 〈홀로페르네스의 목을 베는 유디트〉(c. 1620), 우피치미술관"
+    },
+    blocks: [
+      { type: "paragraph", html: "흰 침대보 위로 피가 솟구칩니다. 유디트는 칼을 쥔 팔을 뻗고, 하녀 아브라는 홀로페르네스의 몸을 눌러요. 누군가는 이 그림을 보자마자 말합니다. <strong>‘화가가 자신에게 폭력을 가한 남자에게 복수한 그림’</strong>이라고요. 정말 그럴까요?" },
+      { type: "heading", text: "먼저, 그림 속 사건부터 볼까요?" },
+      { type: "paragraph", html: "유디트는 적군에게 포위된 베툴리아를 구하기 위해 홀로페르네스의 막사로 들어간 성서 속 인물입니다. 술에 취해 잠든 적장의 칼을 빼앗아 그의 목을 베고, 도시를 위기에서 구해요." },
+      { type: "paragraph", html: "아르테미시아는 결말만 보여주지 않았습니다. 칼이 목을 누르는 순간, 두 여성이 몸을 기울여 힘을 모으는 가장 격렬한 한가운데를 골랐어요." },
+      { type: "pull", html: "이 장면을 완성하는 힘은 유디트 한 사람에게서 나오지 않습니다. 두 여성의 팔과 시선이 한 지점으로 모입니다." },
+      { type: "heading", text: "왜 ‘복수화’라는 설명이 따라붙었을까요?" },
+      { type: "paragraph", html: "1611년, 아르테미시아는 화가 아고스티노 타시에게 성폭력을 당했습니다. 이듬해 열린 재판에서 직접 증언했고, 타시는 유죄 판결을 받았어요. 이 사건과 재판 기록은 실제로 남아 있습니다." },
+      { type: "paragraph", html: "그래서 많은 사람은 유디트를 아르테미시아 자신으로, 죽어가는 홀로페르네스를 타시로 읽었습니다. 강렬한 그림과 화가의 삶이 겹쳐 보이기 때문이죠. 하지만 <strong>두 인물이 실제 두 사람을 그렸다고 입증하는 기록은 없습니다.</strong> 확인된 삶의 사건과 작품에 대한 후대의 해석은 여기서 나뉩니다." },
+      { type: "figure", src: "/assets/artworks/caravaggio-judith.jpg", alt: "카라바조, 홀로페르네스의 목을 베는 유디트", caption: "카라바조, 〈홀로페르네스의 목을 베는 유디트〉(c. 1599), 바르베리니 국립고전회화관" },
+      { type: "heading", text: "같은 장면을 그린 카라바조와 비교해보세요" },
+      { type: "paragraph", html: "카라바조의 유디트는 상체를 뒤로 물린 채 칼을 뻗습니다. 반면 아르테미시아의 유디트와 하녀는 침대 위로 깊숙이 들어와 홀로페르네스를 함께 제압해요. 가까운 거리, 얽힌 팔, 무게가 실린 자세 때문에 장면의 힘이 훨씬 직접적으로 느껴집니다." },
+      { type: "paragraph", html: "이 차이를 꼭 개인적인 복수 하나로만 설명할 필요는 없습니다. 아르테미시아는 피렌체 미술원에 들어간 첫 여성 화가였고, 로마·피렌체·나폴리와 유럽 궁정을 오가며 독립적인 경력을 만든 바로크 화가였습니다. 이 그림 역시 한 번의 상처만이 아니라, 성서의 서사와 카라바조의 영향, 그리고 인물의 행동을 설계한 화가의 선택이 함께 만든 작품이에요." },
+      { type: "paragraph", html: "다음에 이 그림을 보면 피의 양만 세지 말고, 두 여성의 팔이 어디로 향하는지 보세요. 삶을 알면 그림은 달라 보입니다. 하지만 <strong>삶이 그림의 유일한 정답은 아닙니다.</strong>" }
+    ],
+    usebox: "누가 ‘아르테미시아가 가해자에게 복수하려고 그린 그림이래’라고 말하면 이렇게 답해보세요. <b>‘성폭력과 재판은 사실이지만, 유디트가 화가 자신이라는 증거는 없어. 복수화는 여러 해석 중 하나야.’</b> — 그리고 두 여성이 함께 쓰는 힘도 봐주세요.",
+    instagramUrl: "https://instagram.com/crackers.kr",
+    sources: [
+      "https://www.uffizi.it/en/artworks/judith-beheading-holofernes",
+      "https://www.nationalgallery.org.uk/artists/artemisia-gentileschi",
+      "https://resources.metmuseum.org/resources/metpublications/pdf/Becoming_Artemisia_The_Metropolitan_Museum_Journal_v_39_2004.pdf"
+    ]
   }
 ];
 
 export const weeklyIssues = [
+  {
+    number: "007",
+    label: "2026 · 8월 셋째 주",
+    published: "2026-08-21",
+    headline: "마지막 주말의 거장전과 새로 열린 숨은 전시 2곳",
+    picks: [
+      {
+        tag: "이번 주말이 마지막",
+        venue: "세종문화회관 미술관",
+        title: "《인상주의를 넘어: 르누아르·드가·고흐·마티스·피카소》",
+        description: "르누아르에서 피카소까지 익숙한 이름을 한자리에서 만납니다. 전부 이해하려 하지 말고, 한 점 앞에서 오래 머물 작품을 찾아보세요.",
+        startDate: "2026-05-28",
+        endDate: "2026-08-23",
+        hours: "10:00–19:00",
+        price: "성인 23,000원",
+        image: {
+          src: "/assets/exhibitions/weekly-007/impressionism-beyond.jpg",
+          alt: "인상주의를 넘어 르누아르 드가 고흐 마티스 피카소 전시 공식 포스터"
+        },
+        url: "https://www.mcst.go.kr/site/s_culture/culture/cultureView.jsp?pSeq=69962"
+      },
+      {
+        tag: "새로 개막 · 숨은 전시",
+        venue: "탈영역우정국 1층",
+        title: "이지 리 《유영하는 레버넌트》",
+        description: "암스테르담의 병원과 한강, 서울의 주거지를 오가며 도시의 기억과 세 여성의 삶과 죽음을 겹쳐 봅니다.",
+        startDate: "2026-08-14",
+        endDate: "2026-08-30",
+        hours: "화–일 13:00–19:00 · 월 휴관",
+        price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-007/drifting-revenants.jpg",
+          alt: "이지 리 유영하는 레버넌트 전시 공식 포스터"
+        },
+        url: "https://culture.seoul.go.kr/culture/culture/cultureEvent/view.do?cultcode=158967&menuNo=200009"
+      },
+      {
+        tag: "사진의 경계가 궁금하다면 · 무료",
+        venue: "서리풀청년아트갤러리",
+        title: "《Scene: 場과 面》",
+        description: "박선영과 이진영은 장소의 기억을 종이, 탁본, 아카이브와 스크린샷에 펼칩니다. 지하보도 공간까지 작품처럼 바라보세요.",
+        startDate: "2026-08-12",
+        endDate: "2026-09-05",
+        hours: "화–일 11:00–22:00 · 월·공휴일 휴관",
+        price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-007/scene-jang-myeon.jpg",
+          alt: "Scene 장과 면 전시 공식 포스터"
+        },
+        url: "https://culture.seoul.go.kr/culture/culture/cultureEvent/view.do?cultcode=159007&menuNo=200009"
+      }
+    ]
+  },
   {
     number: "006",
     label: "2026 · 8월 둘째 주",
