@@ -10,11 +10,6 @@ const compactDate = (value) => {
   return `${month}.${day}`;
 };
 
-const displayEndDate = (value) => {
-  const [year, month, day] = value.split("-").map(Number);
-  return `${year}.${month}.${day}`;
-};
-
 const isPast = (date, today) => date < today;
 
 const pageHead = ({ site, title, description, ogDescription, path = "/", type = "website", stylesheet }) => `<!DOCTYPE html>
@@ -56,7 +51,7 @@ const renderPick = (pick, { archived = false, today }) => {
         <div class="venue">${escapeHtml(pick.venue)}</div>
         <h3>${escapeHtml(pick.title)}</h3>
         <p>${escapeHtml(pick.description)}</p>
-        <div class="meta">~${displayEndDate(pick.endDate)} · ${escapeHtml(pick.price)}</div>
+        <div class="meta">${compactDate(pick.startDate)}–${compactDate(pick.endDate)}${pick.hours ? ` · ${escapeHtml(pick.hours)}` : ""} · ${escapeHtml(pick.price)}</div>
       </a>`;
 };
 
@@ -282,7 +277,7 @@ export const renderEpisode = ({ site, episode, previous, next }) => {
     headline: episode.title,
     description: episode.seoDescription,
     image: episode.image.src,
-    datePublished: `${episode.published.replace(".", "-")}-01`,
+    datePublished: episode.publishedDate ?? `${episode.published.replace(".", "-")}-01`,
     author: { "@type": "Organization", name: site.name },
     publisher: { "@type": "Organization", name: site.name },
     mainEntityOfPage: `${site.url}${path}`
