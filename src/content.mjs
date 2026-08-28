@@ -1,7 +1,7 @@
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
-  assetVersion: "20260821-content-1",
+  assetVersion: "20260828-content-1",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -11,7 +11,7 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep08",
+  featuredEpisodeId: "ep09",
   updatedLabel: "2026년 8월 · 매주 금요일 갱신"
 };
 
@@ -319,10 +319,108 @@ export const episodes = [
       "https://www.nationalgallery.org.uk/artists/artemisia-gentileschi",
       "https://resources.metmuseum.org/resources/metpublications/pdf/Becoming_Artemisia_The_Metropolitan_Museum_Journal_v_39_2004.pdf"
     ]
+  },
+  {
+    id: "ep09",
+    number: "09",
+    artistKey: "DAVID",
+    artist: "자크 루이 다비드",
+    movement: "신고전주의",
+    published: "2026.08",
+    publishedDate: "2026-08-28",
+    minutes: 3,
+    title: "알프스를 넘는 나폴레옹, 사실 이 말을 타지 않았습니다",
+    titleHtml: "알프스를 넘는 나폴레옹,<br>사실 이 말을 타지 않았습니다",
+    summary: "험한 산길의 노새가 앞발을 든 군마로 바뀐 이유.",
+    lede: "휘날리는 망토, 앞발을 든 말, 길을 가리키는 손. 우리가 기억하는 영웅의 모습은 현장 기록이 아니라 다비드가 설계한 이미지였습니다.",
+    seoDescription: "자크 루이 다비드의 〈알프스를 넘는 나폴레옹〉에서 나폴레옹은 왜 군마를 탔을까. 실제 알프스 횡단의 노새, 다섯 버전, 바위에 새긴 이름을 3분 만에 정리했다.",
+    ogDescription: "실제 알프스를 넘을 때 나폴레옹이 탄 것은 군마가 아니라 노새였습니다. 영웅의 이미지를 설계한 다비드, 3분 만에 아는 척 EP.09",
+    image: {
+      src: "/assets/artworks/napoleon-crossing-alps.jpg",
+      cardSrc: "/assets/artworks/napoleon-crossing-alps.jpg",
+      fit: "contain",
+      alt: "자크 루이 다비드, 알프스를 넘는 나폴레옹",
+      caption: "자크 루이 다비드, 〈알프스를 넘는 나폴레옹〉(1801), 베르사유궁전 소장본"
+    },
+    blocks: [
+      { type: "paragraph", html: "앞발을 번쩍 든 말, 바람에 휘날리는 붉은 망토, 산 너머를 가리키는 손. 위험한 알프스도 이 사람 앞에서는 길을 내어줄 것 같습니다. 우리가 기억하는 나폴레옹의 얼굴은 대개 이런 모습이에요. 그런데 이 장면에는 큰 각색이 하나 있습니다." },
+      { type: "pull", html: "나폴레옹은 실제 알프스 횡단 때 이 군마를 타지 않았습니다. 험한 산길에 더 안정적인 노새를 탄 것으로 전해집니다." },
+      { type: "heading", text: "그럼 다비드는 왜 말을 바꿨을까요?" },
+      { type: "paragraph", html: "1800년 5월, 나폴레옹이 이끈 프랑스군은 그랑 생베르나르 고개를 넘어 이탈리아로 향했습니다. 이 일을 기념하는 초상에서 다비드는 눈길을 조심스럽게 오르는 노새 대신, 앞발을 든 사나운 군마를 선택했어요." },
+      { type: "paragraph", html: "말메종 박물관은 나폴레옹이 자신을 <strong>‘사나운 말 위에 침착하게’</strong> 보이도록 원했다고 전합니다. 불안정한 말과 흔들리는 망토가 거센 상황을 만들고, 그 한가운데에서 자세를 잃지 않는 나폴레옹은 더 강한 지도자로 보이죠." },
+      { type: "heading", text: "처음부터 나폴레옹의 주문으로 시작된 그림은 아닙니다" },
+      { type: "paragraph", html: "첫 그림은 스페인 국왕 카를로스 4세가 마드리드 왕궁의 ‘위대한 지휘관들의 방’에 걸기 위해 주문했습니다. 완성된 작품을 본 나폴레옹은 망토와 말의 색, 장구를 조금씩 달리한 반복본을 추가로 주문했고, 다비드는 같은 구도의 작품을 모두 다섯 점 남겼어요." },
+      { type: "figure", src: "/assets/artworks/david-self-portrait.jpg", alt: "자크 루이 다비드 자화상", caption: "자크 루이 다비드, 〈자화상〉(1794), 루브르박물관" },
+      { type: "heading", text: "바위에 새겨진 이름도 읽어보세요" },
+      { type: "paragraph", html: "말의 발아래 바위에는 <strong>BONAPARTE, HANNIBAL, KAROLUS MAGNUS</strong>가 새겨져 있습니다. 한니발과 샤를마뉴는 앞서 알프스를 넘은 역사적 지휘관들이에요. 다비드는 나폴레옹의 이름을 그들 옆에 놓아, 이제 그 계보를 잇는 다음 영웅처럼 보이게 했습니다." },
+      { type: "paragraph", html: "나폴레옹은 이 초상을 위해 직접 포즈를 취하지도 않았습니다. 다비드는 의상과 모델, 회화적 장치를 이용해 우리가 기억하게 될 한 사람의 이미지를 만들었어요. 이 그림은 실제 장면을 재현하는 기록이라기보다, 무엇을 사실처럼 믿게 만들 것인지 치밀하게 설계한 정치적 초상에 가깝습니다." },
+      { type: "heading", text: "그림은 사실을 보여주기도 하지만" },
+      { type: "paragraph", html: "때로는 사실보다 더 오래 남는 이미지를 만듭니다. 다음에 이 그림을 보면 나폴레옹의 손끝만 따라가지 말고, 말의 발아래 바위와 거기에 새겨진 이름부터 보세요. 그리고 물어보세요. <strong>내가 기억하는 나폴레옹은 실제 인물일까요, 다비드가 만든 이미지일까요?</strong>" }
+    ],
+    usebox: "누가 ‘나폴레옹이 저 말을 타고 알프스를 넘은 거야?’라고 묻는다면 이렇게 말해보세요. <b>‘실제로는 산길에 안정적인 노새를 탔대. 군마는 영웅처럼 보이게 만든 다비드의 선택이야.’</b> — 바위의 세 이름까지 찾으면 더 좋습니다.",
+    instagramUrl: "https://instagram.com/crackers.kr",
+    sources: [
+      "https://musees-nationaux-malmaison.fr/chateau-malmaison/collection/objet/le-premier-consul-franchissant-les-alpes-au-col-du-grand-saint-bernard",
+      "https://www.napoleon.org/en/history-of-the-two-empires/paintings/bonaparte-crossing-the-great-st-bernard-pass/",
+      "https://www.napoleon.org/en/magazine/places/great-saint-bernard-pass/"
+    ]
   }
 ];
 
 export const weeklyIssues = [
+  {
+    number: "008",
+    label: "2026 · 8월 넷째 주",
+    published: "2026-08-28",
+    headline: "막 문을 연 전시 2곳과 생활에서 시작하는 전시 1곳",
+    picks: [
+      {
+        tag: "이번 주 개막 · 긴 호흡의 영상",
+        venue: "두산아트센터 두산갤러리",
+        title: "정여름 《복수》",
+        description: "한 인물의 자서전에서 출발해 한국·베트남·러시아와 시베리아 횡단열차를 가로지릅니다. 대표 영상은 66분이니 70–90분의 여유를 두고 방문하세요.",
+        startDate: "2026-08-26",
+        endDate: "2026-10-17",
+        hours: "화–토 11:00–19:00 · 일·월·추석 휴관",
+        price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-008/revenge.jpg",
+          alt: "정여름 복수 전시 공식 이미지"
+        },
+        url: "https://m.doosanartcenter.com/ko/exhibit/1669?q.displayStatus=CURRENT"
+      },
+      {
+        tag: "오늘 개막 · 첫 미술관 개인전",
+        venue: "아트선재센터 아트홀 B1",
+        title: "김무영 《Pig》",
+        description: "‘Pig’는 돼지가 아니라 무대 장치를 지탱하는 평형추입니다. 작품뿐 아니라 무대와 객석, 보이는 장면을 떠받치는 구조를 함께 살펴보세요.",
+        startDate: "2026-08-28",
+        endDate: "2026-10-04",
+        hours: "화–일 12:00–18:00 · 월 휴관",
+        price: "성인 10,000원",
+        image: {
+          src: "/assets/exhibitions/weekly-008/pig.jpg",
+          alt: "김무영 Pig 전시 공식 그래픽"
+        },
+        url: "https://artsonje.org/exhibition/muyeong-kim-pig-kr/"
+      },
+      {
+        tag: "생활에서 시작하는 전시",
+        venue: "국립중앙박물관 특별전시실 2",
+        title: "《우리들의 밥상》",
+        description: "개인 그릇과 공동 그릇, 식탁의 높이와 자리 배치를 보며 밥상이 만든 관계와 규칙을 살펴봅니다. 음식보다 먼저 누가 어디에 앉았는지 보세요.",
+        startDate: "2026-07-01",
+        endDate: "2026-10-25",
+        hours: "월·화·목·금·일 17:30까지 · 수·토 21:00까지",
+        price: "성인 5,000원",
+        image: {
+          src: "/assets/exhibitions/weekly-008/our-table.jpg",
+          alt: "우리들의 밥상 전시 공식 포스터"
+        },
+        url: "https://www.museum.go.kr/MUSEUM/contents/M0202010000.do?exhiSpThemId=3529713&listType=gallery&menuId=current&schM=view"
+      }
+    ]
+  },
   {
     number: "007",
     label: "2026 · 8월 셋째 주",
