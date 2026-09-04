@@ -1,7 +1,7 @@
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
-  assetVersion: "20260828-content-1",
+  assetVersion: "20260904-content-1",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -11,8 +11,8 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep09",
-  updatedLabel: "2026년 8월 · 매주 금요일 갱신"
+  featuredEpisodeId: "ep10",
+  updatedLabel: "2026년 9월 · 매주 금요일 갱신"
 };
 
 export const episodes = [
@@ -364,10 +364,108 @@ export const episodes = [
       "https://www.napoleon.org/en/history-of-the-two-empires/paintings/bonaparte-crossing-the-great-st-bernard-pass/",
       "https://www.napoleon.org/en/magazine/places/great-saint-bernard-pass/"
     ]
+  },
+  {
+    id: "ep10",
+    number: "10",
+    artistKey: "HOKUSAI",
+    artist: "가쓰시카 호쿠사이",
+    movement: "우키요에",
+    published: "2026.09",
+    publishedDate: "2026-09-04",
+    minutes: 3,
+    title: "〈큰 파도〉, 처음부터 여러 장 찍어 팔기 위해 만든 작품입니다",
+    titleHtml: "〈큰 파도〉,<br>처음부터 여러 장 찍어 팔기 위해 만든 작품입니다",
+    summary: "한 점의 유화가 아니라 종이에 찍혀 여러 사람에게 건너간 다색 목판화.",
+    lede: "우리는 이 파도를 세상에 하나뿐인 명화처럼 기억합니다. 하지만 호쿠사이의 〈큰 파도〉는 같은 디자인을 여러 장 찍어 유통한 목판화였습니다.",
+    seoDescription: "호쿠사이의 〈가나가와 해변의 높은 파도 아래〉는 한 점의 유화가 아니다. 다색 목판화와 여러 인쇄본, 당시의 대중적 유통을 3분 만에 정리했다.",
+    ogDescription: "이 명화는 처음부터 여러 장 찍어 팔기 위해 만든 작품입니다. 유일성과 반복 사이에서 다시 보는 호쿠사이의 〈큰 파도〉, 3분 만에 아는 척 EP.10",
+    image: {
+      src: "/assets/artworks/great-wave-met-jp2569.jpg",
+      cardSrc: "/assets/artworks/great-wave-met-jp2569.jpg",
+      fit: "contain",
+      alt: "가쓰시카 호쿠사이, 가나가와 해변의 높은 파도 아래",
+      caption: "가쓰시카 호쿠사이, 〈가나가와 해변의 높은 파도 아래〉(약 1830–32), The Metropolitan Museum of Art, JP2569, Public Domain"
+    },
+    blocks: [
+      { type: "paragraph", html: "거대한 파도가 손가락처럼 갈라진 포말을 뻗고, 배 세 척은 물결 사이에 놓여 있습니다. 멀리 보이는 후지산은 파도보다 훨씬 작아요. 너무 유명한 이미지라서 우리는 이 작품을 박물관에 단 한 점만 남은 거대한 회화처럼 떠올리기 쉽습니다." },
+      { type: "pull", html: "하지만 〈큰 파도〉는 한 점의 유화가 아닙니다. 종이에 색을 여러 번 찍어 완성한 <strong>다색 목판화</strong>이며, 〈후지산 36경〉 연작에 속한 하나의 디자인입니다." },
+      { type: "heading", text: "같은 〈큰 파도〉가 여러 미술관에 있습니다" },
+      { type: "paragraph", html: "목판화는 그려진 한 장만 남기는 방식이 아닙니다. 같은 판으로 여러 장을 찍을 수 있기 때문에 하나의 디자인이 여러 사람에게 건너갈 수 있어요. 오늘날에도 메트로폴리탄미술관을 비롯한 여러 기관에 서로 다른 〈큰 파도〉 인쇄본이 남아 있습니다." },
+      { type: "figure", src: "/assets/artworks/great-wave-met-jp10.jpg", alt: "메트로폴리탄미술관이 소장한 또 다른 큰 파도 인쇄본", caption: "같은 디자인의 다른 인쇄본, The Metropolitan Museum of Art, JP10, Public Domain" },
+      { type: "heading", text: "같은 디자인인데 왜 조금씩 다르게 보일까요?" },
+      { type: "paragraph", html: "두 인쇄본을 나란히 보면 하늘의 색, 파도 끝의 선, 종이의 상태가 미묘하게 다릅니다. 찍을 때의 상태와 판의 마모, 이후의 보존 환경이 각각 달랐기 때문이에요. 화면과 촬영 조건도 색에 영향을 줄 수 있으니, 어느 한 장을 ‘진짜 원본’이라고 서열화할 필요는 없습니다." },
+      { type: "heading", text: "처음부터 한 사람만 소유하는 물건도 아니었습니다" },
+      { type: "paragraph", html: "대영박물관은 에도 시대에 이런 판화를 <strong>국수 두 그릇 남짓한 가격</strong>으로 살 수 있었다고 설명합니다. 오늘날의 세계적인 아이콘이 처음에는 반복해서 찍히고 팔리며 사람들의 손을 거쳐 이동한 대중적인 이미지였던 셈이죠." },
+      { type: "paragraph", html: "이 사실은 명화의 가치를 다른 방향에서 보게 합니다. 작품이 특별해지는 이유는 세상에 하나뿐이기 때문일까요? 아니면 같은 이미지가 반복해서 이동하고, 더 많은 사람의 기억 속에 살아남았기 때문일까요?" },
+      { type: "paragraph", html: "다음에 〈큰 파도〉를 보면 파도의 크기만 보지 말고 종이 위에 남은 선과 색도 살펴보세요. 그리고 기억해두세요. <strong>이 파도의 힘은 유일성만이 아니라 반복과 이동에서도 만들어졌습니다.</strong>" }
+    ],
+    usebox: "누가 ‘이게 진짜 〈큰 파도〉야?’라고 묻는다면 이렇게 말해보세요. <b>‘한 점의 유화가 아니라 같은 디자인을 여러 장 찍은 목판화야. 그래서 여러 미술관에 서로 다른 인쇄본이 남아 있어.’</b> — 명화는 하나뿐이라서가 아니라 모두가 기억해서 특별할 수도 있습니다.",
+    instagramUrl: "https://instagram.com/crackers.kr",
+    sources: [
+      "https://www.metmuseum.org/art/collection/search/39799",
+      "https://www.metmuseum.org/art/collection/search/36491",
+      "https://www.britishmuseum.org/collection/object/A_2008-3008-1",
+      "https://www.britishmuseum.org/blog/great-wave-spot-difference",
+      "https://www.britishmuseum.org/blog/historical-city-travel-guide-edo-tokyo-early-19th-century"
+    ]
   }
 ];
 
 export const weeklyIssues = [
+  {
+    number: "009",
+    label: "2026 · 9월 첫째 주",
+    published: "2026-09-04",
+    headline: "행사보다 질문부터 고르는 서울 전시 3곳",
+    picks: [
+      {
+        tag: "MUST SEE · 몰입형 대나무 설치",
+        venue: "프리즈 하우스 서울",
+        title: "다나베 치쿤사이 4세 《INVISIBLE FOREST》",
+        description: "약 7,000개의 쪼갠 대나무 조각이 공간을 가로지르는 망을 만듭니다. 터널의 모양보다 그 연결 속에서 내가 어디에 있는지 생각해보세요.",
+        startDate: "2026-08-27",
+        endDate: "2026-09-19",
+        hours: "화–토 11:00–18:00 · 일·월 휴관",
+        price: "관람료 무료 · 예약 불필요",
+        image: {
+          src: "/assets/exhibitions/weekly-009/invisible-forest.png",
+          alt: "다나베 치쿤사이 4세 INVISIBLE FOREST 전시 전경"
+        },
+        url: "https://www.frieze.com/frieze-house-seoul/exhibition-yumekoubou-gallery-tanabe-chikuunsai-iv-2026"
+      },
+      {
+        tag: "FREE / VALUE · 오윤 40주기",
+        venue: "서울시립 미술아카이브 모음동 1·2층",
+        title: "오윤 《오윤》",
+        description: "판화·조각·드로잉과 아카이브를 따라가며 춤추고, 일하고, 소리치는 사람들의 몸을 봅니다. 여러 장 찍혀 퍼지는 판화가 된 이유도 생각해보세요.",
+        startDate: "2026-08-27",
+        endDate: "2027-02-14",
+        hours: "화–금 10:00–20:00 · 주말·공휴일 계절별 운영 · 월 휴관",
+        price: "관람료 무료",
+        image: {
+          src: "/assets/exhibitions/weekly-009/oyoon.jpg",
+          alt: "오윤 전시 공식 포스터"
+        },
+        url: "https://sema.seoul.go.kr/kr/whatson/exhibition/detail?exNo=1576838"
+      },
+      {
+        tag: "BEGINNER PICK · 움직임과 그림자",
+        venue: "P21",
+        title: "양정욱 《기도하는 사람들》",
+        description: "작은 모터와 실, 나무 구조가 빛과 그림자, 움직임을 만듭니다. 뜻을 맞히기보다 움직임이 반복되는 속도와 그림자의 변화를 먼저 따라가보세요.",
+        startDate: "2026-09-01",
+        endDate: "2026-10-10",
+        hours: "화–금 11:00–18:00 · 토 12:00–18:00 · 일·월 휴관",
+        price: "관람료·예약 조건 방문 전 확인",
+        image: {
+          src: "/assets/exhibitions/weekly-009/people-in-prayer.jpg",
+          alt: "양정욱 기도하는 사람들 전시 전경"
+        },
+        url: "https://ocula.com/art-galleries/p21/exhibitions/yang-jung-uk-people-in-prayer/"
+      }
+    ]
+  },
   {
     number: "008",
     label: "2026 · 8월 넷째 주",
