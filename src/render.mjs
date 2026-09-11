@@ -46,7 +46,7 @@ const renderPick = (pick, { archived = false, today }) => {
   const tagClasses = ["tag", archived ? (done ? "done" : "live") : ""].filter(Boolean).join(" ");
 
   return `<a class="${classes}" href="${escapeHtml(pick.url)}" target="_blank" rel="noopener">
-        ${pick.image ? `<div class="pick-image"><img src="${escapeHtml(pick.image.src)}" alt="${escapeHtml(pick.image.alt)}" loading="lazy" width="900" height="1200"></div>` : ""}
+        ${pick.image ? `<div class="pick-image"><img src="${escapeHtml(pick.image.src)}" alt="${escapeHtml(pick.image.alt)}" loading="lazy" width="900" height="1200"></div>${pick.image.caption ? `\n        <div class="pick-credit">${escapeHtml(pick.image.caption)}</div>` : ""}` : ""}
         <span class="${tagClasses}">${escapeHtml(tag)}</span>
         <div class="venue">${escapeHtml(pick.venue)}</div>
         <h3>${escapeHtml(pick.title)}</h3>
