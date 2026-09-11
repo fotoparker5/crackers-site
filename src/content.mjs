@@ -1,7 +1,7 @@
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
-  assetVersion: "20260904-content-1",
+  assetVersion: "20260911-content-1",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -11,7 +11,7 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep10",
+  featuredEpisodeId: "ep11",
   updatedLabel: "2026년 9월 · 매주 금요일 갱신"
 };
 
@@ -409,10 +409,110 @@ export const episodes = [
       "https://www.britishmuseum.org/blog/great-wave-spot-difference",
       "https://www.britishmuseum.org/blog/historical-city-travel-guide-edo-tokyo-early-19th-century"
     ]
+  },
+  {
+    id: "ep11",
+    number: "11",
+    artistKey: "VELÁZQUEZ",
+    artist: "디에고 벨라스케스",
+    movement: "바로크",
+    published: "2026.09",
+    publishedDate: "2026-09-11",
+    minutes: 3,
+    title: "〈시녀들〉, 왕과 왕비는 왜 거울 속에만 보일까요?",
+    titleHtml: "〈시녀들〉,<br>왕과 왕비는 왜<br>거울 속에만 보일까요?",
+    summary: "공주, 화가, 뒷면만 보이는 캔버스. 뒤쪽 거울까지 보고 나면 우리가 선 자리도 궁금해집니다.",
+    lede: "가운데 공주가 있으니 공주를 그리는 장면 같죠. 그런데 왼쪽 화가는 우리 쪽을 보고, 뒤쪽 거울에는 왕과 왕비가 있습니다. 대체 누구를 그리는 중일까요?",
+    seoDescription: "벨라스케스의 〈시녀들〉을 공주, 화가, 캔버스 뒷면, 거울 순서로 읽습니다. 거울 속 왕과 왕비의 정체와 열린 해석을 구분하는 3분 명화 이야기.",
+    ogDescription: "왕과 왕비는 왜 거울 속에만 보일까요? 그림을 보는 우리의 자리까지 궁금해지는 벨라스케스 〈시녀들〉, 3분 만에 아는 척 EP.11",
+    image: {
+      src: "/assets/artworks/las-meninas.jpg",
+      cardSrc: "/assets/artworks/las-meninas.jpg",
+      fit: "contain",
+      alt: "벨라스케스의 시녀들: 중앙의 마르가리타 공주, 왼쪽 화가, 뒤쪽 거울 속 왕과 왕비",
+      caption: "디에고 벨라스케스, 〈시녀들〉(1656), 캔버스에 유채, 프라도미술관. 이미지: Wikimedia Commons / Public Domain Mark 1.0"
+    },
+    blocks: [
+      { type: "paragraph", html: "방 안에 사람들이 모여 있습니다. 가장 먼저 눈에 들어오는 건 밝은 드레스를 입은 어린아이예요. <strong>마르가리타 공주</strong>입니다. 양옆에는 시녀들이 있고, 앞쪽에는 커다란 개가 누워 있어요. 여기까지만 보면 공주의 일상을 그린 궁정 그림처럼 보입니다." },
+      { type: "heading", text: "그런데 화가는 누구를 보고 있을까요?" },
+      { type: "paragraph", html: "왼쪽 끝으로 눈을 옮겨보세요. 붓과 팔레트를 든 남자가 큰 캔버스 앞에 서 있습니다. 이 그림을 그린 <strong>벨라스케스 자신</strong>이에요. 그는 캔버스가 아니라 그림 바깥, 우리가 서 있는 쪽을 바라보는 듯합니다. 모델을 살피다 잠깐 붓을 멈춘 순간 같죠." },
+      { type: "paragraph", html: "그 앞의 캔버스는 커다랗지만 정작 무엇을 그리고 있는지는 보이지 않습니다. 우리에게 드러난 건 <strong>캔버스의 뒷면</strong>뿐이거든요. 공주를 그리는 중인지, 다른 누군가를 그리는 중인지 그림만 보고 확정하기 어렵습니다." },
+      { type: "heading", text: "답을 찾으려면 뒤쪽 거울을 보세요" },
+      { type: "figure", src: "/assets/artworks/las-meninas-mirror.jpg", alt: "시녀들 뒤쪽 거울에 비친 펠리페 4세와 마리아나 왕비의 얼굴 확대", caption: "〈시녀들〉 거울 부분 확대. 펠리페 4세와 마리아나 왕비가 보입니다. 이미지: Wikimedia Commons / Public Domain Mark 1.0" },
+      { type: "paragraph", html: "방 뒤편, 액자들 사이에 유난히 밝은 사각형이 있습니다. 거울이에요. 그 안에 보이는 두 사람은 <strong>펠리페 4세와 마리아나 왕비</strong>입니다. 방 가운데에는 공주가 있는데, 왕과 왕비는 아주 작게, 거울 속에만 나타납니다." },
+      { type: "pull", html: "거울 속 인물이 왕과 왕비라는 점과, 두 사람이 정확히 어디에 서 있다는 주장은 같은 이야기가 아닙니다." },
+      { type: "paragraph", html: "왕과 왕비가 그림 앞쪽에 서 있고 벨라스케스가 두 사람을 그리는 중이라고 읽으면, 인물들이 우리 쪽을 바라보는 이유가 그럴듯하게 이어집니다. 하지만 이것은 <strong>그림을 읽는 한 가지 해석</strong>이에요. 거울이 무엇을 반사하는지, 보이지 않는 캔버스에 무엇이 그려져 있는지를 하나의 정답으로 닫을 필요는 없습니다." },
+      { type: "heading", text: "마지막으로, 내가 선 자리를 생각해보세요" },
+      { type: "paragraph", html: "다시 전체 그림으로 돌아가보세요. 처음에는 가운데 공주만 보였는데, 이제 화가의 시선과 캔버스 뒷면, 뒤쪽 거울이 서로 연결됩니다. 그림 바깥에도 누군가의 자리가 있을 것 같고, 마침 우리가 그 앞에 서 있습니다." },
+      { type: "paragraph", html: "1656년에 그린 이 그림이 지금도 낯설고 재미있는 이유는, 보는 사람까지 장면 속으로 불러들이는 듯하기 때문 아닐까요. 다음에 〈시녀들〉을 만나면 인물 이름을 전부 외우기보다 이 순서만 기억해보세요. <strong>화가의 눈 → 캔버스 뒷면 → 거울.</strong> 우리가 그림을 보고 있는 걸까요, 그림 속 사람들이 우리 쪽을 보고 있는 걸까요?" }
+    ],
+    usebox: "누가 ‘벨라스케스가 누구를 그리는 중이야?’라고 묻는다면 이렇게 말해보세요. <b>‘캔버스는 뒷면만 보여서 확정하기 어려워. 뒤쪽 거울에는 왕과 왕비가 있어. 그걸 보고 나면 우리가 서 있는 자리도 궁금해져.’</b>",
+    instagramUrl: "https://instagram.com/crackers.kr",
+    sources: [
+      "https://www.museodelprado.es/en/the-collection/art-work/the-family-of-felipe-iv-or-las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f",
+      "https://www.museodelprado.es/recurso/las-ventanas-del-prado/f3739d63-212a-4cad-adaa-3719724d21e7",
+      "https://commons.wikimedia.org/wiki/File:Las_Meninas,_by_Diego_Vel%C3%A1zquez,_from_Prado_in_Google_Earth.jpg"
+    ]
   }
 ];
 
 export const weeklyIssues = [
+  {
+    number: "010",
+    label: "2026 · 9월 둘째 주",
+    published: "2026-09-11",
+    headline: "깨진 조각, 경계, 캠퍼스에서 시작하는 서울 전시 3곳",
+    picks: [
+      {
+        tag: "MUST SEE · 조각을 잇는 시선",
+        venue: "세종미술관 1·2관",
+        title: "이수경 《아직, 이제는, 여전히》",
+        description: "깨진 도자기 조각이 금빛 이음새를 따라 새로운 형태로 이어집니다. 원래 모습으로 돌아가지 않아도 다시 아름다워질 수 있을까요? 조각 사이의 연결부터 살펴보세요.",
+        startDate: "2026-09-04",
+        endDate: "2026-09-27",
+        hours: "10:00–18:30 · 입장 마감 18:00",
+        price: "무료 · 휴관·예약 등 미확인 정보는 관람 전 공식 안내 확인",
+        image: {
+          src: "/assets/exhibitions/weekly-010/yeesookyung.png",
+          alt: "이수경 아직, 이제는, 여전히 공식 홍보 이미지",
+          caption: "이미지 출처 · 세종문화회관 / 호반문화재단"
+        },
+        url: "https://www.sejongpac.or.kr/portal/performance/performance/performTicket.do?menuNo=200320&performIdx=37607"
+      },
+      {
+        tag: "LAST CHANCE · 9월 13일까지",
+        venue: "대한민국역사박물관 3층 기획전시실",
+        title: "《바람의 길목 DMZ》",
+        description: "DMZ를 지도 위의 경계선만으로 보지 않고, 그 안팎의 삶과 자연을 함께 바라봅니다. 경계가 생긴 뒤에도 이어지는 것은 무엇일까요? 이번 주말 종료되는 전시입니다.",
+        startDate: "2026-06-11",
+        endDate: "2026-09-13",
+        hours: "10:00–18:00 · 수·토 21:00까지 · 입장 마감 30분 전",
+        price: "무료 · 휴관·예약 등 변동 정보는 관람 전 공식 안내 확인",
+        image: {
+          src: "/assets/exhibitions/weekly-010/dmz.png",
+          alt: "바람의 길목 DMZ 공식 전시 포스터",
+          caption: "포스터 출처 · 대한민국역사박물관"
+        },
+        url: "https://www.much.go.kr/MUCH/contents/M02010100000.do?exhCode=EXH_0000000258&page=1&schExhCategory=EXH01&schM=view&searchExhDivision=play"
+      },
+      {
+        tag: "BEGINNER PICK · 일상에서 만나는 역사",
+        venue: "서울생활사박물관 기획전시실",
+        title: "《대학에서 우리는》",
+        description: "대학 생활의 기록을 따라 강의실 밖 풍경과 청년들의 일상을 만납니다. 학교에서 보낸 시간을 떠올리며 물어보세요. 우리는 수업 밖에서 무엇을 배웠을까요?",
+        startDate: "2026-05-15",
+        endDate: "2026-09-27",
+        hours: "화–일 09:00–18:00 · 입장 마감 17:30 · 월 휴관(공휴일 개관)",
+        price: "무료 · 휴관·예약 등 변동 정보는 관람 전 공식 안내 확인",
+        image: {
+          src: "/assets/exhibitions/weekly-010/university.jpg",
+          alt: "대학에서 우리는 공식 전시 포스터",
+          caption: "포스터 출처 · 서울생활사박물관"
+        },
+        url: "https://museum.seoul.go.kr/sulm/board/NR_boardView.do?bbsCd=1002&seq=20260422163604668"
+      }
+    ]
+  },
   {
     number: "009",
     label: "2026 · 9월 첫째 주",
