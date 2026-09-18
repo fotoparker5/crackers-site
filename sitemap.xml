@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://crackers.kr/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://crackers.kr/exhibitions.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://crackers.kr/daily</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://crackers.kr/daily01</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://crackers.kr/daily02</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep01</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep02</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep03</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -13,4 +16,5 @@
   <url><loc>https://crackers.kr/ep09</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep10</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep11</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://crackers.kr/ep12</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

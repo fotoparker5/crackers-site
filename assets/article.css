@@ -64,6 +64,9 @@ article h2::before{content:"— ";color:var(--red);}
 .instagram-note a{font-weight:700;border-bottom:1px solid var(--sub);}
 .sources{border-top:1px solid rgba(22,19,16,.2);margin-top:40px;padding-top:24px;}
 .sources h2{font-size:17px;margin:0 0 10px;}
+.sources p{font-size:12px;color:var(--sub);line-height:1.75;margin-bottom:16px;overflow-wrap:anywhere;}
+.daily-article .ep-label{background:var(--yellow);color:var(--black);}
+.daily-article article h2::before{color:var(--black);}
 .sources h2::before{content:none;}
 .sources ul{list-style:none;display:flex;gap:10px;flex-wrap:wrap;}
 .sources a{

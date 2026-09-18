@@ -9,6 +9,7 @@ CRACKERS의 정적 홈페이지입니다. 기존의 시각 디자인은 유지�
 - `site`: 사이트 이름, 소개, 외부 링크
 - `episodes`: 명화 에피소드
 - `weeklyIssues`: 전시줍줍
+- `dailyEpisodes`: 명화 에피소드와 번호를 분리한 이미지 중심 연재 ‘그림 속 일상’
 
 새 콘텐츠를 추가하거나 기존 내용을 고친 뒤 아래 명령으로 페이지를 생성합니다.
 
@@ -32,6 +33,8 @@ assets/home.css     홈페이지 스타일
 assets/article.css  상세 글 스타일
 index.html          자동 생성된 홈페이지
 ep*.html            자동 생성된 명화 에피소드
+daily.html          그림 속 일상 모아보기
+daily*.html         그림 속 일상 상세 페이지
 sitemap.xml         자동 생성된 사이트맵
 robots.txt          검색 엔진 설정
 ```

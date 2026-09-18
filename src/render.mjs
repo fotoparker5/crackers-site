@@ -42,8 +42,8 @@ const wordmark = (site) => `${site.name.slice(0, 2)}<span class="a">A</span>${si
 const renderPick = (pick, { archived = false, today }) => {
   const done = isPast(pick.endDate, today);
   const classes = ["pick", done ? "done" : ""].filter(Boolean).join(" ");
-  const tag = archived ? (done ? "마감" : "진행 중") : pick.tag;
-  const tagClasses = ["tag", archived ? (done ? "done" : "live") : ""].filter(Boolean).join(" ");
+  const tag = done ? "마감" : (archived ? "진행 중" : pick.tag);
+  const tagClasses = ["tag", done ? "done" : archived ? "live" : ""].filter(Boolean).join(" ");
 
   return `<a class="${classes}" href="${escapeHtml(pick.url)}" target="_blank" rel="noopener">
         ${pick.image ? `<div class="pick-image"><img src="${escapeHtml(pick.image.src)}" alt="${escapeHtml(pick.image.alt)}" loading="lazy" width="900" height="1200"></div>${pick.image.caption ? `\n        <div class="pick-credit">${escapeHtml(pick.image.caption)}</div>` : ""}` : ""}
@@ -55,7 +55,14 @@ const renderPick = (pick, { archived = false, today }) => {
       </a>`;
 };
 
-export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
+const renderDailyCards = (dailyEpisodes) => `<div class="grid daily-grid">${[...dailyEpisodes].reverse().map((entry) => `<a class="story" href="${entry.id}.html">
+  <div class="img"><img src="${entry.image.src}" alt="${escapeHtml(entry.image.alt)}" loading="lazy" width="1080" height="1030"></div>
+  <span class="ep">그림 속 일상 ${entry.number}</span>
+  <h3>${escapeHtml(entry.title)}</h3><p>${escapeHtml(entry.summary)}</p>
+  <span class="min">${escapeHtml(entry.artist)} · ${escapeHtml(entry.work)}</span>
+</a>`).join("\n")}</div>`;
+
+export const renderHome = ({ site, episodes, weeklyIssues, dailyEpisodes, today }) => {
   const featured = episodes.find((episode) => episode.id === site.featuredEpisodeId);
   const archiveEpisodes = episodes
     .filter((episode) => episode.id !== featured.id)
@@ -87,6 +94,7 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
       <a class="hot" href="#weekly">이번 주 전시</a>
       <a href="exhibitions.html">전시 아카이브</a>
       <a href="#archive">3분 만에 아는 척</a>
+      <a href="#daily">그림 속 일상</a>
       <a href="#about">소개</a>
       <a href="${site.newsletterUrl}" target="_blank" rel="noopener">뉴스레터</a>
     </nav>
@@ -156,6 +164,11 @@ export const renderHome = ({ site, episodes, weeklyIssues, today }) => {
   </section>
 
   <div class="wrap">
+    <section id="daily" aria-labelledby="daily-title">
+      <div class="sec-label"><h2 id="daily-title">그림 속 <span class="red">일상</span></h2><div class="rule"></div><a class="more" href="daily.html">${dailyEpisodes.length}편 모두 보기 →</a></div>
+      <p class="daily-intro">음식, 방, 옷, 물건부터 그림을 들여다봅니다. 어려운 용어 없이, 눈에 들어온 것 하나부터요.</p>
+      ${renderDailyCards(dailyEpisodes)}
+    </section>
     <section id="about" class="about">
       <div class="label">ABOUT CRACKERS</div>
       <h2>몰라도 괜찮아요.<br>우리가 함께할게요.</h2>
@@ -262,7 +275,7 @@ const renderBlock = (block) => {
   if (block.type === "pull") return `<div class="pull">${block.html}</div>`;
   if (block.type === "figure") {
     return `<figure class="artwork secondary">
-      <img src="${escapeHtml(block.src)}" alt="${escapeHtml(block.alt)}" loading="lazy">
+      <img src="${escapeHtml(block.src)}" alt="${escapeHtml(block.alt)}" loading="lazy"${block.maxWidth ? ` style="max-width:${Number(block.maxWidth)}px;margin-inline:auto"` : ""}>
       <figcaption>${escapeHtml(block.caption)}</figcaption>
     </figure>`;
   }
@@ -322,7 +335,7 @@ export const renderEpisode = ({ site, episode, previous, next }) => {
       <p>${episode.usebox}</p>
     </div>
 
-    <p class="instagram-note">카드뉴스 3분 요약은 <a href="${episode.instagramUrl}" target="_blank" rel="noopener">인스타(@crackers.kr)</a>에서 볼 수 있어요. 다음 그림은 댓글로 신청받아요.</p>
+    <p class="instagram-note">${episode.instagramPublished === false ? `CRACKERS의 다음 이야기는 <a href="${episode.instagramUrl}" target="_blank" rel="noopener">인스타(@crackers.kr)</a>에서도 이어집니다.` : `카드뉴스 3분 요약은 <a href="${episode.instagramUrl}" target="_blank" rel="noopener">인스타(@crackers.kr)</a>에서 볼 수 있어요. 다음 그림은 댓글로 신청받아요.`}</p>
 ${episode.sources?.length ? `    <aside class="sources"><h2>참고한 자료</h2><ul>${episode.sources.map((source) => `<li><a href="${source}" target="_blank" rel="noopener">${new URL(source).hostname}</a></li>`).join("")}</ul></aside>` : ""}
   </article>
 
@@ -347,10 +360,41 @@ ${episode.sources?.length ? `    <aside class="sources"><h2>참고한 자료</h2
 `;
 };
 
-export const renderSitemap = ({ site, episodes }) => `<?xml version="1.0" encoding="UTF-8"?>
+export const renderDailyArchive = ({ site, dailyEpisodes }) => `${pageHead({ site, title: `그림 속 일상 | ${site.name}`, description: "음식, 방, 옷, 물건부터 그림을 들여다보는 CRACKERS의 이미지 중심 연재.", path: "/daily", stylesheet: "/assets/home.css" })}
+<body>
+<a class="skip-link" href="#daily-content">본문으로 바로가기</a>
+<header class="archive-masthead"><div class="wrap"><a class="wordmark" href="index.html">${wordmark(site)}</a><a class="archive-back" href="index.html#daily">← 홈페이지로</a></div></header>
+<main id="daily-content" class="wrap daily-archive">
+  <header><span class="label">CRACKERS · 그림 속 일상</span><h1>그림 속 일상</h1><p class="daily-intro">음식, 방, 옷, 물건부터 그림을 들여다봅니다.<br>어려운 용어 없이, 눈에 들어온 것 하나부터요.</p><p class="daily-count">독립 연재 · ${dailyEpisodes.length}편</p></header>
+  ${renderDailyCards(dailyEpisodes)}
+</main>
+<footer><div class="in"><span class="wordmark">${wordmark(site)}</span><a href="${site.newsletterUrl}" target="_blank" rel="noopener">주말 전시 뉴스레터 구독 →</a><span>© 2026 ${site.name}</span></div></footer>
+</body></html>\n`;
+
+export const renderDaily = ({ site, entry, previous, next }) => `${pageHead({ site, title: `${entry.title} — 그림 속 일상 ${entry.number} | ${site.name}`, description: entry.summary, path: `/${entry.id}`, type: "article", stylesheet: "/assets/article.css" })}
+<body class="daily-article">
+<a class="skip-link" href="#article">본문으로 바로가기</a>
+<div class="topbar"><a class="logo wordmark" href="index.html">${wordmark(site)}</a><a class="back" href="daily.html">← 그림 속 일상 모아보기</a></div>
+<main><article id="article">
+  <span class="ep-label">그림 속 일상 ${entry.number}</span>
+  <h1>${entry.titleHtml}</h1>
+  <div class="meta"><span>${escapeHtml(entry.artist)}</span><span>${escapeHtml(entry.work)}</span><span>${entry.publishedDate.replaceAll("-", ".")}</span></div>
+  <figure class="artwork"><img src="${entry.image.src}" alt="${escapeHtml(entry.image.alt)}"><figcaption>작품 일부 · 아래에서 원작 전체로 이어집니다.</figcaption></figure>
+  ${entry.blocks.map(renderBlock).join("\n")}
+  <aside class="sources"><h2>작품과 출처</h2><p>${escapeHtml(entry.credit)}</p>${entry.sourceNote ? `<p>${escapeHtml(entry.sourceNote)}</p>` : ""}<ul>${entry.sources.map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a></li>`).join("")}</ul></aside>
+</article>
+<nav class="next" aria-label="그림 속 일상 이동">${previous ? `<a href="${previous.id}.html">← ${previous.number} · ${escapeHtml(previous.title)}</a>` : "<span></span>"}${next ? `<a href="${next.id}.html">${next.number} · ${escapeHtml(next.title)} →</a>` : "<span></span>"}</nav>
+<section class="cta"><div class="in"><h2>그림이 조금 가까워졌다면,<br>다음엔 전시에서 만나요.</h2><p>주말에 갈 서울 전시를 메일로 받아보세요.</p><a href="${site.newsletterUrl}" target="_blank" rel="noopener">CRACKERS 뉴스레터 구독</a></div></section>
+</main><footer>© 2026 ${site.name} · <a href="daily.html">그림 속 일상 모아보기</a> · <a href="index.html">홈페이지</a></footer>
+<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "Article", headline: entry.title, description: entry.summary, image: `${site.url}${entry.image.src}`, datePublished: entry.publishedDate, author: { "@type": "Organization", name: site.name }, mainEntityOfPage: `${site.url}/${entry.id}` }).replaceAll("<", "\\u003c")}</script>
+</body></html>\n`;
+
+export const renderSitemap = ({ site, episodes, dailyEpisodes }) => `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${site.url}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>${site.url}/exhibitions.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>${site.url}/daily</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  ${dailyEpisodes.map((entry) => `<url><loc>${site.url}/${entry.id}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`).join("\n  ")}
   ${episodes.map((episode) => `<url><loc>${site.url}/${episode.id}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`).join("\n  ")}
 </urlset>
 `;

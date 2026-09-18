@@ -1,7 +1,7 @@
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
-  assetVersion: "20260911-content-1",
+  assetVersion: "20260919-content-1",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -11,7 +11,7 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep11",
+  featuredEpisodeId: "ep12",
   updatedLabel: "2026년 9월 · 매주 금요일 갱신"
 };
 
@@ -456,7 +456,131 @@ export const episodes = [
   }
 ];
 
+episodes.push({
+  id: "ep12", number: "12", artistKey: "VAN EYCK", artist: "얀 반 에이크",
+  movement: "북유럽 르네상스", published: "2026.09", publishedDate: "2026-09-19", minutes: 3,
+  title: "침대가 있는 이 방은 왜 침실이 아닐까?",
+  titleHtml: "침대가 있는 이 방은<br>왜 침실이 아닐까?",
+  summary: "붉은 침대, 작은 오렌지, 풍성한 옷. 얼굴 밖의 물건들로 다시 보는 아르놀피니 부부의 초상.",
+  lede: "두 사람 곁에 침대가 있으니 사적인 순간처럼 보입니다. 그런데 내셔널 갤러리는 이곳을 손님을 맞는 방으로 설명해요. 방 안의 물건부터 다시 볼까요?",
+  seoDescription: "얀 반 에이크의 〈아르놀피니 부부의 초상〉. 침대와 오렌지, 옷을 따라 접견실과 부의 단서를 읽는 명화 에피소드 12.",
+  image: {
+    src: "/assets/artworks/arnolfini.jpg", cardSrc: "/assets/artworks/arnolfini.jpg", fit: "contain",
+    alt: "얀 반 에이크의 아르놀피니 부부의 초상 전체. 두 인물 오른쪽에는 붉은 침대, 왼쪽에는 창과 과일이 있다",
+    caption: "얀 반 에이크, 〈아르놀피니 부부의 초상〉(1434). The National Gallery, London, NG186. 이미지: The Yorck Project / Wikimedia Commons, Public Domain Mark 1.0."
+  },
+  blocks: [
+    { type: "paragraph", html: "방 안에 두 사람이 서 있습니다. 한 사람은 손을 내밀고, 다른 사람은 그 위에 손을 얹었어요. 바로 옆에는 붉은 천이 드리워진 침대가 있습니다. 오늘의 감각으로 보면 부부의 방을 잠깐 들여다보는 장면 같죠. <strong>침대가 있으니 침실일 거라고 생각하기 쉽습니다.</strong>" },
+    { type: "heading", text: "그런데 이곳은 손님을 맞는 방이래요" },
+    { type: "figure", src: "/assets/artworks/arnolfini-bed.jpg", maxWidth: 500, alt: "아르놀피니 부부의 초상 부분. 인물 뒤의 붉은 침대와 천", caption: "작품 일부 · 붉은 침대와 주변 가구. 같은 원본에서 크롭했습니다." },
+    { type: "paragraph", html: "작품을 소장한 <strong>런던 내셔널 갤러리의 해설</strong>은 이곳을 침실이 아니라 접견실로 설명합니다. 당시 부유한 집에서는 고급 침대를 손님을 맞는 방에 놓기도 했다는 거예요. 지금 우리가 생각하는 ‘침대의 자리’와는 다릅니다." },
+    { type: "paragraph", html: "그러면 질문도 바뀝니다. ‘두 사람은 침실에서 무엇을 할까?’ 대신, ‘손님에게 보여주는 방에 무엇을 놓았을까?’ 하고 보는 거죠. 침대는 사적인 생활만 떠올리게 하는 가구가 아니라, 집주인의 부를 드러내는 물건으로도 읽힙니다." },
+    { type: "heading", text: "작은 오렌지도 값비싼 물건이었어요" },
+    { type: "figure", src: "/assets/artworks/arnolfini-oranges.jpg", maxWidth: 320, alt: "그림 왼쪽 창턱과 상자 위에 놓인 오렌지 부분", caption: "작품 일부 · 왼쪽 창턱과 상자 위의 오렌지." },
+    { type: "paragraph", html: "그림 왼쪽을 보세요. 창턱과 그 아래 상자 위에 과일이 놓여 있습니다. 내셔널 갤러리는 이 <strong>오렌지가 당시 매우 비싼 과일</strong>이었다고 설명해요. 우리에게 익숙한 간식도 이 방에서는 다르게 보일 수 있습니다." },
+    { type: "figure", src: "/assets/artworks/arnolfini-cloth.jpg", maxWidth: 260, alt: "여성의 풍성한 녹색 옷과 밝은 모피 장식 부분", caption: "작품 일부 · 풍성한 옷감과 모피 장식. 이미지의 색과 방향은 바꾸지 않았습니다." },
+    { type: "paragraph", html: "이제 옷으로 눈을 옮겨보세요. 넉넉하게 늘어지는 천, 가장자리를 따라 붙은 모피 장식이 보입니다. 얼굴만 보고 지나갔다면 놓쳤을 단서들이에요. 침대와 과일, 옷을 함께 읽으면 두 사람의 초상은 얼굴 밖으로 이어집니다." },
+    { type: "pull", html: "같은 물건도 시대에 따라 쓰임과 가치가 달라집니다. 얼굴 밖에도 사람을 읽는 단서가 있어요." },
+    { type: "heading", text: "당신의 초상에는 무엇을 놓을까요?" },
+    { type: "paragraph", html: "이 방의 물건들을 부와 지위를 보여주는 단서로 읽는 것은 그림에 다가가는 한 가지 방법입니다. 모든 물건의 뜻을 하나로 확정할 필요는 없어요. 전체 그림으로 돌아가, 처음에는 배경처럼 지나쳤던 것들을 한 번 더 보세요." },
+    { type: "paragraph", html: "오늘 당신의 초상화를 그린다면 어떤 물건이 함께 놓일까요? 늘 들고 다니는 가방, 오래 쓴 컵, 책상 위의 책 한 권. 그 물건을 낯선 시대의 누군가가 본다면, 당신을 어떻게 읽을까요?" }
+  ],
+  usebox: "초상화를 보면 얼굴 다음에 <b>가구 → 작은 물건 → 옷</b>으로 시선을 옮겨보세요. ‘내게 익숙한 쓰임이 그때도 같았을까?’라는 질문 하나면 배경도 다시 보입니다.",
+  instagramUrl: "https://instagram.com/crackers.kr", instagramPublished: false,
+  sources: ["https://www.nationalgallery.org.uk/paintings/jan-van-eyck-the-arnolfini-portrait", "https://commons.wikimedia.org/wiki/File:Jan_van_Eyck_001.jpg"]
+});
+
+export const dailyEpisodes = [
+  {
+    id: "daily01", number: "01", title: "오늘 저녁은 감자입니다",
+    titleHtml: "오늘 저녁은<br>감자입니다", artist: "빈센트 반 고흐", work: "〈감자 먹는 사람들〉, 1885", publishedDate: "2026-09-19",
+    summary: "감자 한 접시, 커피, 그리고 식탁으로 모인 손들. 고흐가 그린 저녁을 가까이 봅니다.",
+    image: { src: "/assets/daily/01-cover.jpg", alt: "등불 아래 감자 접시를 둘러싼 사람들과 식탁. 감자 먹는 사람들 일부" },
+    credit: "빈센트 반 고흐, 〈감자 먹는 사람들〉(1885). Van Gogh Museum, Amsterdam (Vincent van Gogh Foundation), s0005V1962. 이미지: Wikimedia Commons / Van Gogh Museum 출처 파일, Public Domain Mark 1.0. 일부 장면은 확대·크롭했습니다.",
+    blocks: [
+      { type: "heading", text: "식탁 가운데, 감자 한 접시" },
+      { type: "figure", src: "/assets/daily/01-potatoes.jpg", alt: "감자 접시와 그쪽으로 향하는 손들 확대", caption: "작품 일부 · 식탁 가운데의 접시" },
+      { type: "paragraph", html: "고흐의 〈감자 먹는 사람들〉입니다. 우선 식탁 가운데부터 볼까요. 감자가 담긴 접시 쪽으로 여러 손이 모여 있어요." },
+      { type: "heading", text: "옆에서는 커피를 따르고 있어요" },
+      { type: "figure", src: "/assets/daily/01-coffee.jpg", alt: "오른쪽 인물이 주전자에서 잔으로 커피를 따르는 부분", caption: "작품 일부 · 오른쪽의 주전자와 잔" },
+      { type: "paragraph", html: "접시 옆으로 눈을 옮기면 주전자와 잔이 보입니다. 감자만 보였던 식탁에 커피를 따르는 움직임이 더해집니다." },
+      { type: "heading", text: "이 손으로 일하고, 이 손으로 먹습니다" },
+      { type: "figure", src: "/assets/daily/01-hands.jpg", alt: "감자 접시 곁에 모인 굵은 손과 손가락 부분", caption: "작품 일부 · 식탁 위의 손" },
+      { type: "paragraph", html: "반 고흐 미술관의 해설에 따르면, 고흐는 <strong>땅을 일군 손으로 식사하는 사람들의 모습</strong>을 담고 싶어 했어요. 손을 다시 보면 이 저녁 식탁에 하루의 일이 함께 놓인 듯합니다." },
+      { type: "heading", text: "다시 보니, 어디에 눈이 가나요?" },
+      { type: "figure", src: "/assets/daily/01-whole.jpg", alt: "고흐 감자 먹는 사람들 전체. 등불 아래 다섯 인물이 식탁에 모여 있다", caption: "원작 전체 · 빈센트 반 고흐, 〈감자 먹는 사람들〉, 1885" },
+      { type: "paragraph", html: "감자, 커피, 손. 세 가지를 따라가고 나서 전체 그림으로 돌아왔습니다. 처음 보았을 때와 다른 곳에 눈이 가나요?" }
+    ],
+    sources: [
+      { label: "반 고흐 미술관 · 작품 해설", url: "https://www.vangoghmuseum.nl/en/collection/s0005v1962" },
+      { label: "반 고흐 미술관 · 감자 먹는 사람들 이야기", url: "https://www.vangoghmuseum.nl/en/art-and-stories/stories/all-stories/6-facts-you-need-to-know-about-van-goghs-potato-eaters" },
+      { label: "작품 이미지 · Commons / PDM", url: "https://commons.wikimedia.org/wiki/File:De_aardappeleters_-_s0005V1962_-_Van_Gogh_Museum.jpg" }
+    ]
+  },
+  {
+    id: "daily02", number: "02", title: "발 씻는 동안, 다른 손은 어디에?",
+    titleHtml: "발 씻는 동안,<br>다른 손은 어디에?", artist: "메리 카사트", work: "〈아이의 목욕〉, 1893", publishedDate: "2026-09-19",
+    summary: "한 손은 발을 씻고, 다른 손은 몸을 받칩니다. 세숫대야에서 시작해 두 손을 따라가 봅니다.",
+    image: { src: "/assets/daily/02-cover.jpg", alt: "카사트 아이의 목욕 일부. 아이의 발 아래 세숫대야와 허리의 손" },
+    credit: "메리 카사트, 〈아이의 목욕〉(1893). The Art Institute of Chicago, Robert A. Waller Fund, 1910.2. 이미지: Wikimedia Commons / The Art Institute of Chicago 출처 파일, CC0. 일부 장면은 확대·크롭했습니다.",
+    sourceNote: "The Art Institute of Chicago 공식 작품 해설(description, CC BY 4.0)을 참고해 한국어로 요약했습니다. 이미지의 CC0 표기와 해설의 이용조건은 별개입니다.",
+    blocks: [
+      { type: "heading", text: "한 손은 아이의 발을 씻고" },
+      { type: "figure", src: "/assets/daily/02-basin.jpg", alt: "세숫대야에 담긴 아이의 발을 씻는 손 확대", caption: "작품 일부 · 세숫대야와 발을 씻는 손" },
+      { type: "paragraph", html: "메리 카사트의 〈아이의 목욕〉을 세숫대야부터 봅니다. 아이의 발 곁에 손이 있어요. 발을 씻는 이 손을 보고 나면, 다른 손은 어디에 있는지 궁금해집니다." },
+      { type: "heading", text: "다른 손은 몸을 받치고 있어요" },
+      { type: "figure", src: "/assets/daily/02-support.jpg", alt: "아이의 허리를 감싸 몸을 받치는 손 확대", caption: "작품 일부 · 아이의 몸을 받치는 손" },
+      { type: "paragraph", html: "조금 위로 올라가 보세요. 아이의 허리에 다른 손이 닿아 있습니다. 한 손이 씻는 동안, 다른 손은 몸을 받치고 있네요." },
+      { type: "heading", text: "위에서 내려다본 두 사람의 목욕 시간" },
+      { type: "figure", src: "/assets/daily/02-heads.jpg", alt: "아래를 향한 두 인물의 고개와 아이를 받치는 팔 부분", caption: "작품 일부 · 두 사람을 내려다보는 시점" },
+      { type: "paragraph", html: "시카고 미술관의 해설은 이 그림의 <strong>위에서 내려다보는 시점</strong>을 짚습니다. 두 사람의 고개에서 손, 그리고 아래의 대야까지 눈으로 천천히 따라가 보세요." },
+      { type: "heading", text: "두 손을 보고 나니, 어디에 눈이 가나요?" },
+      { type: "figure", src: "/assets/daily/02-whole.jpg", maxWidth: 500, alt: "메리 카사트 아이의 목욕 전체. 아이를 무릎에 앉혀 발을 씻는 인물과 대야, 주전자", caption: "원작 전체 · 메리 카사트, 〈아이의 목욕〉, 1893" },
+      { type: "paragraph", html: "씻는 손, 받치는 손. 두 손을 따라가고 전체 그림으로 돌아왔습니다. 이제는 어디에 눈이 가나요? 정답을 찾지 않아도 괜찮아요. 처음에 지나쳤던 것 하나를 발견하면 됩니다." }
+    ],
+    sources: [
+      { label: "시카고 미술관 · 작품 정보", url: "https://www.artic.edu/artworks/111442/the-child-s-bath" },
+      { label: "시카고 미술관 · 공식 해설 원문", url: "https://api.artic.edu/api/v1/artworks/111442" },
+      { label: "해설 이용조건 · CC BY 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
+      { label: "작품 이미지 · Commons / CC0", url: "https://commons.wikimedia.org/wiki/File:Mary_Cassatt_-_The_Child%27s_Bath_-_1910.2_-_Art_Institute_of_Chicago.jpg" }
+    ]
+  }
+];
+
 export const weeklyIssues = [
+  {
+    number: "011", label: "2026 · 9월 셋째 주", published: "2026-09-19",
+    headline: "작업실, 흔들림, 기억에서 시작하는 서울 전시 3곳",
+    picks: [
+      {
+        tag: "LAST CHANCE · 9월 19일 19시까지", venue: "금천예술공장",
+        title: "《에코톤: 겹치는 파동, 확장하는 영역》",
+        description: "작가의 작업실이 열립니다. 완성된 작품 옆의 메모와 실험 흔적을 따라가 보세요. 결과만 볼 때는 지나쳤던 질문이 보일지 모릅니다. 오픈스튜디오는 9월 19일까지이며, 일부 기획전시의 10월 일정과는 다릅니다.",
+        startDate: "2026-09-17", endDate: "2026-09-19", hours: "9/17 16시 개막 · 9/18–19 13:00–19:00",
+        price: "무료 · 일부 프로그램 사전예약 · 방문 전 참여 조건·잔여석 확인",
+        image: { src: "/assets/exhibitions/weekly-011/ecotone.jpg", alt: "금천예술공장 에코톤 공식 포스터", caption: "포스터 출처 · 서울문화재단 / 서울문화포털" },
+        url: "https://culture.seoul.go.kr/culture/culture/cultureEvent/view.do?cultcode=159398&menuNo=200110"
+      },
+      {
+        tag: "LAST CHANCE · 9월 20일까지", venue: "씨스퀘어",
+        title: "안진선·임동현 《아주 얇은 막》",
+        description: "흔들림과 진동을 두 작가는 어떻게 보여줄까요? 떨리는 물체와 소리에 잠시 머물러보세요. 멈춘 형태만 보던 눈에서 움직임을 기다리는 눈으로, 관람의 속도를 바꿔보는 전시입니다.",
+        startDate: "2026-08-27", endDate: "2026-09-20", hours: "월–일 11:00–20:00",
+        price: "무료 · 임시 휴관·예약·입장 조건은 관람 전 확인(02-560-0792)",
+        image: { src: "/assets/exhibitions/weekly-011/membrane.jpg", alt: "안진선 임동현 아주 얇은 막 공식 포스터", caption: "포스터 출처 · 문화체육관광부 전시 안내" },
+        url: "https://www.mcst.go.kr/site/s_culture/culture/cultureView.jsp?pSeq=74038"
+      },
+      {
+        tag: "BEGINNER PICK · 일상의 기억", venue: "챔버 · 성북구 동소문로 26-6",
+        title: "최혜련 《오늘 다시 사심을》",
+        description: "할머니의 가정 예배와 농촌의 생활에서 시작한 기억이 설치와 소리로 이어집니다. 바느질의 반복과 노래를 따라가며 물어보세요. 내 감각에는 누구의 일상이 남아 있을까요?",
+        startDate: "2026-09-10", endDate: "2026-09-27", hours: "12:00–19:00 · 전시 기간 휴관 없음",
+        price: "무료 · 공식 페이지 예약 창구 안내 · 예약 필수 여부·운영 변동은 관람 전 확인",
+        image: { src: "/assets/exhibitions/weekly-011/choi.png", alt: "최혜련 오늘 다시 사심을 공식 포스터", caption: "포스터 출처 · 서울시립미술관 전시 안내" },
+        url: "https://sema.seoul.go.kr/kr/whatson/exhibition/detail?exNo=1579618"
+      }
+    ]
+  },
   {
     number: "010",
     label: "2026 · 9월 둘째 주",

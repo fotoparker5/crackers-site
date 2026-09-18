@@ -1,12 +1,12 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { episodes, site, weeklyIssues } from "../src/content.mjs";
-import { renderEpisode, renderHome, renderSitemap, renderWeeklyArchive } from "../src/render.mjs";
+import { dailyEpisodes, episodes, site, weeklyIssues } from "../src/content.mjs";
+import { renderDaily, renderDailyArchive, renderEpisode, renderHome, renderSitemap, renderWeeklyArchive } from "../src/render.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
-const today = new Date().toISOString().slice(0, 10);
+const today = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
 const assert = (condition, message) => {
   if (!condition) throw new Error(message);
@@ -17,6 +17,14 @@ const validate = () => {
   assert(episodeIds.size === episodes.length, "에피소드 ID가 중복되었습니다.");
   assert(episodeIds.has(site.featuredEpisodeId), `커버 에피소드 ${site.featuredEpisodeId}를 찾을 수 없습니다.`);
   assert(weeklyIssues.length > 0, "전시줍줍 데이터가 없습니다.");
+  assert(new Set(dailyEpisodes.map(({ id }) => id)).size === dailyEpisodes.length, "그림 속 일상 ID가 중복되었습니다.");
+  for (const entry of dailyEpisodes) {
+    assert(!episodeIds.has(entry.id), "그림 속 일상은 명화 에피소드와 별도 ID를 사용합니다.");
+    for (const key of ["id", "number", "title", "titleHtml", "artist", "work", "publishedDate", "summary", "credit"]) {
+      assert(entry[key], `${entry.id}: ${key} 값이 없습니다.`);
+    }
+    assert(entry.image?.src && entry.image?.alt && entry.blocks?.length && entry.sources?.length, `${entry.id}: 이미지·본문·출처를 확인하세요.`);
+  }
 
   for (const episode of episodes) {
     for (const key of ["id", "number", "artist", "title", "summary", "seoDescription"]) {
@@ -37,8 +45,10 @@ validate();
 
 const orderedEpisodes = [...episodes].sort((a, b) => a.number.localeCompare(b.number));
 const outputs = new Map();
-outputs.set("index.html", renderHome({ site, episodes: orderedEpisodes, weeklyIssues, today }));
+outputs.set("index.html", renderHome({ site, episodes: orderedEpisodes, weeklyIssues, dailyEpisodes, today }));
 outputs.set("exhibitions.html", renderWeeklyArchive({ site, weeklyIssues, today }));
+outputs.set("daily.html", renderDailyArchive({ site, dailyEpisodes }));
+dailyEpisodes.forEach((entry, index) => outputs.set(`${entry.id}.html`, renderDaily({ site, entry, previous: dailyEpisodes[index - 1], next: dailyEpisodes[index + 1] })));
 
 orderedEpisodes.forEach((episode, index) => {
   outputs.set(`${episode.id}.html`, renderEpisode({
@@ -49,7 +59,7 @@ orderedEpisodes.forEach((episode, index) => {
   }));
 });
 
-outputs.set("sitemap.xml", renderSitemap({ site, episodes: orderedEpisodes }));
+outputs.set("sitemap.xml", renderSitemap({ site, episodes: orderedEpisodes, dailyEpisodes }));
 outputs.set("robots.txt", `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
 
 let stale = false;
