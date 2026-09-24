@@ -51,7 +51,7 @@ const renderPick = (pick, { archived = false, today }) => {
         <div class="venue">${escapeHtml(pick.venue)}</div>
         <h3>${escapeHtml(pick.title)}</h3>
         <p>${escapeHtml(pick.description)}</p>
-        <div class="meta">${compactDate(pick.startDate)}–${compactDate(pick.endDate)}${pick.hours ? ` · ${escapeHtml(pick.hours)}` : ""} · ${escapeHtml(pick.price)}</div>
+        <div class="meta">${compactDate(pick.startDate)}–${pick.startDate.slice(0,4) !== pick.endDate.slice(0,4) ? `${pick.endDate.slice(0,4)}.` : ""}${compactDate(pick.endDate)}${pick.hours ? ` · ${escapeHtml(pick.hours)}` : ""} · ${escapeHtml(pick.price)}</div>
       </a>`;
 };
 
@@ -140,7 +140,8 @@ export const renderHome = ({ site, episodes, weeklyIssues, dailyEpisodes, today 
         <div>
           <span class="series">전시줍줍 #${currentIssue.number}</span>
           <h2 id="weekly-title">이번 주 전시 <span class="y">줍줍</span></h2>
-          <p>${escapeHtml(currentIssue.headline)}. 매주 금요일 이 자리에서 갱신돼요.</p>
+          <p>${escapeHtml(currentIssue.headline)}${/[.!?。]$/.test(currentIssue.headline) ? "" : "."} 매주 금요일 이 자리에서 갱신돼요.</p>
+          ${currentIssue.note ? `<p>${escapeHtml(currentIssue.note)}</p>` : ""}
         </div>
         <div class="stamp">${escapeHtml(currentIssue.label)}</div>
       </div>
@@ -246,7 +247,7 @@ export const renderWeeklyArchive = ({ site, weeklyIssues, today }) => `${pageHea
           </div>
           <div class="stamp">${escapeHtml(issue.label)}</div>
         </div>
-        <div class="picks archive-grid">
+${issue.note ? `        <p>${escapeHtml(issue.note)}</p>\n` : ""}        <div class="picks archive-grid">
           ${issue.picks.map((pick) => renderPick(pick, { archived: index > 0, today })).join("\n")}
         </div>
       </section>`).join("\n")}
