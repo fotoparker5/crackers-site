@@ -1,7 +1,7 @@
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
-  assetVersion: "20260919-content-1",
+  assetVersion: "20260925-content-1",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -11,7 +11,7 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep12",
+  featuredEpisodeId: "ep13",
   updatedLabel: "2026년 9월 · 매주 금요일 갱신"
 };
 
@@ -490,6 +490,38 @@ episodes.push({
   sources: ["https://www.nationalgallery.org.uk/paintings/jan-van-eyck-the-arnolfini-portrait", "https://commons.wikimedia.org/wiki/File:Jan_van_Eyck_001.jpg"]
 });
 
+episodes.push({
+  id: "ep13", number: "13", artistKey: "REMBRANDT", artist: "렘브란트 판 레인",
+  movement: "네덜란드 바로크", published: "2026.09", publishedDate: "2026-09-25", minutes: 3,
+  title: "〈야경〉의 왼쪽, 사라진 세 사람",
+  titleHtml: "〈야경〉의 왼쪽,<br>사라진 세 사람",
+  summary: "벽에 맞추려고 잘랐던 명화. 17세기 모사본에 남은 세 사람과 달라진 구도를 봅니다.",
+  lede: "우리가 아는 〈야경〉은 처음 그려진 크기 그대로가 아닙니다. 새로 걸 자리에 맞추며 잘라낸 왼쪽에는, 지금 보이지 않는 세 사람이 있었어요.",
+  seoDescription: "렘브란트 〈야경〉은 1715년 시청으로 옮겨지며 가장자리가 잘렸다. 원작과 17세기 모사본을 비교하며 사라진 세 사람과 구도의 변화를 읽는 명화 에피소드 13.",
+  image: { src: "/assets/artworks/night-watch.jpg", cardSrc: "/assets/artworks/night-watch.jpg", fit: "contain", alt: "렘브란트 야경의 현존 화면 전체. 검은 옷과 밝은 옷의 두 지휘관을 중심으로 민병대가 모여 있다", caption: "렘브란트 판 레인, 〈야경〉(1642). Rijksmuseum, Amsterdam, SK-C-5. 이미지: Wikimedia Commons, Public Domain Mark 1.0. 현존 원작 전체." },
+  blocks: [
+    { type: "paragraph", html: "앞으로 걸어 나오는 두 사람부터 눈에 들어옵니다. 그 뒤로 창과 깃발, 여러 얼굴이 겹쳐 있죠. 렘브란트의 〈야경〉입니다. 그런데 이 익숙한 화면을 완성 당시의 모습이라고 생각하면, 보이지 않는 사람들을 놓치게 됩니다." },
+    { type: "heading", text: "그림을 옮기다가, 가장자리를 잘랐습니다" },
+    { type: "paragraph", html: "렘브란트는 이 작품을 1642년에 완성했습니다. 이후 <strong>1715년 암스테르담 시청으로 옮길 때</strong> 문제가 생겼어요. 새로 걸 자리에 그림이 너무 컸습니다. 해결 방법은 그림의 가장자리를 잘라 크기를 줄이는 것이었습니다." },
+    { type: "paragraph", html: "가장 크게 사라진 부분은 왼쪽입니다. 잘라낸 캔버스는 지금까지 발견되지 않았어요. 오늘 미술관에서 만나는 화면에는, 그때의 손실도 남아 있는 셈입니다." },
+    { type: "heading", text: "사라진 모습은 다른 그림에 남았습니다" },
+    { type: "figure", src: "/assets/artworks/night-watch-copy.jpg", alt: "헤리트 룬던스 귀속 야경 모사본 전체. 현존 원작보다 왼쪽 공간이 넓고 다리 위에 세 인물이 보인다", caption: "17세기 모사본 전체 · 헤리트 룬던스 귀속, 〈야경〉 모사본, 약 1642–55. National Gallery, London 소장·Rijksmuseum 대여, SK-C-1453. 이미지: The National Gallery Photographic Department / Wikimedia Commons, Public Domain Mark 1.0." },
+    { type: "paragraph", html: "그렇다면 없어진 부분을 어떻게 알 수 있을까요? <strong>절단 전에 만들어진 17세기 모사본</strong>이 단서입니다. 헤리트 룬던스의 작품으로 추정되는 이 그림은 약 1642–55년에 제작됐습니다. 렘브란트 원작과는 다른 그림이지만, 잘리기 전 구도를 전해줍니다." },
+    { type: "figure", src: "/assets/artworks/night-watch-copy-left.jpg", maxWidth: 700, alt: "야경 모사본의 왼쪽 부분. 다리 위에 두 민병대원과 아이가 있다", caption: "모사본 일부 · 현재 원작에서 사라진 왼쪽 다리 위의 두 민병대원과 아이. 같은 모사본의 부분 크롭이며 AI 복원 이미지가 아닙니다." },
+    { type: "paragraph", html: "모사본 왼쪽을 보세요. 다리 위에 <strong>두 민병대원과 아이</strong>가 있습니다. 현재 원작에서는 볼 수 없는 세 사람입니다. 이들을 찾고 나면 인원수뿐 아니라, 사람들이 서고 움직이는 공간의 차이도 보이기 시작해요." },
+    { type: "heading", text: "가장자리가 바뀌자, 중심도 달라졌습니다" },
+    { type: "paragraph", html: "현재 원작과 모사본을 번갈아 보세요. 라이크스미술관은 절단 전 구도에서 두 지휘관이 화면 한가운데가 아니라 <strong>중앙보다 오른쪽에 놓여 있었다</strong>고 설명합니다. 왼쪽의 더 넓은 공간과 주변 인물까지 보이면 행렬의 움직임도 다르게 읽힙니다." },
+    { type: "pull", html: "액자 안쪽만 달라진 게 아닙니다. 무엇이 중심으로 보이는지도 달라졌어요." },
+    { type: "paragraph", html: "그렇다고 모사본이 사라진 원본의 붓질과 색을 모두 되돌려주는 것은 아닙니다. 구도를 확인할 단서와 잃어버린 원본 자체는 구분해야 해요. 여기서 보는 비교 이미지도 현대의 AI 재구성본이 아니라, 17세기에 그려진 모사본입니다." },
+    { type: "heading", text: "완성된 그림일까요, 살아남은 부분일까요?" },
+    { type: "paragraph", html: "그림 앞에서는 보통 화가가 무엇을 그렸는지 묻습니다. 이번에는 질문을 하나 더해볼까요. ‘이 작품은 어떤 과정을 거쳐 지금의 모습이 되었을까?’ 이동과 설치, 손실의 역사도 우리가 보는 화면에 영향을 줍니다." },
+    { type: "paragraph", html: "다시 맨 위의 원작으로 돌아가 보세요. 이제 왼쪽 끝은 단순한 그림의 끝으로 보이나요? 한때 그 바깥에도 사람이 서 있었다는 사실을 떠올리면, 익숙한 명화가 조금 다른 장면으로 보일지 모릅니다." }
+  ],
+  usebox: "두 그림에서 <b>왼쪽 가장자리 → 두 지휘관의 위치 → 행렬이 움직일 공간</b>을 차례로 비교해보세요. 무엇이 사라졌는지 찾고 나면, 남은 화면도 다르게 보입니다.",
+  instagramUrl: "https://instagram.com/crackers.kr", instagramPublished: false,
+  sources: ["https://www.rijksmuseum.nl/en/collection/SK-C-5", "https://www.rijksmuseum.nl/en/collection/object/Copy-of-The-Night-Watch--262d52558e31de3e998f1d79cadc035f", "https://www.rijksmuseum.nl/en/press/press-releases/for-the-first-time-in-300-years-the-night-watch-is-complete-again", "https://commons.wikimedia.org/wiki/File:The_Night_Watch.jpg", "https://commons.wikimedia.org/wiki/File:Lundens_-_Nachtwache-Kopie.jpg"]
+});
+
 export const dailyEpisodes = [
   {
     id: "daily01", number: "01", title: "오늘 저녁은 감자입니다",
@@ -547,7 +579,56 @@ export const dailyEpisodes = [
   }
 ];
 
+dailyEpisodes.push({
+  id: "daily03", number: "03", title: "비눗방울이 커지는 동안, 누가 보고 있을까요?",
+  titleHtml: "비눗방울이 커지는 동안,<br>누가 보고 있을까요?", artist: "장 시메옹 샤르댕", work: "〈비눗방울〉, 약 1733–34", publishedDate: "2026-09-25",
+  summary: "비눗물 잔에서 가는 관 끝의 방울로, 그리고 지켜보는 아이에게로. 샤르댕의 조용한 놀이를 따라갑니다.",
+  image: { src: "/assets/daily/03-cover.jpg", alt: "샤르댕 비눗방울 일부. 관으로 방울을 부는 인물과 난간 너머에서 보는 아이" },
+  credit: "장 시메옹 샤르댕, 〈비눗방울〉(약 1733–34). The Metropolitan Museum of Art, Wentworth Fund, 1949, 49.24. 이미지: The Metropolitan Museum of Art, Public Domain / Open Access. 일부 장면은 확대·크롭했습니다.",
+  sourceNote: "The Metropolitan Museum of Art 작품 해설을 참고해 한국어로 요약했습니다. 인물의 관계나 감정은 단정하지 않습니다.",
+  blocks: [
+    { type: "heading", text: "놀이의 시작은, 비눗물 한 잔" },
+    { type: "figure", src: "/assets/daily/03-glass.jpg", alt: "난간 위에 놓인 비눗물이 든 유리잔과 손 부분", caption: "작품 일부 · 난간 위 유리잔과 손" },
+    { type: "paragraph", html: "샤르댕의 〈비눗방울〉입니다. 우선 난간 위의 유리잔을 찾아보세요. 메트로폴리탄미술관은 이 잔에 비눗물이 담겨 있다고 설명합니다. 익숙한 놀이가 이 작은 잔에서 시작돼요." },
+    { type: "heading", text: "가는 관 끝에, 커다란 방울" },
+    { type: "figure", src: "/assets/daily/03-bubble.jpg", alt: "인물의 손이 든 가는 관과 그 끝에 달린 투명한 비눗방울", caption: "작품 일부 · 가는 관과 비눗방울" },
+    { type: "paragraph", html: "잔에서 시선을 옮기면 가는 관과 그 끝의 방울이 보입니다. 투명해서 그냥 지나치기 쉬워요. 방울의 테두리를 천천히 따라가 보세요." },
+    { type: "heading", text: "뒤에서는 누군가 보고 있어요" },
+    { type: "figure", src: "/assets/daily/03-watcher.jpg", alt: "난간 너머에서 비눗방울 놀이를 지켜보는 아이의 얼굴", caption: "작품 일부 · 난간 너머의 아이" },
+    { type: "paragraph", html: "혼자 하는 놀이처럼 보였나요? 조금 위로 눈을 옮기면 난간 너머 아이가 있습니다. 관으로 방울을 부는 사람, 그 모습을 지켜보는 아이. 두 인물을 함께 보면 장면이 조금 달라집니다." },
+    { type: "heading", text: "이번에는 전체 그림으로 돌아가 볼까요?" },
+    { type: "figure", src: "/assets/daily/03-whole.jpg", alt: "샤르댕 비눗방울 원작 전체. 난간 위 유리잔, 방울을 부는 인물과 지켜보는 아이", caption: "원작 전체 · 장 시메옹 샤르댕, 〈비눗방울〉, 약 1733–34" },
+    { type: "paragraph", html: "유리잔, 관 끝의 방울, 지켜보는 아이. 이제 전체 그림에서 무엇이 먼저 눈에 들어오나요? 서로 어떤 사이인지 맞히기보다, 두 사람의 시선이 어디로 향하는지 따라가 보세요." }
+  ],
+  sources: [{ label: "메트로폴리탄미술관 · 작품 정보와 해설·Public Domain 이미지", url: "https://www.metmuseum.org/art/collection/search/435888" }, { label: "메트로폴리탄미술관 · Open Access", url: "https://www.metmuseum.org/about-the-met/policies-and-documents/open-access" }]
+});
+
 export const weeklyIssues = [
+  {
+    number: "012", label: "2026 · 9월 넷째 주", published: "2026-09-25",
+    headline: "함께 전시를 본다면, 무엇을 이야기할까요?",
+    note: "9월 26–27일 주말 관람 기준 · 아르코미술관과 서울대학교미술관은 9월 25일 추석 당일 휴관합니다. 정보 확인 9월 25일. 임시 운영·예약 변경은 방문 전 공식 안내를 확인해 주세요.",
+    picks: [
+      { tag: "LAST CHANCE · 9월 27일까지", venue: "아르코미술관 제1·2전시실", title: "《예술 학교: 우리가 서로의 학교가 될 때,》",
+        description: "선생님이 없어도 서로 배우기 시작하면 학교가 될 수 있을까요? 누군가의 수업·도구·규칙이 다른 사람의 방법으로 바뀌는 장면을 찾아보세요. 전시를 나온 뒤, 최근 누구에게 무엇을 배웠는지 이야기해봐도 좋겠습니다.",
+        startDate: "2026-08-07", endDate: "2026-09-27", hours: "9/26–27 11:00–19:00 · 9/25 추석 당일 휴관",
+        price: "무료 · 일반 전시 별도 예약 안내 없음 · 9/27 14–17시 프로그램 별도 신청, 잔여석 확인",
+        image: { src: "/assets/exhibitions/weekly-012/art-school.png", alt: "예술 학교 우리가 서로의 학교가 될 때 공식 전시 포스터", caption: "포스터 출처 · 아르코미술관" },
+        url: "https://www.arko.or.kr/artcenter/board/view/506?bid=266&category=exhibition&cid=717549&dateLocation=now" },
+      { tag: "NEW · 생활 속 무늬", venue: "서울공예박물관 전시1동 3층 기획전시실", title: "장응복 《에퀴녹스: 추분_춘분》",
+        description: "무늬는 물건 위의 장식일까요, 우리가 공간을 사는 방식일까요? 같은 무늬가 직물·가구·종이·공간으로 옮겨갈 때 어떻게 달라지는지 비교해보세요. 각자 집에 가져가고 싶은 무늬 하나를 골라봐도 좋겠습니다.",
+        startDate: "2026-09-22", endDate: "2027-03-07", hours: "9/26–27 10:00–21:00 · 추석 연휴 특별 운영, 이후 운영은 공식 안내 확인",
+        price: "무료 · 전시 별도 예약 안내 없음 · 당일 운영은 방문 전 확인",
+        image: { src: "/assets/exhibitions/weekly-012/equinox.jpg", alt: "장응복 에퀴녹스 추분 춘분 공식 전시 포스터", caption: "포스터 출처 · 서울공예박물관" },
+        url: "https://craftmuseum.seoul.go.kr/exhibit/plan/view/194" },
+      { tag: "BEGINNER PICK · 익숙한 이미지", venue: "서울대학교미술관 2–3층 전시실 1–4", title: "《일상의 이미지: 어떻게 말을 걸어오는가》",
+        description: "매일 보던 캐릭터·광고·만화는 작품 안에서 어떻게 달라질까요? 내가 이미 아는 이미지 하나와 작품에서 달라진 점 하나를 나란히 찾아보세요. 같은 장면을 알아봐도 떠올리는 기억은 다를 수 있습니다.",
+        startDate: "2026-09-11", endDate: "2026-11-22", hours: "화–일 10:00–18:00 · 월요일·9/25·10/15 휴관",
+        price: "무료 · 일반 관람 별도 예약 안내 없음 · 당일 운영은 방문 전 확인",
+        image: { src: "/assets/exhibitions/weekly-012/everyday-images.png", alt: "일상의 이미지 어떻게 말을 걸어오는가 공식 전시 포스터", caption: "포스터 출처 · 서울대학교미술관 / 서울대학교" },
+        url: "https://www.snu.ac.kr/snunow/events?bbsidx=174821&md=v" }
+    ]
+  },
   {
     number: "011", label: "2026 · 9월 셋째 주", published: "2026-09-19",
     headline: "작업실, 흔들림, 기억에서 시작하는 서울 전시 3곳",

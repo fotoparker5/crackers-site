@@ -6,12 +6,12 @@ import { episodes, dailyEpisodes, weeklyIssues, site } from '../src/content.mjs'
 import { renderHome, renderWeeklyArchive } from '../src/render.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-assert.equal(episodes.length, 12);
-assert.equal(site.featuredEpisodeId, 'ep12');
-assert.deepEqual(dailyEpisodes.map(e => e.number), ['01', '02']);
-assert.equal(weeklyIssues.length, 11);
-assert.equal(weeklyIssues.flatMap(i => i.picks).length, 33);
-assert.equal(weeklyIssues[0].number, '011');
+assert.equal(episodes.length, 13);
+assert.equal(site.featuredEpisodeId, 'ep13');
+assert.deepEqual(dailyEpisodes.map(e => e.number), ['01', '02', '03']);
+assert.equal(weeklyIssues.length, 12);
+assert.equal(weeklyIssues.flatMap(i => i.picks).length, 36);
+assert.equal(weeklyIssues[0].number, '012');
 const paths = ['index.html', 'exhibitions.html', 'daily.html', ...episodes.map(e => `${e.id}.html`), ...dailyEpisodes.map(e => `${e.id}.html`)];
 for (const path of paths) {
   const html = await readFile(resolve(root, path), 'utf8');
@@ -33,7 +33,13 @@ for (const entry of dailyEpisodes) {
 }
 const future = renderHome({site, episodes, dailyEpisodes, weeklyIssues, today:'2026-09-28'});
 assert(!future.includes('LAST CHANCE · 9월 19일 19시까지'));
-assert(renderWeeklyArchive({site, weeklyIssues, today:'2026-09-19'}).includes('11개 회차 · 33개 전시'));
+assert(renderWeeklyArchive({site, weeklyIssues, today:'2026-09-25'}).includes('12개 회차 · 36개 전시'));
+const current = renderHome({site, episodes, dailyEpisodes, weeklyIssues, today:'2026-09-25'});
+assert(current.includes('9.22–2027.3.7'));
+assert(current.includes('9월 25일 추석 당일 휴관'));
+assert(!future.includes('LAST CHANCE · 9월 27일까지'));
+assert(current.includes('9/26–27 10:00–21:00 · 추석 연휴 특별 운영'));
+assert(episodes.find(e=>e.id==='ep13').blocks.some(b=>b.src==='/assets/artworks/night-watch-copy.jpg'));
 const ep12 = episodes.find(e => e.id === 'ep12');
 assert.deepEqual(ep12.blocks.filter(b => b.type === 'figure').map(b => b.maxWidth), [500,320,260]);
-console.log(`PASS: ${paths.length} pages; local links/assets; JSON-LD; 12 episodes; 11 issues / 33 exhibitions; 2 independent daily stories; expiry labels; crop display limits.`);
+console.log(`PASS: ${paths.length} pages; local links/assets; JSON-LD; 13 episodes; 12 issues / 36 exhibitions; 3 independent daily stories; holiday and year-crossing dates; expiry labels; crop display limits.`);
