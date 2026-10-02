@@ -6,6 +6,7 @@
   <url><loc>https://crackers.kr/daily01</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/daily02</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/daily03</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://crackers.kr/daily04</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep01</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep02</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep03</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -19,4 +20,5 @@
   <url><loc>https://crackers.kr/ep11</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep12</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://crackers.kr/ep13</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://crackers.kr/ep14</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

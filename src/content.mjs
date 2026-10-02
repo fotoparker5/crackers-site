@@ -1,7 +1,9 @@
+import { episode as episode14, daily as daily04, weekly as weekly013 } from "./week-20261002.mjs";
+
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
-  assetVersion: "20260925-content-1",
+  assetVersion: "20261002-content-1",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -11,8 +13,8 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep13",
-  updatedLabel: "2026년 9월 · 매주 금요일 갱신"
+  featuredEpisodeId: "ep14",
+  updatedLabel: "2026년 10월 · 매주 금요일 갱신"
 };
 
 export const episodes = [
@@ -1142,3 +1144,7 @@ export const weeklyIssues = [
     ]
   }
 ];
+
+episodes.push(episode14);
+dailyEpisodes.push(daily04);
+weeklyIssues.unshift(weekly013);
