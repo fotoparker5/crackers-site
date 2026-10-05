@@ -6,6 +6,13 @@ import { episodes, dailyEpisodes, weeklyIssues, site } from '../src/content.mjs'
 import { renderHome, renderWeeklyArchive } from '../src/render.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const newsletterHome = renderHome({ site, episodes, dailyEpisodes, weeklyIssues, today: '2026-10-05' });
+const newsletterSection = newsletterHome.match(/<section class="news">([\s\S]*?)<\/section>/)[1];
+assert(newsletterSection.includes('월 4회, 월요일에 보내드립니다.'));
+assert(newsletterSection.includes('CRACKERS LETTER 구독하기 →'));
+assert(!newsletterSection.includes('매주 금요일'));
+assert(!newsletterSection.includes('매주 월요일'));
+assert.equal((newsletterSection.match(/<a /g) || []).length, 1);
 assert.equal(episodes.length, 14);
 assert.equal(site.featuredEpisodeId, 'ep14');
 assert.deepEqual(dailyEpisodes.map(e => e.number), ['01', '02', '03', '04']);
