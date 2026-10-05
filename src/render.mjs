@@ -188,10 +188,11 @@ export const renderHome = ({ site, episodes, weeklyIssues, dailyEpisodes, today 
 
   <section class="news">
     <div class="in">
-      <h2>주말에 무슨 전시 갈까<br>고민이세요?</h2>
-      <p>매주 금요일, 놓치기 아쉬운 서울 전시 3곳과 작품에 대한 이야기를 보내드릴게요.</p>
-      <p>어려운 말은 덜고, 지금 가야 할 이유를 이야기해요. 전부 볼 필요도 없어요. 마음에 드는 곳 하나만 골라가세요.</p>
-      <a href="${site.newsletterUrl}" target="_blank" rel="noopener">매주 금요일 편지 받기</a>
+      <p>${escapeHtml(site.newsletterIntro.label)}</p>
+      <h2>${site.newsletterIntro.title.map(escapeHtml).join("<br>")}</h2>
+      <p>${escapeHtml(site.newsletterIntro.body)}</p>
+      <p>${escapeHtml(site.newsletterIntro.schedule)}</p>
+      <a href="${site.newsletterUrl}" target="_blank" rel="noopener">${escapeHtml(site.newsletterIntro.button)}</a>
     </div>
   </section>
 </main>
