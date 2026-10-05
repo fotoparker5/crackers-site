@@ -10,6 +10,13 @@ export const site = {
   tagline: "전시가 쉬워지는 온라인 매거진",
   eyebrow: "서울 전시 입문 가이드",
   newsletterUrl: "https://maily.so/crackers",
+  newsletterIntro: {
+    label: "CRACKERS LETTER",
+    title: ["이번 주 전시를 고르는 기준,", "그림을 보는 작은 발견."],
+    body: "서울 전시 추천과 그림 속 이야기, 처음 볼 때 눈여겨볼 포인트를 전해드려요. 전부 이해하지 않아도 괜찮아요. 마음에 드는 전시 한 곳, 눈에 남는 장면 하나부터 시작해보세요.",
+    schedule: "월 4회, 월요일에 보내드립니다.",
+    button: "CRACKERS LETTER 구독하기 →"
+  },
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
