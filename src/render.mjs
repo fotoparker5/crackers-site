@@ -140,7 +140,7 @@ export const renderHome = ({ site, episodes, weeklyIssues, dailyEpisodes, today 
         <div>
           <span class="series">전시줍줍 #${currentIssue.number}</span>
           <h2 id="weekly-title">이번 주 전시 <span class="y">줍줍</span></h2>
-          <p>${escapeHtml(currentIssue.headline)}${/[.!?。]$/.test(currentIssue.headline) ? "" : "."} 매주 금요일 이 자리에서 갱신돼요.</p>
+          <p>${escapeHtml(currentIssue.headline)}${/[.!?。]$/.test(currentIssue.headline) ? "" : "."} ${escapeHtml(currentIssue.refreshLabel ?? "매주 금요일 이 자리에서 갱신돼요.")}</p>
           ${currentIssue.note ? `<p>${escapeHtml(currentIssue.note)}</p>` : ""}
         </div>
         <div class="stamp">${escapeHtml(currentIssue.label)}</div>
@@ -284,6 +284,21 @@ const renderBlock = (block) => {
   throw new Error(`알 수 없는 글 블록 유형: ${block.type}`);
 };
 
+export const renderNewsletterConversion = ({site,id}) => {
+  const destination=new URL(site.newsletterUrl);
+  destination.searchParams.set('utm_source','crackers_website');
+  destination.searchParams.set('utm_medium','article_cta');
+  destination.searchParams.set('utm_campaign','live_pilot_newsletter_v1');
+  destination.searchParams.set('utm_content',id+'_footer');
+  return `<section class="newsletter-conversion" aria-labelledby="newsletter-title-${id}">
+    <p class="newsletter-label">CRACKERS LETTER</p>
+    <h2 id="newsletter-title-${id}">다음 전시, 조금 더 쉽게 골라볼까요?</h2>
+    <p>서울 전시 추천과 그림 속 이야기, 처음 볼 때 눈여겨볼 포인트를 메일로 전해드려요.</p>
+    <a href="${escapeHtml(destination.toString())}" target="_blank" rel="noopener">CRACKERS LETTER 구독하기 →</a>
+    <p class="newsletter-help">버튼을 누르면 뉴스레터 구독 페이지가 새 창에서 열립니다.</p>
+  </section>`;
+};
+
 export const renderEpisode = ({ site, episode, previous, next }) => {
   const path = `/${episode.id}`;
   const articleSchema = {
@@ -339,20 +354,20 @@ export const renderEpisode = ({ site, episode, previous, next }) => {
 
     <p class="instagram-note">${episode.instagramPublished === false ? `CRACKERS의 다음 이야기는 <a href="${episode.instagramUrl}" target="_blank" rel="noopener">인스타(@crackers.kr)</a>에서도 이어집니다.` : `카드뉴스 3분 요약은 <a href="${episode.instagramUrl}" target="_blank" rel="noopener">인스타(@crackers.kr)</a>에서 볼 수 있어요. 다음 그림은 댓글로 신청받아요.`}</p>
 ${episode.sources?.length ? `    <aside class="sources"><h2>참고한 자료</h2><ul>${episode.sources.map((source) => `<li><a href="${source}" target="_blank" rel="noopener">${new URL(source).hostname}</a></li>`).join("")}</ul></aside>` : ""}
-  </article>
+${episode.newsletterConversion ? `    ${renderNewsletterConversion({site,id:episode.id})}\n` : ""}  </article>
 
   <nav class="next" aria-label="에피소드 이동">
     ${previous ? `<a href="${previous.id}.html">← 이전 — EP.${previous.number} ${escapeHtml(previous.artist)}, ${escapeHtml(previous.title.split(",")[0])}</a>` : "<span></span>"}
     ${next ? `<a href="${next.id}.html">다음 — EP.${next.number} ${escapeHtml(next.artist)}, ${escapeHtml(next.title.split(",")[0])} →</a>` : "<span></span>"}
   </nav>
 
-  <section class="cta">
+  ${episode.newsletterConversion ? "" : `<section class="cta">
     <div class="in">
       <h2>다음 그림도 깨드릴까요?</h2>
       <p>매주 한 점씩, 3분 만에 아는 척할 수 있게 메일로 보내드립니다.</p>
       <a href="${site.newsletterUrl}" target="_blank" rel="noopener">무료로 구독하기</a>
     </div>
-  </section>
+  </section>`}
 </main>
 
 <footer>© 2026 ${site.name} · 문화의 껍질을 깨는 미디어 · <a href="${site.instagramUrl}">@crackers.kr</a></footer>
@@ -384,9 +399,9 @@ export const renderDaily = ({ site, entry, previous, next }) => `${pageHead({ si
   <figure class="artwork"><img src="${entry.image.src}" alt="${escapeHtml(entry.image.alt)}"><figcaption>작품 일부 · 아래에서 원작 전체로 이어집니다.</figcaption></figure>
   ${entry.blocks.map(renderBlock).join("\n")}
   <aside class="sources"><h2>작품과 출처</h2><p>${escapeHtml(entry.credit)}</p>${entry.sourceNote ? `<p>${escapeHtml(entry.sourceNote)}</p>` : ""}<ul>${entry.sources.map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a></li>`).join("")}</ul></aside>
-</article>
+${entry.newsletterConversion ? `  ${renderNewsletterConversion({site,id:entry.id})}\n` : ""}</article>
 <nav class="next" aria-label="그림 속 일상 이동">${previous ? `<a href="${previous.id}.html">← ${previous.number} · ${escapeHtml(previous.title)}</a>` : "<span></span>"}${next ? `<a href="${next.id}.html">${next.number} · ${escapeHtml(next.title)} →</a>` : "<span></span>"}</nav>
-<section class="cta"><div class="in"><h2>그림이 조금 가까워졌다면,<br>다음엔 전시에서 만나요.</h2><p>주말에 갈 서울 전시를 메일로 받아보세요.</p><a href="${site.newsletterUrl}" target="_blank" rel="noopener">CRACKERS 뉴스레터 구독</a></div></section>
+${entry.newsletterConversion ? "" : `<section class="cta"><div class="in"><h2>그림이 조금 가까워졌다면,<br>다음엔 전시에서 만나요.</h2><p>주말에 갈 서울 전시를 메일로 받아보세요.</p><a href="${site.newsletterUrl}" target="_blank" rel="noopener">CRACKERS 뉴스레터 구독</a></div></section>`}
 </main><footer>© 2026 ${site.name} · <a href="daily.html">그림 속 일상 모아보기</a> · <a href="index.html">홈페이지</a></footer>
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "Article", headline: entry.title, description: entry.summary, image: `${site.url}${entry.image.src}`, datePublished: entry.publishedDate, author: { "@type": "Organization", name: site.name }, mainEntityOfPage: `${site.url}/${entry.id}` }).replaceAll("<", "\\u003c")}</script>
 </body></html>\n`;
