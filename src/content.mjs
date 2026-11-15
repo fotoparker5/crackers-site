@@ -1,3 +1,4 @@
+import { episode as episode20, daily as daily10, weekly as weekly019 } from "./week-20261115.mjs";
 import { episode as episode19, daily as daily09, weekly as weekly018 } from "./week-20261109.mjs";
 import { episode as episode18, daily as daily08, weekly as weekly017 } from "./week-20261102.mjs";
 import { episode as episode14, daily as daily04, weekly as weekly013 } from "./week-20261002.mjs";
@@ -25,8 +26,8 @@ export const site = {
   instagramUrl: "https://instagram.com/crackers.kr",
   threadsUrl: "https://threads.net/@crackers.kr",
   email: "hello@crackers.kr",
-  featuredEpisodeId: "ep19",
-  updatedLabel: "2026년 11월 · 11월 9일 업데이트"
+  featuredEpisodeId: "ep20",
+  updatedLabel: "2026년 11월 · 11월 15일 업데이트"
 };
 
 export const episodes = [
@@ -1177,3 +1178,7 @@ weeklyIssues.unshift(weekly017);
 episodes.push(episode19);
 dailyEpisodes.push(daily09);
 weeklyIssues.unshift(weekly018);
+
+episodes.push(episode20);
+dailyEpisodes.push(daily10);
+weeklyIssues.unshift(weekly019);
