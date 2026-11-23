@@ -25,12 +25,20 @@ assert(latest.picks[0].hours.includes('일요일 휴관'));
 assert(latest.picks[1].hours.includes('화–토 11:00–19:00'));
 assert(latest.picks[2].hours.includes('월요일 휴관'));
 assert(latest.picks.every(pick => pick.price.startsWith('무료')));
+assert.deepEqual(latest.picks.map(pick => pick.image.src), ['jone', 'grappe', 'amado']
+  .map(name => '/assets/exhibitions/weekly-020/' + name + '.jpg'));
+assert(latest.picks.every(pick => pick.image.alt.length > 0 && pick.image.caption.startsWith('공식 포스터')));
+
 const previous = weeklyIssues.find(issue => issue.number === '019');
 assert(previous.note.includes('11월 21–22일'));
 assert.equal(previous.picks[0].endDate, '2026-11-21');
 assert(previous.picks[0].hours.includes('토 12:00–13:00 휴게'));
 assert(previous.picks[2].hours.includes('17:00 입장 마감'));
 assert(latest.picks.every(pick => pick.price.startsWith('무료')));
+assert.deepEqual(latest.picks.map(pick => pick.image.src), ['jone', 'grappe', 'amado']
+  .map(name => '/assets/exhibitions/weekly-020/' + name + '.jpg'));
+assert(latest.picks.every(pick => pick.image.alt.length > 0 && pick.image.caption.startsWith('공식 포스터')));
+
 assert(weeklyIssues.find(i=>i.number==='016').picks.every(p=>p.endDate>='2026-11-01'));
 assert(weeklyIssues.find(i=>i.number==='016').picks[0].hours.includes('10/31(토)10:00–19:00/입장18시까지'));
 assert(weeklyIssues.find(i=>i.number==='016').picks[0].hours.includes('11/1(일)10:00–18:00/입장17시까지'));
