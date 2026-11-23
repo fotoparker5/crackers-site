@@ -13,17 +13,23 @@ assert(newsletterSection.includes('CRACKERS LETTER 구독하기 →'));
 assert(!newsletterSection.includes('매주 금요일'));
 assert(!newsletterSection.includes('매주 월요일'));
 assert.equal((newsletterSection.match(/<a /g) || []).length, 1);
-assert.equal(episodes.length, 20);
-assert.equal(site.featuredEpisodeId, 'ep20');
-assert.deepEqual(dailyEpisodes.map(e => e.number), ['01','02','03','04','05','06','07','08','09','10']);
-assert.equal(weeklyIssues.length, 19);
-assert.equal(weeklyIssues.flatMap(i => i.picks).length, 57);
-assert.equal(weeklyIssues[0].number, '019');
+assert.equal(episodes.length, 21);
+assert.equal(site.featuredEpisodeId, 'ep21');
+assert.deepEqual(dailyEpisodes.map(e => e.number), ['01','02','03','04','05','06','07','08','09','10','11']);
+assert.equal(weeklyIssues.length, 20);
+assert.equal(weeklyIssues.flatMap(i => i.picks).length, 60);
+assert.equal(weeklyIssues[0].number, '020');
 const latest = weeklyIssues[0];
-assert(latest.note.includes('11월 21–22일'));
-assert.equal(latest.picks[0].endDate, '2026-11-21');
-assert(latest.picks[0].hours.includes('토 12:00–13:00 휴게'));
-assert(latest.picks[2].hours.includes('17:00 입장 마감'));
+assert.deepEqual(latest.picks.map(pick => pick.endDate), ['2026-12-02', '2026-11-28', '2026-11-29']);
+assert(latest.picks[0].hours.includes('일요일 휴관'));
+assert(latest.picks[1].hours.includes('화–토 11:00–19:00'));
+assert(latest.picks[2].hours.includes('월요일 휴관'));
+assert(latest.picks.every(pick => pick.price.startsWith('무료')));
+const previous = weeklyIssues.find(issue => issue.number === '019');
+assert(previous.note.includes('11월 21–22일'));
+assert.equal(previous.picks[0].endDate, '2026-11-21');
+assert(previous.picks[0].hours.includes('토 12:00–13:00 휴게'));
+assert(previous.picks[2].hours.includes('17:00 입장 마감'));
 assert(latest.picks.every(pick => pick.price.startsWith('무료')));
 assert(weeklyIssues.find(i=>i.number==='016').picks.every(p=>p.endDate>='2026-11-01'));
 assert(weeklyIssues.find(i=>i.number==='016').picks[0].hours.includes('10/31(토)10:00–19:00/입장18시까지'));
@@ -62,9 +68,19 @@ for (const entry of dailyEpisodes) {
   assert(html.includes('https://maily.so/crackers'));
   assert(!html.includes('EP.'));
 }
+const notice = site.exhibitionNotice;
+assert.equal(notice.endDate, '2026-11-29');
+assert(notice.image.caption.includes('사진 제공 서울아트나우'));
+const noticeLive = renderHome({ site, episodes, dailyEpisodes, weeklyIssues, today: '2026-11-29' });
+assert(noticeLive.includes('id="kim-eunju"'));
+assert(noticeLive.includes('사진 제공 서울아트나우'));
+assert(noticeLive.includes('수요일 저녁 관람은 금호미술관 확인'));
+const noticeExpired = renderHome({ site, episodes, dailyEpisodes, weeklyIssues, today: '2026-11-30' });
+assert(noticeExpired.includes('전시 종료 · 2026.11.5–11.29(일)'));
+assert(!noticeExpired.includes('수요일 저녁 관람은 금호미술관 확인'));
 const future = renderHome({site, episodes, dailyEpisodes, weeklyIssues, today:'2026-09-28'});
 assert(!future.includes('LAST CHANCE · 9월 19일 19시까지'));
-assert(renderWeeklyArchive({site, weeklyIssues, today:'2026-11-15'}).includes('19개 회차 · 57개 전시'));
+assert(renderWeeklyArchive({site, weeklyIssues, today:'2026-11-15'}).includes('20개 회차 · 60개 전시'));
 const current = renderHome({site, episodes, dailyEpisodes, weeklyIssues:weeklyIssues.filter(i=>i.number<='012'), today:'2026-09-25'});
 assert(current.includes('9.22–2027.3.7'));
 assert(current.includes('9월 25일 추석 당일 휴관'));
@@ -73,11 +89,11 @@ assert(current.includes('9/26–27 10:00–21:00 · 추석 연휴 특별 운영'
 assert(episodes.find(e=>e.id==='ep13').blocks.some(b=>b.src==='/assets/artworks/night-watch-copy.jpg'));
 const ep12 = episodes.find(e => e.id === 'ep12');
 assert.deepEqual(ep12.blocks.filter(b => b.type === 'figure').map(b => b.maxWidth), [500,320,260]);
-for(const id of ['ep15','daily05','ep16','daily06','ep17','daily07','ep18','daily08','ep19','daily09','ep20','daily10']){const html=await readFile(resolve(root,id+'.html'),'utf8');assert.equal((html.match(/class="newsletter-conversion"/g)||[]).length,1);assert(html.includes('utm_content='+id+'_footer'));assert(!html.includes('<section class="cta">'));assert(!html.includes('매주 한 점씩'));}
+for(const id of ['ep15','daily05','ep16','daily06','ep17','daily07','ep18','daily08','ep19','daily09','ep20','daily10','ep21','daily11']){const html=await readFile(resolve(root,id+'.html'),'utf8');assert.equal((html.match(/class="newsletter-conversion"/g)||[]).length,1);assert(html.includes('utm_content='+id+'_footer'));assert(!html.includes('<section class="cta">'));assert(!html.includes('매주 한 점씩'));}
 for(const id of ['ep14','daily04']){const html=await readFile(resolve(root,id+'.html'),'utf8');assert(!html.includes('class="newsletter-conversion"'));}
 assert(episodes.find(e=>e.id==='ep16').blocks.some(b=>b.html?.includes('1838년')));
 assert(episodes.find(e=>e.id==='ep16').blocks.some(b=>b.caption?.includes('재현한 이미지가 아닙니다')));
 assert(episodes.find(e=>e.id==='ep17').blocks.some(b=>b.html?.includes('약1885년부터')));
 assert(episodes.find(e=>e.id==='ep17').blocks.some(b=>b.html?.includes('엑스레이 영상이나 가상의 초기 상태')));
 assert(dailyEpisodes.find(e=>e.id==='daily07').credit.includes('1993.15.1'));
-console.log(`PASS: ${paths.length} pages; local links/assets; JSON-LD; 20 episodes; 19 issues / 57 exhibitions; 10 independent daily stories; operating details and article CTA.`);
+console.log(`PASS: ${paths.length} pages; local links/assets; JSON-LD; 21 episodes; 20 issues / 60 exhibitions; 11 independent daily stories; operating details and article CTA.`);
