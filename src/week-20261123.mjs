@@ -89,6 +89,7 @@ export const weekly = {
       hours: '월–금 12:00–19:00 · 토 11:00–17:00 · 일요일 휴관 · 12/2(수) 종료',
       price: '무료 · 방문 문의 02-733-0101',
       url: 'https://www.galleryjone.com/211',
+      image: { src: '/assets/exhibitions/weekly-020/jone.jpg', alt: '권순창 개인전 /noclip의 제목과 개최 일정이 적힌 세로 포스터.', caption: '공식 포스터 · 갤러리제이원 서울' },
     },
     {
       tag: '흙으로 빚은 몸, 붓으로 그린 바람',
@@ -99,6 +100,7 @@ export const weekly = {
       hours: '화–토 11:00–19:00 · 11/28(토) 종료',
       price: '무료 · 방문 문의 02-566-0308',
       url: 'https://ggrappe.com/exhibitions/?bmode=view&idx=174912615',
+      image: { src: '/assets/exhibitions/weekly-020/grappe.jpg', alt: '이진희·무아리·풀림의 이름과 전시 제목, 11월 28일 종료일을 담은 세로 포스터.', caption: '공식 포스터 · 갤러리 그라프' },
     },
     {
       tag: '다음 방에서 편지의 흔적 찾기',
@@ -109,6 +111,7 @@ export const weekly = {
       hours: '화–일 11:00–18:00 · 월요일 휴관 · 11/29(일) 종료',
       price: '무료 · 방문 문의 02-790-1178',
       url: 'https://amadoart.org/exhibition/%EC%A0%95%EC%A0%95%ED%99%94-%EA%B0%9C%EC%9D%B8%EC%A0%84-%E3%80%8A%EC%9C%A0%EB%A0%B9%EC%9D%B4-%EC%82%BC%EC%BC%9C%EB%B2%84%EB%A6%B0-%ED%8E%B8%EC%A7%80%EB%A5%BC-%EC%B0%BE%EC%95%84%EC%84%9C-%E2%85%B1/',
+      image: { src: '/assets/exhibitions/weekly-020/amado.jpg', alt: '정정화 개인전 유령이 삼켜버린 편지를 찾아서 Ⅱ의 흑백 세로 포스터.', caption: '공식 포스터 · 디자인 마카다미아 오 / 아마도예술공간' },
     }
   ]
 };
