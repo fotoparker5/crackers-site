@@ -179,6 +179,7 @@ h1,h2,h3{font-family:'Black Han Sans','Pretendard Variable',sans-serif;font-weig
 
 .news{background:var(--yellow);}
 .news .in{max-width:720px;margin:0 auto;padding:64px 24px;text-align:center;}
+.news .brand-letter{display:block;width:178px;height:auto;margin:0 auto 10px;}
 .news h2{font-size:clamp(26px,5vw,38px);}
 .news p{margin:12px 0 0;font-size:15px;color:#3A342C;}
 .news p + p{margin-top:4px;}

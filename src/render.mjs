@@ -25,7 +25,7 @@ const pageHead = ({ site, title, description, ogDescription, path = "/", type = 
 <meta property="og:description" content="${escapeHtml(ogDescription ?? description)}">
 <meta property="og:url" content="${site.url}${path}">
 <meta property="og:type" content="${type}">
-<meta property="og:image" content="${site.url}/og.png">
+<meta property="og:image" content="${site.url}/og.png?v=${site.brandAssetVersion}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico?v=20261127" sizes="16x16 32x32">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20261127">
@@ -39,7 +39,10 @@ const pageHead = ({ site, title, description, ogDescription, path = "/", type = 
 </head>`;
 
 const wordmark = (site, { dark = false } = {}) =>
-  `<img class="brand-wordmark" src="/assets/brand/${dark ? "crackers-on-dark" : "crackers-red-a"}.svg" width="412" height="102" alt="${escapeHtml(site.name)}">`;
+  `<img class="brand-wordmark" src="/assets/brand/${dark ? "crackers-on-dark" : "crackers-red-a"}.svg?v=${site.brandAssetVersion}" width="412" height="102" alt="${escapeHtml(site.name)}">`;
+
+const newsletterWordmark = (site, { dark = false } = {}) =>
+  `<img class="brand-letter" src="/assets/brand/${dark ? "crackers-letter-on-dark" : "crackers-letter"}.svg?v=${site.brandAssetVersion}" width="386" height="68" alt="${escapeHtml(site.newsletterIntro.label)}">`;
 
 const renderPick = (pick, { archived = false, today }) => {
   const done = isPast(pick.endDate, today);
@@ -211,7 +214,7 @@ export const renderHome = ({ site, episodes, weeklyIssues, dailyEpisodes, today 
 
   <section class="news">
     <div class="in">
-      <p>${escapeHtml(site.newsletterIntro.label)}</p>
+      ${newsletterWordmark(site)}
       <h2>${site.newsletterIntro.title.map(escapeHtml).join("<br>")}</h2>
       <p>${escapeHtml(site.newsletterIntro.body)}</p>
       <p>${escapeHtml(site.newsletterIntro.schedule)}</p>
@@ -314,7 +317,7 @@ export const renderNewsletterConversion = ({site,id}) => {
   destination.searchParams.set('utm_campaign','live_pilot_newsletter_v1');
   destination.searchParams.set('utm_content',id+'_footer');
   return `<section class="newsletter-conversion" aria-labelledby="newsletter-title-${id}">
-    <p class="newsletter-label">CRACKERS LETTER</p>
+    ${newsletterWordmark(site, { dark: true })}
     <h2 id="newsletter-title-${id}">다음 전시, 조금 더 쉽게 골라볼까요?</h2>
     <p>서울 전시 추천과 그림 속 이야기, 처음 볼 때 눈여겨볼 포인트를 메일로 전해드려요.</p>
     <a href="${escapeHtml(destination.toString())}" target="_blank" rel="noopener">CRACKERS LETTER 구독하기 →</a>
