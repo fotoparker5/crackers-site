@@ -91,7 +91,7 @@ footer{background:var(--black);color:#B5AEA4;padding:36px 24px;text-align:center
 footer a{color:var(--yellow);}
 
 .newsletter-conversion{background:var(--black);color:var(--cream);padding:32px;margin:40px 0 8px;}
-.newsletter-conversion .newsletter-label{color:var(--yellow);font-size:12px;font-weight:800;letter-spacing:.12em;margin:0 0 14px;}
+.newsletter-conversion .brand-letter{display:block;width:164px;height:auto;margin:0 0 14px;}
 .newsletter-conversion h2{color:var(--cream);font-size:26px;line-height:1.4;margin:0 0 18px;word-break:keep-all;}
 .newsletter-conversion h2::before{content:none;}
 .newsletter-conversion p{color:var(--cream);font-size:16px;line-height:1.8;margin:0 0 24px;}
