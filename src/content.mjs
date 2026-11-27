@@ -10,7 +10,7 @@ import { episode as episode17, daily as daily07, weekly as weekly016 } from "./w
 export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
-  assetVersion: "20261012-preview-1",
+  assetVersion: "20261127-brand",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
@@ -29,7 +29,7 @@ export const site = {
   email: "hello@crackers.kr",
   featuredEpisodeId: "ep21",
   exhibitionNotice,
-  homeAssetVersion: "20261124",
+  homeAssetVersion: "20261127-brand",
   updatedLabel: "2026년 11월 · 11월 24일 업데이트"
 };
 
