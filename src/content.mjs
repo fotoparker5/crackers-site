@@ -11,7 +11,7 @@ export const site = {
   name: "CRACKERS",
   url: "https://crackers.kr",
   assetVersion: "20261127-final-wordmark",
-  brandAssetVersion: "20261127-final",
+  brandAssetVersion: "20261127-spacing",
   title: "CRACKERS — 전시가 쉬워지는 온라인 매거진",
   description: "전시 1도 모르는 사람을 위한 서울 전시 입문 가이드. 솔직한 후기와 3분 명화 해설.",
   ogDescription: "전시 1도 몰라도 됩니다. 솔직한 후기와 3분 명화 해설, 몰라도 안 쪽팔리게.",
