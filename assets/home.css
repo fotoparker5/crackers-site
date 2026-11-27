@@ -22,8 +22,8 @@ img{max-width:100%;}
   padding:10px 14px;transform:translateY(-160%);
 }
 .skip-link:focus{transform:translateY(0);}
-.wordmark{font-family:'Anton',sans-serif;letter-spacing:.04em;}
-.wordmark .a{color:var(--red);}
+.wordmark{line-height:1;}
+.wordmark .brand-wordmark{display:block;width:4.64em;height:auto;}
 h1,h2,h3{font-family:'Black Han Sans','Pretendard Variable',sans-serif;font-weight:400;}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
 
@@ -34,7 +34,8 @@ h1,h2,h3{font-family:'Black Han Sans','Pretendard Variable',sans-serif;font-weig
   border-bottom:1px solid rgba(22,19,16,.15);
 }
 .masthead .title{text-align:center;padding:34px 0 26px;}
-.masthead .title .wordmark{font-size:clamp(52px,10vw,96px);line-height:1;}
+.masthead .title .wordmark{font-size:clamp(52px,10vw,96px);height:1em;}
+.masthead .title .brand-wordmark{margin-inline:auto;transform:translateY(-.09em);}
 .masthead .title .tagline{
   margin-top:10px;font-size:13px;letter-spacing:.28em;color:var(--sub);font-weight:600;
 }
@@ -192,8 +193,7 @@ footer .in{
   max-width:1120px;margin:0 auto;padding:40px 24px;
   display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;
 }
-footer .wordmark{font-size:20px;color:var(--cream);}
-footer .wordmark .a{color:var(--yellow);}
+footer .wordmark{font-size:20px;}
 footer .links{display:flex;gap:20px;}
 footer .links a:hover,footer .links a:focus-visible{color:var(--yellow);}
 

@@ -27,9 +27,10 @@ const pageHead = ({ site, title, description, ogDescription, path = "/", type = 
 <meta property="og:type" content="${type}">
 <meta property="og:image" content="${site.url}/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico?v=20261127" sizes="16x16 32x32">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20261127">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20261127">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261127">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&display=swap" rel="stylesheet">
@@ -37,7 +38,8 @@ const pageHead = ({ site, title, description, ogDescription, path = "/", type = 
 <link rel="stylesheet" href="${stylesheet}?v=${stylesheetVersion}">
 </head>`;
 
-const wordmark = (site) => `${site.name.slice(0, 2)}<span class="a">A</span>${site.name.slice(3)}`;
+const wordmark = (site, { dark = false } = {}) =>
+  `<img class="brand-wordmark" src="/assets/brand/${dark ? "crackers-on-dark" : "crackers-red-a"}.svg" width="412" height="102" alt="${escapeHtml(site.name)}">`;
 
 const renderPick = (pick, { archived = false, today }) => {
   const done = isPast(pick.endDate, today);
@@ -220,7 +222,7 @@ export const renderHome = ({ site, episodes, weeklyIssues, dailyEpisodes, today 
 
 <footer>
   <div class="in">
-    <span class="wordmark">${wordmark(site)}</span>
+    <span class="wordmark">${wordmark(site, { dark: true })}</span>
     <div class="links">
       <a href="${site.instagramUrl}" target="_blank" rel="noopener">Instagram</a>
       <a href="${site.threadsUrl}" target="_blank" rel="noopener">Threads</a>
@@ -279,7 +281,7 @@ ${issue.note ? `        <p>${escapeHtml(issue.note)}</p>\n` : ""}        <div cl
 
 <footer>
   <div class="in">
-    <span class="wordmark">${wordmark(site)}</span>
+    <span class="wordmark">${wordmark(site, { dark: true })}</span>
     <div class="links">
       <a href="${site.instagramUrl}" target="_blank" rel="noopener">Instagram</a>
       <a href="${site.threadsUrl}" target="_blank" rel="noopener">Threads</a>
@@ -406,7 +408,7 @@ export const renderDailyArchive = ({ site, dailyEpisodes }) => `${pageHead({ sit
   <header><span class="label">CRACKERS · 그림 속 일상</span><h1>그림 속 일상</h1><p class="daily-intro">음식, 방, 옷, 물건부터 그림을 들여다봅니다.<br>어려운 용어 없이, 눈에 들어온 것 하나부터요.</p><p class="daily-count">독립 연재 · ${dailyEpisodes.length}편</p></header>
   ${renderDailyCards(dailyEpisodes)}
 </main>
-<footer><div class="in"><span class="wordmark">${wordmark(site)}</span><a href="${site.newsletterUrl}" target="_blank" rel="noopener">주말 전시 뉴스레터 구독 →</a><span>© 2026 ${site.name}</span></div></footer>
+<footer><div class="in"><span class="wordmark">${wordmark(site, { dark: true })}</span><a href="${site.newsletterUrl}" target="_blank" rel="noopener">주말 전시 뉴스레터 구독 →</a><span>© 2026 ${site.name}</span></div></footer>
 </body></html>\n`;
 
 export const renderDaily = ({ site, entry, previous, next }) => `${pageHead({ site, title: `${entry.title} — 그림 속 일상 ${entry.number} | ${site.name}`, description: entry.summary, path: `/${entry.id}`, type: "article", stylesheet: "/assets/article.css" })}

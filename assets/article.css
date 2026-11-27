@@ -21,8 +21,8 @@ img{max-width:100%;}
   padding:10px 14px;transform:translateY(-160%);
 }
 .skip-link:focus{transform:translateY(0);}
-.wordmark{font-family:'Anton',sans-serif;letter-spacing:.04em;}
-.wordmark .a{color:var(--red);}
+.wordmark{line-height:1;}
+.wordmark .brand-wordmark{display:block;width:4.64em;height:auto;}
 h1,h2{font-family:'Black Han Sans','Pretendard Variable',sans-serif;font-weight:400;}
 .topbar{
   border-bottom:1px solid rgba(22,19,16,.15);
