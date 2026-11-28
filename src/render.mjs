@@ -25,12 +25,16 @@ const pageHead = ({ site, title, description, ogDescription, path = "/", type = 
 <meta property="og:description" content="${escapeHtml(ogDescription ?? description)}">
 <meta property="og:url" content="${site.url}${path}">
 <meta property="og:type" content="${type}">
-<meta property="og:image" content="${site.url}/og.png?v=${site.brandAssetVersion}">
+<meta property="og:image" content="${site.url}${site.shareImagePath}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${escapeHtml(`${site.name} — ${site.eyebrow}`)}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico?v=20261127" sizes="16x16 32x32">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20261127">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20261127">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261127">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-crackers-c.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&display=swap" rel="stylesheet">
@@ -202,7 +206,7 @@ export const renderHome = ({ site, episodes, weeklyIssues, dailyEpisodes, today 
       <div class="about-copy">
         <p>CRACKERS는 <strong>문화와 예술이 어렵다고 느껴지는 사람들을 위한 에디토리얼 미디어</strong>입니다.</p>
         <p>아무도 설명해주지 않는 것들, 작품 앞에서 느끼는 솔직한 감정, 한 번 더 보게 만드는 질문들을 이야기합니다.</p>
-        <p>서울 전시부터 하나씩 깨나갑니다. 정답을 말하기보다, 누구나 자기 방식대로 보고 말할 수 있는 <span class="keep-together">첫 번째 균열을 만듭니다.</span></p>
+        <p>전시부터 하나씩 깨나갑니다. 정답을 말하기보다, 누구나 자기 방식대로 보고 말할 수 있는 <span class="keep-together">첫 번째 균열을 만듭니다.</span></p>
       </div>
       <div class="rules">
         <div class="rule"><div class="n">01</div><h3>기본부터</h3><p>아무도 말해주지 않는 것들을 묻습니다.</p></div>
@@ -319,7 +323,7 @@ export const renderNewsletterConversion = ({site,id}) => {
   return `<section class="newsletter-conversion" aria-labelledby="newsletter-title-${id}">
     ${newsletterWordmark(site, { dark: true })}
     <h2 id="newsletter-title-${id}">다음 전시, 조금 더 쉽게 골라볼까요?</h2>
-    <p>서울 전시 추천과 그림 속 이야기, 처음 볼 때 눈여겨볼 포인트를 메일로 전해드려요.</p>
+    <p>전시 추천과 그림 속 이야기, 처음 볼 때 눈여겨볼 포인트를 메일로 전해드려요.</p>
     <a href="${escapeHtml(destination.toString())}" target="_blank" rel="noopener">CRACKERS LETTER 구독하기 →</a>
     <p class="newsletter-help">버튼을 누르면 뉴스레터 구독 페이지가 새 창에서 열립니다.</p>
   </section>`;
@@ -427,7 +431,7 @@ export const renderDaily = ({ site, entry, previous, next }) => `${pageHead({ si
   <aside class="sources"><h2>작품과 출처</h2><p>${escapeHtml(entry.credit)}</p>${entry.sourceNote ? `<p>${escapeHtml(entry.sourceNote)}</p>` : ""}<ul>${entry.sources.map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a></li>`).join("")}</ul></aside>
 ${entry.newsletterConversion ? `  ${renderNewsletterConversion({site,id:entry.id})}\n` : ""}</article>
 <nav class="next" aria-label="그림 속 일상 이동">${previous ? `<a href="${previous.id}.html">← ${previous.number} · ${escapeHtml(previous.title)}</a>` : "<span></span>"}${next ? `<a href="${next.id}.html">${next.number} · ${escapeHtml(next.title)} →</a>` : "<span></span>"}</nav>
-${entry.newsletterConversion ? "" : `<section class="cta"><div class="in"><h2>그림이 조금 가까워졌다면,<br>다음엔 전시에서 만나요.</h2><p>주말에 갈 서울 전시를 메일로 받아보세요.</p><a href="${site.newsletterUrl}" target="_blank" rel="noopener">CRACKERS 뉴스레터 구독</a></div></section>`}
+${entry.newsletterConversion ? "" : `<section class="cta"><div class="in"><h2>그림이 조금 가까워졌다면,<br>다음엔 전시에서 만나요.</h2><p>주말에 갈 전시를 메일로 받아보세요.</p><a href="${site.newsletterUrl}" target="_blank" rel="noopener">CRACKERS 뉴스레터 구독</a></div></section>`}
 </main><footer>© 2026 ${site.name} · <a href="daily.html">그림 속 일상 모아보기</a> · <a href="index.html">홈페이지</a></footer>
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "Article", headline: entry.title, description: entry.summary, image: `${site.url}${entry.image.src}`, datePublished: entry.publishedDate, author: { "@type": "Organization", name: site.name }, mainEntityOfPage: `${site.url}/${entry.id}` }).replaceAll("<", "\\u003c")}</script>
 </body></html>\n`;
