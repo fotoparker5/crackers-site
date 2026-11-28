@@ -2,14 +2,15 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { episodes, dailyEpisodes, weeklyIssues, site } from '../src/content.mjs';
+import { episodes, dailyEpisodes, deepDives, weeklyIssues, site } from '../src/content.mjs';
 import { renderHome, renderWeeklyArchive } from '../src/render.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const newsletterHome = renderHome({ site, episodes, dailyEpisodes, weeklyIssues, today: '2026-10-05' });
+const newsletterHome = renderHome({ site, episodes, dailyEpisodes, deepDives, weeklyIssues, today: '2026-10-05' });
 const newsletterSection = newsletterHome.match(/<section class="news">([\s\S]*?)<\/section>/)[1];
-assert(newsletterSection.includes('월 4회, 월요일에 보내드립니다.'));
-assert(newsletterSection.includes('CRACKERS LETTER 구독하기 →'));
+assert(newsletterSection.includes('월 4회 발행'));
+assert(!/월요일|화요일|수요일|목요일|금요일|토요일|일요일/.test(newsletterSection));
+assert(newsletterSection.includes('크래커스 레터 구독하기'));
 assert(!newsletterSection.includes('매주 금요일'));
 assert(!newsletterSection.includes('매주 월요일'));
 assert.equal((newsletterSection.match(/<a /g) || []).length, 1);
@@ -57,7 +58,7 @@ assert(prior014.picks[0].price.includes('예약 불필요'));
 assert(prior014.note.includes('10월 13일'));
 assert(episodes.find(e=>e.id==='ep14').image.fit==='contain');
 assert(episodes.find(e=>e.id==='ep14').blocks.some(b=>b.caption?.includes('수정 전 이미지가 아닙니다')));
-const paths = ['index.html', 'exhibitions.html', 'daily.html', ...episodes.map(e => `${e.id}.html`), ...dailyEpisodes.map(e => `${e.id}.html`)];
+const paths = ['index.html', 'episodes.html', 'exhibitions.html', 'daily.html', ...deepDives.map(dive => `${dive.id}.html`), ...episodes.map(e => `${e.id}.html`), ...dailyEpisodes.map(e => `${e.id}.html`)];
 for (const path of paths) {
   const html = await readFile(resolve(root, path), 'utf8');
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${path}: one h1`);
@@ -76,20 +77,22 @@ for (const entry of dailyEpisodes) {
   assert(html.includes('https://maily.so/crackers'));
   assert(!html.includes('EP.'));
 }
-const notice = site.exhibitionNotice;
-assert.equal(notice.endDate, '2026-11-29');
-assert(notice.image.caption.includes('사진 제공 서울아트나우'));
-const noticeLive = renderHome({ site, episodes, dailyEpisodes, weeklyIssues, today: '2026-11-29' });
-assert(noticeLive.includes('id="kim-eunju"'));
-assert(noticeLive.includes('사진 제공 서울아트나우'));
-assert(noticeLive.includes('수요일 저녁 관람은 금호미술관 확인'));
-const noticeExpired = renderHome({ site, episodes, dailyEpisodes, weeklyIssues, today: '2026-11-30' });
-assert(noticeExpired.includes('전시 종료 · 2026.11.5–11.29(일)'));
-assert(!noticeExpired.includes('수요일 저녁 관람은 금호미술관 확인'));
-const future = renderHome({site, episodes, dailyEpisodes, weeklyIssues, today:'2026-09-28'});
+const homeHtml = await readFile(resolve(root, 'index.html'), 'utf8');
+const pickupHtml = await readFile(resolve(root, 'exhibitions.html'), 'utf8');
+assert(homeHtml.indexOf('id="weekly"') < homeHtml.indexOf('id="deep-dive"'));
+assert(homeHtml.indexOf('id="deep-dive"') < homeHtml.indexOf('id="archive"'));
+assert.equal(deepDives.length, 3);
+for (const dive of deepDives) {
+  assert(homeHtml.includes(`href="${dive.id}.html"`));
+  assert(pickupHtml.includes(`href="${dive.id}.html"`));
+  const article = await readFile(resolve(root, `${dive.id}.html`), 'utf8');
+  assert(article.includes(`exhibitions.html#issue-${dive.issue}`));
+  assert(article.includes('index.html#deep-dive'));
+}
+const future = renderHome({site, episodes, dailyEpisodes, deepDives, weeklyIssues, today:'2026-09-28'});
 assert(!future.includes('LAST CHANCE · 9월 19일 19시까지'));
 assert(renderWeeklyArchive({site, weeklyIssues, today:'2026-11-15'}).includes('20개 회차 · 60개 전시'));
-const current = renderHome({site, episodes, dailyEpisodes, weeklyIssues:weeklyIssues.filter(i=>i.number<='012'), today:'2026-09-25'});
+const current = renderWeeklyArchive({site, weeklyIssues:weeklyIssues.filter(i=>i.number<='012'), today:'2026-09-25'});
 assert(current.includes('9.22–2027.3.7'));
 assert(current.includes('9월 25일 추석 당일 휴관'));
 assert(!future.includes('LAST CHANCE · 9월 27일까지'));

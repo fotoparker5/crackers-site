@@ -1,8 +1,8 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { dailyEpisodes, episodes, site, weeklyIssues } from "../src/content.mjs";
-import { renderDaily, renderDailyArchive, renderEpisode, renderHome, renderSitemap, renderWeeklyArchive } from "../src/render.mjs";
+import { dailyEpisodes, deepDives, episodes, site, weeklyIssues } from "../src/content.mjs";
+import { renderDaily, renderDailyArchive, renderDeepDive, renderEpisodeArchive, renderEpisode, renderHome, renderSitemap, renderWeeklyArchive } from "../src/render.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
@@ -33,6 +33,11 @@ const validate = () => {
     assert(Array.isArray(episode.blocks) && episode.blocks.length > 0, `${episode.id}: 본문 블록이 없습니다.`);
   }
 
+  for (const dive of deepDives) {
+    const issue = weeklyIssues.find(issue => issue.number === dive.issue);
+    assert(issue?.picks.some(pick => pick.title === dive.pickTitle), `${dive.id}: 연결할 전시를 찾을 수 없습니다.`);
+  }
+
   for (const issue of weeklyIssues) {
     assert(issue.picks.length === 3, `전시줍줍 #${issue.number}: 추천 전시는 정확히 3개여야 합니다.`);
     for (const pick of issue.picks) {
@@ -45,8 +50,12 @@ validate();
 
 const orderedEpisodes = [...episodes].sort((a, b) => a.number.localeCompare(b.number));
 const outputs = new Map();
-outputs.set("index.html", renderHome({ site, episodes: orderedEpisodes, weeklyIssues, dailyEpisodes, today }));
-outputs.set("exhibitions.html", renderWeeklyArchive({ site, weeklyIssues, today }));
+outputs.set("index.html", renderHome({ site, episodes: orderedEpisodes, weeklyIssues, dailyEpisodes, deepDives, today }));
+outputs.set("episodes.html", renderEpisodeArchive({ site, episodes: orderedEpisodes }));
+outputs.set("exhibitions.html", renderWeeklyArchive({ site, weeklyIssues, deepDives, today }));
+for (const dive of deepDives) {
+  outputs.set(`${dive.id}.html`, renderDeepDive({ site, dive, weeklyIssues, today }));
+}
 outputs.set("daily.html", renderDailyArchive({ site, dailyEpisodes }));
 dailyEpisodes.forEach((entry, index) => outputs.set(`${entry.id}.html`, renderDaily({ site, entry, previous: dailyEpisodes[index - 1], next: dailyEpisodes[index + 1] })));
 
@@ -59,7 +68,7 @@ orderedEpisodes.forEach((episode, index) => {
   }));
 });
 
-outputs.set("sitemap.xml", renderSitemap({ site, episodes: orderedEpisodes, dailyEpisodes }));
+outputs.set("sitemap.xml", renderSitemap({ site, episodes: orderedEpisodes, dailyEpisodes, deepDives }));
 outputs.set("robots.txt", `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
 
 let stale = false;
