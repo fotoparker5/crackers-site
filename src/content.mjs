@@ -1,3 +1,5 @@
+export { deepDives } from "./deep-dives.mjs";
+
 import { episode as episode21, daily as daily11, weekly as weekly020, exhibitionNotice } from "./week-20261123.mjs";
 import { episode as episode20, daily as daily10, weekly as weekly019 } from "./week-20261115.mjs";
 import { episode as episode19, daily as daily09, weekly as weekly018 } from "./week-20261109.mjs";
@@ -23,7 +25,7 @@ export const site = {
     label: "CRACKERS LETTER",
     title: ["이번 주 전시를 고르는 기준,", "그림을 보는 작은 발견."],
     body: "전시 추천과 그림 속 이야기, 처음 볼 때 눈여겨볼 포인트를 전해드려요. 전부 이해하지 않아도 괜찮아요. 마음에 드는 전시 한 곳, 눈에 남는 장면 하나부터 시작해보세요.",
-    schedule: "월 4회, 월요일에 보내드립니다.",
+    schedule: "월 4회 발행",
     button: "CRACKERS LETTER 구독하기 →"
   },
   instagramUrl: "https://instagram.com/crackers.kr",
@@ -31,7 +33,13 @@ export const site = {
   email: "hello@crackers.kr",
   featuredEpisodeId: "ep21",
   exhibitionNotice,
-  homeAssetVersion: "20261127-final-wordmark",
+  homeAssetVersion: "20261128-issue-home-v2",
+  homeIssue: {
+    edition: "2026년 11월 넷째 주",
+    coverDeck: "팔짱을 낀 자세에서 구두 아래의 날까지. 초상화 속 작은 단서를 따라가 봅니다.",
+    coverWork: "〈스케이트 타는 사람〉, 1782",
+    coverCredit: "길버트 스튜어트, 〈스케이트 타는 사람〉(1782) · National Gallery of Art, 1950.18.1 · Public Domain"
+  },
   updatedLabel: "2026년 11월 · 11월 24일 업데이트"
 };
 

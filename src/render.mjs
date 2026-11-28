@@ -1,3 +1,5 @@
+import { renderDeepDivePage } from "./render-deep-dives.mjs";
+import { renderIssueHome, renderMasterpieceArchive, issueHeader, issueFooter } from "./issue-home.mjs";
 const escapeHtml = (value = "") =>
   String(value)
     .replaceAll("&", "&amp;")
@@ -71,184 +73,19 @@ const renderDailyCards = (dailyEpisodes) => `<div class="grid daily-grid">${[...
   <span class="min">${escapeHtml(entry.artist)} · ${escapeHtml(entry.work)}</span>
 </a>`).join("\n")}</div>`;
 
-const renderExhibitionNotice = (notice, today) => {
-  const ended = isPast(notice.endDate, today);
-  return `<section class="exhibition-notice" id="${escapeHtml(notice.id)}" aria-labelledby="exhibition-notice-title">
-      <div class="sec-label"><h2 id="exhibition-notice-title">전시 <span class="red">소식</span></h2><div class="rule"></div></div>
-      <article class="exhibition-notice-body">
-        <figure>
-          <img src="${escapeHtml(notice.image.src)}" alt="${escapeHtml(notice.image.alt)}" width="1000" height="667" loading="lazy">
-          <figcaption>${escapeHtml(notice.image.caption)}</figcaption>
-        </figure>
-        <div class="exhibition-notice-copy">
-          <h3>${escapeHtml(notice.artist)} 개인전 《${escapeHtml(notice.title)}》</h3>
-          ${notice.description.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n          ")}
-          <p><strong>${ended ? "전시 종료 · " : ""}${escapeHtml(notice.period)}</strong><br>${escapeHtml(notice.venue)}${ended ? "" : `<br>${escapeHtml(notice.hours)}<br>${escapeHtml(notice.contact)}`}</p>
-          <p class="exhibition-notice-links"><a href="${escapeHtml(notice.url)}" target="_blank" rel="noopener">공식 전시 안내 →</a><a href="${escapeHtml(notice.artistUrl)}" target="_blank" rel="noopener">작가 소개 →</a></p>
-        </div>
-      </article>
-    </section>`;
-};
+export const renderHome = (args) => renderIssueHome({ ...args, pageHead, wordmark });
+export const renderDeepDive = (args) => renderDeepDivePage({
+  ...args, pageHead, header: issueHeader(args.site, wordmark, true), footer: issueFooter(args.site, wordmark),
+});
+export const renderEpisodeArchive = (args) => renderMasterpieceArchive({ ...args, pageHead, wordmark });
 
-export const renderHome = ({ site, episodes, weeklyIssues, dailyEpisodes, today }) => {
-  const featured = episodes.find((episode) => episode.id === site.featuredEpisodeId);
-  const archiveEpisodes = episodes
-    .filter((episode) => episode.id !== featured.id)
-    .sort((a, b) => b.number.localeCompare(a.number))
-    .slice(0, 3);
-  const [currentIssue, previousIssue] = weeklyIssues;
-
-  return `${pageHead({
-    site,
-    title: site.title,
-    description: site.description,
-    ogDescription: site.ogDescription,
-    stylesheet: "/assets/home.css",
-    stylesheetVersion: site.homeAssetVersion
-  })}
-<body>
-<a class="skip-link" href="#content">본문으로 바로가기</a>
-
-<header class="masthead">
-  <div class="wrap">
-    <div class="top">
-      <span>${escapeHtml(site.eyebrow)}</span>
-      <span>${escapeHtml(site.updatedLabel)}</span>
-    </div>
-    <div class="title">
-      <div class="wordmark">${wordmark(site)}</div>
-      <div class="tagline">${escapeHtml(site.tagline)}</div>
-    </div>
-    <nav aria-label="주요 메뉴">
-      <a class="hot" href="#weekly">이번 주 전시</a>
-      <a href="exhibitions.html">전시 아카이브</a>
-      <a href="#archive">3분 만에 아는 척</a>
-      <a href="#daily">그림 속 일상</a>
-      <a href="#about">소개</a>
-      <a href="${site.newsletterUrl}" target="_blank" rel="noopener">뉴스레터</a>
-    </nav>
-  </div>
-</header>
-
-<main id="content">
-  <div class="wrap">
-    <section class="featured" aria-labelledby="featured-title">
-      <div class="img${featured.image.fit === "contain" ? " contain" : ""}">
-        <img src="${featured.image.src}" alt="${escapeHtml(featured.image.alt)}" width="1000" height="750">
-      </div>
-      <div class="featured-copy${featured.title.length > 25 ? " compact" : ""}">
-        <span class="label">이번 주 커버스토리</span>
-        <h1 id="featured-title">${featured.titleHtml}</h1>
-        <p class="lede">${escapeHtml(featured.lede)}</p>
-        <p class="byline"><b>${featured.minutes}분</b> 소요 · ${escapeHtml(featured.artist)} · ${escapeHtml(featured.movement)} · EP.${featured.number}</p>
-        <a class="read" href="${featured.id}.html">기사 읽기 →</a>
-      </div>
-    </section>
-
-    <section id="archive">
-      <div class="sec-label">
-        <h2><span class="red">3분 만에</span> 아는 척</h2>
-        <div class="rule"></div>
-        <span class="more">최신 ${episodes.length}편</span>
-      </div>
-      <div class="grid">
-        ${archiveEpisodes.map((episode) => `<a class="story" href="${episode.id}.html">
-          <div class="img${episode.image.fit === "contain" ? " contain" : ""}"><img src="${episode.image.cardSrc}" alt="${escapeHtml(episode.image.alt)}" loading="lazy" width="800" height="550"></div>
-          <span class="ep">EP.${episode.number} — ${escapeHtml(episode.artistKey)}</span>
-          <h3>${escapeHtml(episode.title)}</h3>
-          <p>${escapeHtml(episode.summary)}</p>
-          <span class="min"><b>${episode.minutes}분</b> · ${escapeHtml(episode.cardMovement ?? episode.movement)}</span>
-        </a>`).join("\n")}
-      </div>
-    </section>
-  </div>
-
-  <section class="weekly" id="weekly" aria-labelledby="weekly-title">
-    <div class="wk">
-      <div class="wk-head">
-        <div>
-          <span class="series">전시줍줍 #${currentIssue.number}</span>
-          <h2 id="weekly-title">이번 주 전시 <span class="y">줍줍</span></h2>
-          <p>${escapeHtml(currentIssue.headline)}${/[.!?。]$/.test(currentIssue.headline) ? "" : "."} ${escapeHtml(currentIssue.refreshLabel ?? "매주 금요일 이 자리에서 갱신돼요.")}</p>
-          ${currentIssue.note ? `<p>${escapeHtml(currentIssue.note)}</p>` : ""}
-        </div>
-        <div class="stamp">${escapeHtml(currentIssue.label)}</div>
-      </div>
-      <div class="picks">
-        ${currentIssue.picks.map((pick) => renderPick(pick, { today })).join("\n")}
-      </div>
-    </div>
-
-    <div class="wk-arch" aria-labelledby="previous-weekly-title">
-      <div class="arch-head">
-        <h3 id="previous-weekly-title">지난주 전시줍줍 #${previousIssue.number}</h3>
-        <div class="rule"></div>
-        <a class="archive-link" href="exhibitions.html">전체 아카이브 →</a>
-      </div>
-      <div class="picks arch">
-        ${previousIssue.picks
-          .map((pick) => renderPick(pick, { archived: true, today }))
-          .join("\n")}
-      </div>
-    </div>
-  </section>
-
-  <div class="wrap">
-    ${site.exhibitionNotice ? renderExhibitionNotice(site.exhibitionNotice, today) : ""}
-    <section id="daily" aria-labelledby="daily-title">
-      <div class="sec-label"><h2 id="daily-title">그림 속 <span class="red">일상</span></h2><div class="rule"></div><a class="more" href="daily.html">${dailyEpisodes.length}편 모두 보기 →</a></div>
-      <p class="daily-intro">음식, 방, 옷, 물건부터 그림을 들여다봅니다. 어려운 용어 없이, 눈에 들어온 것 하나부터요.</p>
-      ${renderDailyCards(dailyEpisodes)}
-    </section>
-    <section id="about" class="about">
-      <div class="label">ABOUT CRACKERS</div>
-      <h2>몰라도 괜찮아요.<br>우리가 함께할게요.</h2>
-      <div class="about-copy">
-        <p>CRACKERS는 <strong>문화와 예술이 어렵다고 느껴지는 사람들을 위한 에디토리얼 미디어</strong>입니다.</p>
-        <p>아무도 설명해주지 않는 것들, 작품 앞에서 느끼는 솔직한 감정, 한 번 더 보게 만드는 질문들을 이야기합니다.</p>
-        <p>전시부터 하나씩 깨나갑니다. 정답을 말하기보다, 누구나 자기 방식대로 보고 말할 수 있는 <span class="keep-together">첫 번째 균열을 만듭니다.</span></p>
-      </div>
-      <div class="rules">
-        <div class="rule"><div class="n">01</div><h3>기본부터</h3><p>아무도 말해주지 않는 것들을 묻습니다.</p></div>
-        <div class="rule"><div class="n">02</div><h3>솔직하게</h3><p>좋으면 좋다, 별로면 별로라고 말합니다.</p></div>
-        <div class="rule"><div class="n">03</div><h3>다시 보게</h3><p>정답보다 한 번 더 보게 만드는 질문을 남깁니다.</p></div>
-      </div>
-    </section>
-  </div>
-
-  <section class="news">
-    <div class="in">
-      ${newsletterWordmark(site)}
-      <h2>${site.newsletterIntro.title.map(escapeHtml).join("<br>")}</h2>
-      <p>${escapeHtml(site.newsletterIntro.body)}</p>
-      <p>${escapeHtml(site.newsletterIntro.schedule)}</p>
-      <a href="${site.newsletterUrl}" target="_blank" rel="noopener">${escapeHtml(site.newsletterIntro.button)}</a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="in">
-    <span class="wordmark">${wordmark(site, { dark: true })}</span>
-    <div class="links">
-      <a href="${site.instagramUrl}" target="_blank" rel="noopener">Instagram</a>
-      <a href="${site.threadsUrl}" target="_blank" rel="noopener">Threads</a>
-      <a href="${site.newsletterUrl}" target="_blank" rel="noopener">Newsletter</a>
-    </div>
-    <span>© 2026 ${site.name} · ${site.email}</span>
-  </div>
-</footer>
-</body>
-</html>
-`;
-};
-
-export const renderWeeklyArchive = ({ site, weeklyIssues, today }) => `${pageHead({
+export const renderWeeklyArchive = ({ site, weeklyIssues, deepDives = [], today }) => `${pageHead({
   site,
   title: `전시줍줍 아카이브 | ${site.name}`,
   description: "CRACKERS가 매주 고른 서울 전시를 회차별로 모아보는 전시줍줍 아카이브.",
   path: "/exhibitions.html",
-  stylesheet: "/assets/home.css"
+  stylesheet: "/assets/home.css",
+  stylesheetVersion: site.homeAssetVersion
 })}
 <body class="archive-page">
 <a class="skip-link" href="#archive-content">본문으로 바로가기</a>
@@ -279,7 +116,13 @@ export const renderWeeklyArchive = ({ site, weeklyIssues, today }) => `${pageHea
           <div class="stamp">${escapeHtml(issue.label)}</div>
         </div>
 ${issue.note ? `        <p>${escapeHtml(issue.note)}</p>\n` : ""}        <div class="picks archive-grid">
-          ${issue.picks.map((pick) => renderPick(pick, { archived: index > 0, today })).join("\n")}
+          ${issue.picks.map((pick) => {
+            const card = renderPick(pick, { archived: index > 0, today });
+            const dive = deepDives.find(dive => dive.issue === issue.number && dive.pickTitle === pick.title);
+            return dive ? `<div class="pick-with-dive">${card}
+              <a class="pick-dive-link" href="${dive.id}.html" aria-label="전시딥다이브 읽기: ${escapeHtml(pick.title)}">전시딥다이브 읽기</a>
+            </div>` : card;
+          }).join("\n")}
         </div>
       </section>`).join("\n")}
     </div>
@@ -436,10 +279,12 @@ ${entry.newsletterConversion ? "" : `<section class="cta"><div class="in"><h2>�
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "Article", headline: entry.title, description: entry.summary, image: `${site.url}${entry.image.src}`, datePublished: entry.publishedDate, author: { "@type": "Organization", name: site.name }, mainEntityOfPage: `${site.url}/${entry.id}` }).replaceAll("<", "\\u003c")}</script>
 </body></html>\n`;
 
-export const renderSitemap = ({ site, episodes, dailyEpisodes }) => `<?xml version="1.0" encoding="UTF-8"?>
+export const renderSitemap = ({ site, episodes, dailyEpisodes, deepDives }) => `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${site.url}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>${site.url}/exhibitions.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>${site.url}/episodes</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  ${deepDives.map(({ id }) => `<url><loc>${site.url}/${id}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join("\n  ")}
   <url><loc>${site.url}/daily</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   ${dailyEpisodes.map((entry) => `<url><loc>${site.url}/${entry.id}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`).join("\n  ")}
   ${episodes.map((episode) => `<url><loc>${site.url}/${episode.id}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`).join("\n  ")}
